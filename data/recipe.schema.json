@@ -60,6 +60,14 @@
           "type": "string",
           "description": "Tilberedningstid, fx '30 min'."
         },
+        "calories": {
+          "type": "string",
+          "description": "Valgfrit energiindhold, fx 'ca. 320 kcal'."
+        },
+        "protein": {
+          "type": "string",
+          "description": "Valgfrit proteinindhold, fx 'ca. 40 g'."
+        },
         "ingredients": {
           "type": "array",
           "description": "Liste af ingredienser.",

@@ -94,6 +94,12 @@ export function renderRecipe(recipe) {
     recipe.category
       ? el("span", {}, [el("strong", { text: "Kategori: " }), document.createTextNode(recipe.category)])
       : null,
+    recipe.calories
+      ? el("span", {}, [el("strong", { text: "Kalorier: " }), document.createTextNode(recipe.calories)])
+      : null,
+    recipe.protein
+      ? el("span", {}, [el("strong", { text: "Protein: " }), document.createTextNode(recipe.protein)])
+      : null,
   ]);
 
   const tags =

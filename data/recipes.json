@@ -56,6 +56,294 @@
         "Bag ved 220 °C i 12–15 minutter, til de er gyldne og lyder hule, når du banker på undersiden."
       ],
       "notes": "Pensl bollerne med sammenpisket æg før bagning for en flot blank skorpe."
+    },
+    {
+      "slug": "aeggehvide-omelet",
+      "title": "Æggehvide-omelet med grønt",
+      "description": "Med spinat og tomat · proteinrig og let",
+      "emoji": "🍳",
+      "category": "Morgenmad",
+      "tags": ["protein", "vægttab", "morgenmad", "nem", "vegetarisk"],
+      "servings": "1 portion",
+      "time": "10 min",
+      "calories": "ca. 200 kcal",
+      "protein": "ca. 28 g",
+      "ingredients": [
+        "4 æggehvider + 1 helt æg",
+        "En håndfuld spinat",
+        "4 cherrytomater",
+        "Lidt løg eller forårsløg",
+        "Salt og peber",
+        "Spray-olie eller lidt smør til panden",
+        "Hot sauce efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Pisk æggehvider og det hele æg sammen med salt og peber.",
+        "Steg løg og halverede cherrytomater kort på en varm pande.",
+        "Hæld æggemassen ved, og tilsæt spinaten.",
+        "Steg ved middelvarme, til omeletten er sat. Fold den sammen, og servér.",
+        "Top eventuelt med lidt hot sauce."
+      ],
+      "notes": "Æggehvider er næsten rent protein og meget lave i kalorier. Vil du have det mere mættende, så servér med en skive rugbrød."
+    },
+    {
+      "slug": "bagt-laks",
+      "title": "Bagt laks med broccoli",
+      "description": "Alt på én plade · proteinrig",
+      "emoji": "🐟",
+      "category": "Aftensmad",
+      "tags": ["fisk", "protein", "vægttab", "nem"],
+      "servings": "1 portion",
+      "time": "20 min",
+      "calories": "ca. 380 kcal",
+      "protein": "ca. 34 g",
+      "ingredients": [
+        "1 laksefilet (ca. 150 g)",
+        "1 lille broccoli",
+        "Et bundt grønne asparges (valgfrit)",
+        "½ citron",
+        "1 fed hvidløg",
+        "1 tsk olie",
+        "Salt og peber"
+      ],
+      "steps": [
+        "Tænd ovnen på 200 °C.",
+        "Læg laks, broccolibuketter og asparges på en bageplade med bagepapir.",
+        "Dryp med olie, pres hvidløg over, og krydr med salt og peber.",
+        "Bag i ca. 15 minutter, til laksen er gennembagt og grøntsagerne møre.",
+        "Pres citron over inden servering."
+      ],
+      "notes": "Laks er rig på protein og sunde omega-3 fedtstoffer. Alt bages på én plade, så der er næsten ingen opvask."
+    },
+    {
+      "slug": "hytteost-skaal",
+      "title": "Hytteost-skål med grønt",
+      "description": "Med agurk og tomat · hurtig og mættende",
+      "emoji": "🧀",
+      "category": "Frokost",
+      "tags": ["protein", "vægttab", "nem", "snack", "vegetarisk"],
+      "servings": "1 portion",
+      "time": "5 min",
+      "calories": "ca. 220 kcal",
+      "protein": "ca. 27 g",
+      "ingredients": [
+        "200 g hytteost",
+        "½ agurk",
+        "6 cherrytomater",
+        "Lidt forårsløg",
+        "Salt og peber",
+        "Hot sauce eller chiliflager efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Skær agurk og cherrytomater i små stykker.",
+        "Bland dem i en skål med hytteosten.",
+        "Smag til med salt, peber og lidt forårsløg.",
+        "Top med hot sauce eller chiliflager, hvis du vil have mere spark."
+      ],
+      "notes": "Hytteost er billigt, mættende og meget proteinrigt. Perfekt som hurtig frokost eller aftensnack. En skive rugbrød ved siden af gør det mere mættende."
+    },
+    {
+      "slug": "kylling-groentsager",
+      "title": "Stegt kylling med grøntsager",
+      "description": "Hurtig og mættende · proteinrig",
+      "emoji": "🍗",
+      "category": "Aftensmad",
+      "tags": ["kylling", "protein", "vægttab", "nem"],
+      "servings": "1 portion",
+      "time": "15 min",
+      "calories": "ca. 320 kcal",
+      "protein": "ca. 40 g",
+      "ingredients": [
+        "150 g kyllingebryst i tern",
+        "1 peberfrugt",
+        "1 lille squash eller broccoli",
+        "½ løg",
+        "1 fed hvidløg",
+        "Salt, peber og paprika",
+        "Lidt spray-olie eller 1 tsk olie",
+        "Soja eller hot sauce efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Skær kylling og grøntsager i mundrette stykker.",
+        "Steg kyllingen på en varm pande med krydderier, til den er gennemstegt.",
+        "Tilsæt grøntsager og hvidløg, og steg videre et par minutter, så de stadig har bid.",
+        "Smag til med soja eller hot sauce, og servér med det samme."
+      ],
+      "notes": "Meget protein og masser af grønt for få kalorier. Vil du have flere kulhydrater efter træning, så servér med lidt ris eller quinoa."
+    },
+    {
+      "slug": "kylling-wrap",
+      "title": "Kylling-wrap med skyr-dressing",
+      "description": "God frokost at tage med · proteinrig",
+      "emoji": "🌯",
+      "category": "Frokost",
+      "tags": ["kylling", "protein", "frokost", "meal-prep"],
+      "servings": "1 wrap",
+      "time": "15 min",
+      "calories": "ca. 350 kcal",
+      "protein": "ca. 35 g",
+      "ingredients": [
+        "1 fuldkornstortilla",
+        "120 g kyllingebryst",
+        "En håndfuld salat",
+        "1 tomat",
+        "Lidt agurk",
+        "2 spsk skyr (naturel)",
+        "1 lille fed hvidløg (revet)",
+        "Salt, peber og paprika",
+        "Hot sauce efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Krydr kyllingen med salt, peber og paprika, og steg den gennem på en varm pande. Skær i strimler.",
+        "Rør skyr sammen med revet hvidløg, salt og peber til en hurtig dressing.",
+        "Skær salat, tomat og agurk i mindre stykker.",
+        "Fordel dressing på tortillaen, læg kylling og grønt på, og rul den sammen.",
+        "Top eventuelt med hot sauce inden i."
+      ],
+      "notes": "Perfekt som frokost til at tage med. Steg gerne dobbelt op af kylling og gem til næste dag."
+    },
+    {
+      "slug": "linsegryde",
+      "title": "Rød linsegryde",
+      "description": "Vegetarisk & billig · god til meal prep",
+      "emoji": "🍲",
+      "category": "Aftensmad",
+      "tags": ["vegetarisk", "meal-prep", "billig", "protein"],
+      "servings": "3-4 portioner",
+      "time": "25 min",
+      "calories": "ca. 300 kcal pr. portion",
+      "protein": "ca. 18 g pr. portion",
+      "ingredients": [
+        "2 dl røde linser",
+        "1 dåse hakkede tomater",
+        "1 løg",
+        "2 fed hvidløg",
+        "1 gulerod",
+        "1 spsk karry (eller efter smag)",
+        "4 dl grøntsagsbouillon",
+        "Salt og peber",
+        "Lidt olie til stegning"
+      ],
+      "steps": [
+        "Hak løg, hvidløg og gulerod fint, og svits det i lidt olie i en gryde.",
+        "Tilsæt karry, og lad det stege med et halvt minut.",
+        "Kom linser, hakkede tomater og bouillon i, og rør rundt.",
+        "Lad det simre i ca. 15-20 minutter, til linserne er møre.",
+        "Smag til med salt og peber."
+      ],
+      "notes": "Billig, vegetarisk og mættende. Fryser fint, så lav gerne en stor portion til meal prep. Server evt. med en klat skyr for ekstra protein og cremethed."
+    },
+    {
+      "slug": "oksekod-bowl",
+      "title": "Oksekød-bowl med ris og grønt",
+      "description": "Mættende meal prep · proteinrig",
+      "emoji": "🍚",
+      "category": "Aftensmad",
+      "tags": ["oksekød", "protein", "meal-prep"],
+      "servings": "1 portion",
+      "time": "20 min",
+      "calories": "ca. 420 kcal",
+      "protein": "ca. 38 g",
+      "ingredients": [
+        "125 g magert hakket oksekød (3-5 %)",
+        "1 dl brune ris (kogt)",
+        "1 lille broccoli",
+        "½ løg",
+        "1 fed hvidløg",
+        "2 spsk soja",
+        "Salt og peber",
+        "Hot sauce eller sesamfrø efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Kog risene efter anvisningen på pakken.",
+        "Steg løg og hvidløg kort, tilsæt oksekødet, og steg det gennem.",
+        "Tilsæt broccoli i små buketter, og steg videre et par minutter.",
+        "Vend soja i, og smag til med salt og peber.",
+        "Anret over risene, og top med hot sauce eller sesamfrø."
+      ],
+      "notes": "God til meal prep — lav dobbelt portion og gem i køleskabet. Vil du spare kalorier, så byt halvdelen af risene ud med mere grønt."
+    },
+    {
+      "slug": "rejesalat",
+      "title": "Rejesalat med avocado",
+      "description": "Frisk og let · magert protein",
+      "emoji": "🍤",
+      "category": "Frokost",
+      "tags": ["fisk", "protein", "vægttab", "salat"],
+      "servings": "1 portion",
+      "time": "10 min",
+      "calories": "ca. 280 kcal",
+      "protein": "ca. 25 g",
+      "ingredients": [
+        "150 g kogte rejer (drænet)",
+        "½ avocado",
+        "½ agurk",
+        "6 cherrytomater",
+        "En håndfuld salat",
+        "Saften fra ½ citron",
+        "Salt og peber",
+        "Lidt frisk dild eller chili (valgfrit)"
+      ],
+      "steps": [
+        "Skær avocado, agurk og cherrytomater i mundrette stykker.",
+        "Kom salat, grøntsager og rejer i en skål.",
+        "Dryp med citronsaft, og smag til med salt og peber.",
+        "Top med lidt dild eller chili, hvis du vil."
+      ],
+      "notes": "Frisk og let ret med magert protein fra rejerne og sunde fedtstoffer fra avocadoen. Server evt. med en skive rugbrød, hvis du vil have det mere mættende."
+    },
+    {
+      "slug": "skyr-skaal",
+      "title": "Skyr-skål med bær",
+      "description": "Morgenmad på 5 min · proteinrig",
+      "emoji": "🥣",
+      "category": "Morgenmad",
+      "tags": ["protein", "morgenmad", "nem", "snack", "vegetarisk"],
+      "servings": "1 portion",
+      "time": "5 min",
+      "calories": "ca. 230 kcal",
+      "protein": "ca. 25 g",
+      "ingredients": [
+        "200 g skyr (naturel)",
+        "En håndfuld bær (fx blåbær, hindbær eller jordbær)",
+        "1 spsk havregryn",
+        "Lidt kanel",
+        "Et par mandler eller nødder (valgfrit)"
+      ],
+      "steps": [
+        "Kom skyr i en skål.",
+        "Top med bær, havregryn og lidt kanel.",
+        "Drys med hakkede nødder, hvis du vil have lidt crunch."
+      ],
+      "notes": "Perfekt som morgenmad eller mellemmåltid. Skyr er meget proteinrigt og mættende. Vil du have det sødere uden ekstra sukker, så brug lidt sødemiddel eller en meget moden banan."
+    },
+    {
+      "slug": "tunsalat",
+      "title": "Tunsalat med agurk, tomat og rødløg",
+      "description": "Agurk, tomat, rødløg og tun · hurtig og proteinrig",
+      "emoji": "🥗",
+      "category": "Frokost",
+      "tags": ["fisk", "protein", "vægttab", "salat", "nem"],
+      "servings": "1 portion",
+      "time": "10 min",
+      "calories": "ca. 250 kcal",
+      "protein": "ca. 30 g",
+      "ingredients": [
+        "1 dåse tun i vand (drænet)",
+        "½ agurk",
+        "2 tomater",
+        "¼ rødløg",
+        "Salt og peber",
+        "Et skvæt citronsaft (valgfrit)",
+        "Hot sauce eller chili efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Skær agurk, tomat og rødløg i små tern.",
+        "Dræn tunen godt, og kom den i en skål med grøntsagerne.",
+        "Bland det hele sammen, og smag til med salt, peber og citronsaft.",
+        "Top med lidt hot sauce eller chili, hvis du vil have mere smag."
+      ],
+      "notes": "Byt tunen ud med ca. 100 g kogt eller grillet kylling i strimler for en anden variant med samme høje proteinindhold. En spiseskefuld skyr eller light mayo gør salaten mere cremet uden mange ekstra kalorier."
     }
   ]
 }
