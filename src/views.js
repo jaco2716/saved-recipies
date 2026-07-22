@@ -50,44 +50,86 @@ function recipeCard(recipe) {
 function resultsFor(recipes) {
   return recipes.length > 0
     ? el("div", { class: "recipe-grid" }, recipes.map(recipeCard))
-    : el("p", { class: "empty", text: "Ingen opskrifter matcher din søgning." });
+    : el("p", { class: "empty", text: "Ingen opskrifter matcher dit valg." });
 }
 
 /**
- * Forsidens oversigt med søgefelt.
+ * Forsidens oversigt med søgefelt og kategori-faner.
  *
- * Søgefeltet oprettes én gang og genbruges, så det ikke mister fokus mens
- * man skriver. Kun resultat-listen tegnes om. `onSearch` skal returnere en
- * Promise med de matchende opskrifter.
+ * Søgefelt og faner oprettes én gang og genbruges, så søgefeltet ikke mister
+ * fokus mens man skriver. Kun resultat-listen tegnes om. `onFilter` skal
+ * returnere en Promise med de matchende opskrifter.
  *
  * @param {object} opts
  * @param {Array<object>} opts.recipes - startresultater
  * @param {string} opts.query - startsøgetekst
- * @param {(q: string) => Promise<Array<object>>} opts.onSearch
+ * @param {string} opts.category - aktiv kategori/tag (tom = Alle)
+ * @param {Array<{key: string, label: string}>} opts.facets - tilgængelige faner
+ * @param {(f: {query: string, category: string}) => Promise<Array<object>>} opts.onFilter
  */
-export function renderList({ recipes, query, onSearch }) {
+export function renderList({ recipes, query, category, facets, onFilter }) {
+  const state = { query: query || "", category: category || "" };
+
   const search = el("input", {
     class: "search",
     type: "search",
     placeholder: "Søg efter opskrift, ingrediens eller kategori…",
-    value: query,
+    value: state.query,
     "aria-label": "Søg i opskrifter",
   });
+
+  // Kategori-faner: "Alle" + én pr. facet.
+  const tabButtons = new Map();
+  function makeTab(key, label) {
+    const btn = el("button", { class: "tab", type: "button", text: label });
+    btn.addEventListener("click", () => {
+      state.category = key;
+      syncTabs();
+      run();
+    });
+    tabButtons.set(key, btn);
+    return btn;
+  }
+  const tabs = el("div", { class: "tabs", role: "tablist", "aria-label": "Kategorier" }, [
+    makeTab("", "Alle"),
+    ...facets.map((f) => makeTab(f.key, f.label)),
+  ]);
+
+  function syncTabs() {
+    for (const [key, btn] of tabButtons) {
+      const active = key === state.category;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    }
+  }
+  syncTabs();
+
+  // Rul den aktive fane ind i billedet (fx ved dybt link til en fane til højre).
+  if (state.category) {
+    requestAnimationFrame(() =>
+      tabButtons.get(state.category)?.scrollIntoView({ inline: "center", block: "nearest" })
+    );
+  }
 
   const results = resultsFor(recipes);
 
   const section = el("section", {}, [
     el("div", { class: "toolbar" }, [search]),
+    tabs,
     results,
   ]);
 
   let seq = 0;
-  search.addEventListener("input", async (e) => {
+  async function run() {
     const mine = ++seq;
-    const matches = await onSearch(e.target.value);
-    // Ignorér forældede svar, hvis brugeren har skrevet videre imens.
-    if (mine !== seq) return;
+    const matches = await onFilter({ query: state.query, category: state.category });
+    if (mine !== seq) return; // forældet svar — brugeren nåede at ændre noget
     section.replaceChild(resultsFor(matches), section.lastChild);
+  }
+
+  search.addEventListener("input", (e) => {
+    state.query = e.target.value;
+    run();
   });
 
   return section;

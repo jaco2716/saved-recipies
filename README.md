@@ -79,6 +79,19 @@ npm run validate    # eller: node scripts/validate.mjs
 
 Gem, commit og push — så er opskriften på siden.
 
+## Kategori-faner
+
+Øverst på forsiden er der faner (**Alle**, **Morgenmad**, **Aftensmad**,
+**Vægttab** osv.), så du hurtigt kan filtrere opskrifterne. En fane matcher
+både på opskriftens `category` og dens `tags`, så fx **Vægttab** (et tag) og
+**Morgenmad** (en kategori) begge virker. Filteret kan kombineres med
+søgefeltet, og det valgte ligger i URL'en (`#/?kat=vægttab`), så visningen kan
+deles og huskes.
+
+Fanerne dannes automatisk ud fra data — faner uden opskrifter skjules. Vil du
+ændre rækkefølgen eller hvilke gennemgående tags der vises som faner, så rediger
+`CATEGORY_ORDER` og `HIGHLIGHT_TAGS` øverst i `src/app.js`.
+
 ## Indkøbsliste
 
 Under **🛒 Indkøbsliste** i menuen kan du vælge de opskrifter, du vil handle

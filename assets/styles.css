@@ -140,6 +140,46 @@ header.site p {
   padding: 30px 0;
 }
 
+/* ---- Kategori-faner ---- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 22px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: 0 0 auto;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.tab:hover {
+  border-color: var(--accent);
+}
+
+.tab.is-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
 /* ---- Opskrift-oversigt (forside) ---- */
 .recipe-grid {
   display: grid;

@@ -1,6 +1,12 @@
 // App-indgang: binder data, router og visning sammen.
 
-import { getAllRecipes, getRecipeBySlug, searchRecipes, DataError } from "./data.js";
+import {
+  getAllRecipes,
+  getRecipeBySlug,
+  filterRecipes,
+  getFacets,
+  DataError,
+} from "./data.js";
 import { route, setNotFound, startRouter } from "./router.js";
 import {
   renderList,
@@ -13,6 +19,11 @@ import {
 const app = document.getElementById("app");
 const BASE_TITLE = "Mine opskrifter";
 const SHOPPING_KEY = "indkobsliste-valg";
+
+// Kategori-faner: foretrukken rækkefølge af kategorier + gennemgående tags.
+// Faner, der ikke matcher nogen opskrift, skjules automatisk (se getFacets).
+const CATEGORY_ORDER = ["Morgenmad", "Frokost", "Aftensmad", "Brød & bagning", "Dessert"];
+const HIGHLIGHT_TAGS = ["vægttab", "vegetarisk", "meal-prep"];
 
 /** Udskift hele appens indhold og rul til toppen. */
 function mount(node) {
@@ -44,24 +55,36 @@ function saveShoppingState(state) {
   }
 }
 
-/** Forside med søgning. Søgningen ligger i URL'en (#/?q=...) så den kan deles. */
+/**
+ * Forside med søgning og kategori-faner. Både søgetekst og valgt kategori
+ * ligger i URL'en (#/?q=...&kat=...), så en filtreret visning kan deles.
+ */
 async function showList(params) {
-  const query = decodeURIComponent(params[0] || "").trim();
+  const qs = new URLSearchParams(params[0] || "");
+  const query = (qs.get("q") || "").trim();
+  const category = (qs.get("kat") || "").trim();
   try {
     setPageChrome({ title: BASE_TITLE, emoji: "🍳" });
     setActiveNav("list");
-    const recipes = await searchRecipes(query);
+    const [recipes, facets] = await Promise.all([
+      filterRecipes({ query, category }),
+      getFacets(CATEGORY_ORDER, HIGHLIGHT_TAGS),
+    ]);
     mount(
       renderList({
         recipes,
         query,
-        // Kaldes ved hvert tastetryk. Opdaterer den delbare URL og
-        // returnerer de matchende opskrifter til visningslaget.
-        onSearch: async (value) => {
-          const trimmed = value.trim();
-          const newHash = trimmed ? `#/?q=${encodeURIComponent(trimmed)}` : "#/";
-          history.replaceState(null, "", newHash);
-          return searchRecipes(trimmed);
+        category,
+        facets,
+        // Kaldes når søgetekst eller fane ændres. Opdaterer den delbare URL
+        // og returnerer de matchende opskrifter til visningslaget.
+        onFilter: async (f) => {
+          const next = new URLSearchParams();
+          if (f.query.trim()) next.set("q", f.query.trim());
+          if (f.category) next.set("kat", f.category);
+          const suffix = next.toString();
+          history.replaceState(null, "", suffix ? `#/?${suffix}` : "#/");
+          return filterRecipes(f);
         },
       })
     );
@@ -121,10 +144,9 @@ function showError(err) {
 }
 
 // Ruter.
-route(/^\/$/, showList);
-route(/^\/\?q=(.*)$/, showList);
 route(/^\/opskrift\/([^/]+)$/, showRecipe);
 route(/^\/indkobsliste$/, showShopping);
+route(/^\/(?:\?(.*))?$/, showList); // forside, evt. med ?q=...&kat=...
 setNotFound(() =>
   mount(renderMessage("Siden findes ikke", "Denne adresse fører ikke til noget."))
 );
