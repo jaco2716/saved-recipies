@@ -58,7 +58,12 @@
         },
         "servings": {
           "type": "string",
-          "description": "Antal portioner/stykker, fx 'ca. 10 stk.'."
+          "description": "Antal portioner/stykker som tekst, fx 'ca. 10 stk.'."
+        },
+        "baseServings": {
+          "type": "integer",
+          "description": "Antal portioner ingrediensmængderne er beregnet til. Bruges til at skalere indkøbslisten. Standard er 1, hvis feltet mangler.",
+          "minimum": 1
         },
         "time": {
           "type": "string",

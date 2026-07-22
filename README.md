@@ -40,6 +40,7 @@ Du skal kun røre **én fil**: `data/recipes.json`. Tilføj et nyt objekt i
   "category": "Aftensmad",
   "tags": ["pasta", "familiefavorit"],
   "servings": "4 personer",
+  "baseServings": 4,
   "time": "1 time",
   "calories": "ca. 600 kcal",
   "protein": "ca. 35 g",
@@ -53,6 +54,9 @@ Du skal kun røre **én fil**: `data/recipes.json`. Tilføj et nyt objekt i
   bogstaver, tal og bindestreg.
 - **`title`**, **`ingredients`** og **`steps`** er påkrævede. Resten er valgfrit
   (fx `image`, `calories` og `protein`).
+- **`baseServings`** er antallet af portioner, ingrediensmængderne er beregnet
+  til. Det bruges af indkøbslisten til at skalere mængderne op og ned. Sæt det,
+  hvis opskriften skal kunne ganges op korrekt (standard er 1).
 - Editoren foreslår automatisk felterne, fordi filen peger på skemaet
   `data/recipe.schema.json`.
 
@@ -75,6 +79,24 @@ npm run validate    # eller: node scripts/validate.mjs
 
 Gem, commit og push — så er opskriften på siden.
 
+## Indkøbsliste
+
+Under **🛒 Indkøbsliste** i menuen kan du vælge de opskrifter, du vil handle
+ind til, og hvor mange portioner af hver. Siden lægger så alle ingredienser
+sammen til én liste:
+
+- Mængder skaleres automatisk ud fra opskriftens `baseServings` (fx bliver
+  "½ agurk" til "2 agurk", hvis du vælger 4 portioner af en 1-portions opskrift).
+- Ens ingredienser fra flere opskrifter lægges sammen (2 opskrifter med agurk
+  bliver til én linje).
+- Ingredienser uden et tal (fx "Salt og peber") tages med, som de er.
+- Du kan krydse varer af mens du handler, **kopiere** listen som tekst eller
+  **printe** den.
+- Dit valg gemmes i browseren, så det er der stadig, næste gang du åbner siden.
+
+Fordi ingredienser er fri tekst, er skaleringen et bedste-bud — tjek altid
+mængderne på sammensatte ingredienser.
+
 ## Projektstruktur
 
 ```
@@ -85,7 +107,8 @@ Gem, commit og push — så er opskriften på siden.
 ├── src/
 │   ├── app.js               # Indgang: binder data, router og visning sammen
 │   ├── data.js              # Dataadgangslag (skift hertil for et rigtigt API)
-│   ├── router.js            # Lille hash-router (#/ og #/opskrift/<slug>)
+│   ├── router.js            # Lille hash-router (#/, #/opskrift/<slug>, #/indkobsliste)
+│   ├── shopping.js          # Skalering og sammenlægning til indkøbslisten
 │   └── views.js             # Bygger DOM ud fra opskrift-data
 ├── assets/
 │   ├── styles.css           # Al styling (med mørkt tema)

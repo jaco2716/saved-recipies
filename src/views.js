@@ -4,6 +4,8 @@
 // innerHTML med rå strenge, så indhold fra data automatisk bliver escapet
 // (ingen risiko for at en apostrof eller < i en opskrift ødelægger siden).
 
+import { buildShoppingList } from "./shopping.js";
+
 /** Opret et element med attributter og børn. */
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
@@ -164,6 +166,139 @@ export function renderMessage(title, message) {
     el("h1", { text: title }),
     el("p", { text: message }),
   ]);
+}
+
+/**
+ * Indkøbsliste-siden.
+ *
+ * Til venstre vælger man opskrifter og antal portioner; til højre bygges
+ * listen automatisk. Kun resultat-delen tegnes om ved ændringer, så
+ * portioner-felterne beholder fokus mens man skriver.
+ *
+ * @param {object} opts
+ * @param {Array<object>} opts.recipes
+ * @param {Object<string, {selected: boolean, servings: number}>} opts.state
+ * @param {(state: object) => void} opts.onChange - kaldes når valget ændres
+ */
+export function renderShoppingPage({ recipes, state, onChange }) {
+  const controls = el("div", { class: "picker" }, [
+    el("h2", { class: "section", text: "Vælg opskrifter" }),
+  ]);
+
+  for (const recipe of recipes) {
+    const entry = state[recipe.slug] || {
+      selected: false,
+      servings: recipe.baseServings || 1,
+    };
+
+    const checkbox = el("input", {
+      type: "checkbox",
+      class: "picker__check",
+      id: `pick-${recipe.slug}`,
+    });
+    checkbox.checked = entry.selected;
+
+    const servings = el("input", {
+      type: "number",
+      class: "picker__servings",
+      min: "1",
+      value: String(entry.servings),
+      "aria-label": `Antal portioner for ${recipe.title}`,
+    });
+    servings.disabled = !entry.selected;
+
+    const row = el("div", { class: "picker__row" }, [
+      el("label", { class: "picker__label", for: `pick-${recipe.slug}` }, [
+        checkbox,
+        el("span", { text: `${recipe.emoji ? recipe.emoji + " " : ""}${recipe.title}` }),
+      ]),
+      el("span", { class: "picker__qty" }, [
+        servings,
+        el("span", { class: "picker__unit", text: "portioner" }),
+      ]),
+    ]);
+
+    checkbox.addEventListener("change", () => {
+      state[recipe.slug] = { selected: checkbox.checked, servings: Number(servings.value) || 1 };
+      servings.disabled = !checkbox.checked;
+      onChange(state);
+      update();
+    });
+    servings.addEventListener("input", () => {
+      const n = Math.max(1, Math.round(Number(servings.value) || 1));
+      state[recipe.slug] = { selected: checkbox.checked, servings: n };
+      onChange(state);
+      update();
+    });
+
+    controls.append(row);
+  }
+
+  const output = el("div", { class: "shopping-output" });
+
+  const section = el("section", { class: "shopping" }, [
+    el("p", { class: "shopping__intro", text: "Vælg de opskrifter du vil handle ind til, og hvor mange portioner af hver. Så lægger vi ingredienserne sammen til én liste. Tjek mængderne — de skaleres automatisk ud fra opskrifternes normale størrelse." }),
+    controls,
+    output,
+  ]);
+
+  function selections() {
+    return recipes
+      .filter((r) => state[r.slug]?.selected)
+      .map((r) => ({ recipe: r, servings: state[r.slug].servings || r.baseServings || 1 }));
+  }
+
+  function update() {
+    const chosen = selections();
+    if (chosen.length === 0) {
+      output.replaceChildren(
+        el("p", { class: "empty", text: "Vælg mindst én opskrift for at få en indkøbsliste." })
+      );
+      return;
+    }
+
+    const { items, count } = buildShoppingList(chosen);
+
+    const list = el(
+      "ul",
+      { class: "shopping-list" },
+      items.map((item, idx) => {
+        const cb = el("input", { type: "checkbox", id: `buy-${idx}`, class: "shopping-list__check" });
+        const label = el("label", { class: "shopping-list__label", for: `buy-${idx}` }, [
+          el("span", { class: "shopping-list__text", text: item.display }),
+          el("span", { class: "shopping-list__from", text: item.sources.join(", ") }),
+        ]);
+        cb.addEventListener("change", () => label.classList.toggle("is-done", cb.checked));
+        return el("li", { class: "shopping-list__item" }, [cb, label]);
+      })
+    );
+
+    const copyBtn = el("button", { class: "btn", type: "button", text: "📋 Kopiér liste" });
+    copyBtn.addEventListener("click", async () => {
+      const text = "Indkøbsliste\n\n" + items.map((i) => `- ${i.display}`).join("\n");
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = "✓ Kopieret";
+        setTimeout(() => (copyBtn.textContent = "📋 Kopiér liste"), 1500);
+      } catch {
+        copyBtn.textContent = "Kunne ikke kopiere";
+      }
+    });
+
+    const printBtn = el("button", { class: "btn btn--ghost", type: "button", text: "🖨️ Print" });
+    printBtn.addEventListener("click", () => window.print());
+
+    output.replaceChildren(
+      el("div", { class: "shopping-output__head" }, [
+        el("h2", { class: "section", text: `Din indkøbsliste (${count} varer)` }),
+        el("div", { class: "shopping-output__actions" }, [copyBtn, printBtn]),
+      ]),
+      list
+    );
+  }
+
+  update();
+  return section;
 }
 
 /** Opdatér fanetitel og favicon efter hvilken side vi er på. */

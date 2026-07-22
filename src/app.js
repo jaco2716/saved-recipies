@@ -2,10 +2,17 @@
 
 import { getAllRecipes, getRecipeBySlug, searchRecipes, DataError } from "./data.js";
 import { route, setNotFound, startRouter } from "./router.js";
-import { renderList, renderRecipe, renderMessage, setPageChrome } from "./views.js";
+import {
+  renderList,
+  renderRecipe,
+  renderMessage,
+  renderShoppingPage,
+  setPageChrome,
+} from "./views.js";
 
 const app = document.getElementById("app");
 const BASE_TITLE = "Mine opskrifter";
+const SHOPPING_KEY = "indkobsliste-valg";
 
 /** Udskift hele appens indhold og rul til toppen. */
 function mount(node) {
@@ -13,11 +20,36 @@ function mount(node) {
   window.scrollTo(0, 0);
 }
 
+/** Markér det aktive punkt i topmenuen. */
+function setActiveNav(name) {
+  for (const link of document.querySelectorAll("[data-nav]")) {
+    link.classList.toggle("is-active", link.dataset.nav === name);
+  }
+}
+
+/** Læs/gem indkøbslistens valg i browseren, så det overlever genindlæsning. */
+function loadShoppingState() {
+  try {
+    return JSON.parse(localStorage.getItem(SHOPPING_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function saveShoppingState(state) {
+  try {
+    localStorage.setItem(SHOPPING_KEY, JSON.stringify(state));
+  } catch {
+    /* privat browsing e.l. — så husker vi bare ikke valget */
+  }
+}
+
 /** Forside med søgning. Søgningen ligger i URL'en (#/?q=...) så den kan deles. */
 async function showList(params) {
   const query = decodeURIComponent(params[0] || "").trim();
   try {
     setPageChrome({ title: BASE_TITLE, emoji: "🍳" });
+    setActiveNav("list");
     const recipes = await searchRecipes(query);
     mount(
       renderList({
@@ -53,7 +85,26 @@ async function showRecipe(params) {
       return;
     }
     setPageChrome({ title: `${recipe.title} · ${BASE_TITLE}`, emoji: recipe.emoji || "🍳" });
+    setActiveNav("list");
     mount(renderRecipe(recipe));
+  } catch (err) {
+    showError(err);
+  }
+}
+
+async function showShopping() {
+  try {
+    setPageChrome({ title: `Indkøbsliste · ${BASE_TITLE}`, emoji: "🛒" });
+    setActiveNav("shopping");
+    const recipes = await getAllRecipes();
+    const state = loadShoppingState();
+    mount(
+      renderShoppingPage({
+        recipes,
+        state,
+        onChange: saveShoppingState,
+      })
+    );
   } catch (err) {
     showError(err);
   }
@@ -73,6 +124,7 @@ function showError(err) {
 route(/^\/$/, showList);
 route(/^\/\?q=(.*)$/, showList);
 route(/^\/opskrift\/([^/]+)$/, showRecipe);
+route(/^\/indkobsliste$/, showShopping);
 setNotFound(() =>
   mount(renderMessage("Siden findes ikke", "Denne adresse fører ikke til noget."))
 );

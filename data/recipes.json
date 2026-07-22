@@ -4,6 +4,7 @@
   "recipes": [
     {
       "slug": "pandekager",
+      "baseServings": 4,
       "title": "Pandekager",
       "description": "Klassiske tynde danske pandekager",
       "emoji": "🥞",
@@ -31,6 +32,7 @@
     },
     {
       "slug": "boller",
+      "baseServings": 12,
       "title": "Boller",
       "description": "Bløde hjemmebagte morgenboller",
       "emoji": "🍞",
@@ -59,6 +61,7 @@
     },
     {
       "slug": "aeggehvide-omelet",
+      "baseServings": 1,
       "title": "Æggehvide-omelet med grønt",
       "description": "Med spinat og tomat · proteinrig og let",
       "emoji": "🍳",
@@ -88,6 +91,7 @@
     },
     {
       "slug": "bagt-laks",
+      "baseServings": 1,
       "title": "Bagt laks med broccoli",
       "description": "Alt på én plade · proteinrig",
       "emoji": "🐟",
@@ -117,6 +121,7 @@
     },
     {
       "slug": "hytteost-skaal",
+      "baseServings": 1,
       "title": "Hytteost-skål med grønt",
       "description": "Med agurk og tomat · hurtig og mættende",
       "emoji": "🧀",
@@ -144,6 +149,7 @@
     },
     {
       "slug": "kylling-groentsager",
+      "baseServings": 1,
       "title": "Stegt kylling med grøntsager",
       "description": "Hurtig og mættende · proteinrig",
       "emoji": "🍗",
@@ -173,6 +179,7 @@
     },
     {
       "slug": "kylling-wrap",
+      "baseServings": 1,
       "title": "Kylling-wrap med skyr-dressing",
       "description": "God frokost at tage med · proteinrig",
       "emoji": "🌯",
@@ -204,6 +211,7 @@
     },
     {
       "slug": "linsegryde",
+      "baseServings": 3,
       "title": "Rød linsegryde",
       "description": "Vegetarisk & billig · god til meal prep",
       "emoji": "🍲",
@@ -235,6 +243,7 @@
     },
     {
       "slug": "oksekod-bowl",
+      "baseServings": 1,
       "title": "Oksekød-bowl med ris og grønt",
       "description": "Mættende meal prep · proteinrig",
       "emoji": "🍚",
@@ -265,6 +274,7 @@
     },
     {
       "slug": "rejesalat",
+      "baseServings": 1,
       "title": "Rejesalat med avocado",
       "description": "Frisk og let · magert protein",
       "emoji": "🍤",
@@ -294,6 +304,7 @@
     },
     {
       "slug": "skyr-skaal",
+      "baseServings": 1,
       "title": "Skyr-skål med bær",
       "description": "Morgenmad på 5 min · proteinrig",
       "emoji": "🥣",
@@ -319,6 +330,7 @@
     },
     {
       "slug": "tunsalat",
+      "baseServings": 1,
       "title": "Tunsalat med agurk, tomat og rødløg",
       "description": "Agurk, tomat, rødløg og tun · hurtig og proteinrig",
       "emoji": "🥗",
