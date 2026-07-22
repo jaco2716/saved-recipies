@@ -37,6 +37,7 @@
       "title": "Boller",
       "description": "Bløde hjemmebagte morgenboller",
       "emoji": "🍞",
+      "image": "assets/images/boller.jpg",
       "category": "Brød & bagning",
       "tags": ["brød", "morgenmad", "bagning"],
       "servings": "ca. 12 stk.",
