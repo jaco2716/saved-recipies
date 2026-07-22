@@ -146,6 +146,16 @@ header.site p {
 .recipe-card__emoji {
   font-size: 1.8rem;
   line-height: 1.2;
+  flex: 0 0 auto;
+}
+
+.recipe-card__thumb {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--accent-soft);
 }
 
 .recipe-card__body {
@@ -189,6 +199,16 @@ article.recipe,
   margin: 0 0 4px;
   color: var(--accent);
   font-size: 1.7rem;
+}
+
+.recipe__image {
+  display: block;
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: 14px 0 4px;
+  background: var(--accent-soft);
 }
 
 .meta {

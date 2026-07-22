@@ -22,8 +22,17 @@ function el(tag, attrs = {}, children = []) {
 
 /** Kort til forsidens oversigt. */
 function recipeCard(recipe) {
+  const thumb = recipe.image
+    ? el("img", {
+        class: "recipe-card__thumb",
+        src: recipe.image,
+        alt: "",
+        loading: "lazy",
+      })
+    : el("span", { class: "recipe-card__emoji", "aria-hidden": "true", text: recipe.emoji || "🍽️" });
+
   return el("a", { class: "recipe-card", href: `#/opskrift/${recipe.slug}` }, [
-    el("span", { class: "recipe-card__emoji", "aria-hidden": "true", text: recipe.emoji || "🍽️" }),
+    thumb,
     el("span", { class: "recipe-card__body" }, [
       el("span", { class: "recipe-card__title", text: recipe.title }),
       recipe.description
@@ -126,9 +135,18 @@ export function renderRecipe(recipe) {
       ])
     : null;
 
+  const hero = recipe.image
+    ? el("img", {
+        class: "recipe__image",
+        src: recipe.image,
+        alt: `Foto af ${recipe.title}`,
+      })
+    : null;
+
   return el("article", { class: "recipe" }, [
     el("a", { class: "back", href: "#/" }, "← Alle opskrifter"),
     el("h1", { class: "recipe__title", text: `${recipe.emoji ? recipe.emoji + " " : ""}${recipe.title}` }),
+    hero,
     meta,
     tags,
     el("h2", { class: "section", text: "Ingredienser" }),

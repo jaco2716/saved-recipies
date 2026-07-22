@@ -36,10 +36,13 @@ Du skal kun røre **én fil**: `data/recipes.json`. Tilføj et nyt objekt i
   "title": "Lasagne",
   "description": "Klassisk lasagne med kødsovs",
   "emoji": "🍝",
+  "image": "assets/images/lasagne.jpg",
   "category": "Aftensmad",
   "tags": ["pasta", "familiefavorit"],
   "servings": "4 personer",
   "time": "1 time",
+  "calories": "ca. 600 kcal",
+  "protein": "ca. 35 g",
   "ingredients": ["500 g hakket oksekød", "..."],
   "steps": ["Brun kødet.", "..."],
   "notes": "Smager endnu bedre dagen efter."
@@ -48,9 +51,21 @@ Du skal kun røre **én fil**: `data/recipes.json`. Tilføj et nyt objekt i
 
 - **`slug`** er unikt og bruges i adressen (`#/opskrift/lasagne`). Kun små
   bogstaver, tal og bindestreg.
-- **`title`**, **`ingredients`** og **`steps`** er påkrævede. Resten er valgfrit.
+- **`title`**, **`ingredients`** og **`steps`** er påkrævede. Resten er valgfrit
+  (fx `image`, `calories` og `protein`).
 - Editoren foreslår automatisk felterne, fordi filen peger på skemaet
   `data/recipe.schema.json`.
+
+### Tilføj et billede til en opskrift
+
+1. Læg billedet i mappen `assets/images/`, gerne navngivet efter opskriften,
+   fx `assets/images/lasagne.jpg`.
+2. Sæt `image`-feltet i opskriften til stien: `"assets/images/lasagne.jpg"`.
+3. Billedet vises stort øverst på opskriftssiden og som lille miniature på
+   forsiden. Opskrifter uden billede falder pænt tilbage til deres emoji.
+
+Hold billederne små (fx maks. ~1200 px brede og komprimeret til JPG), så siden
+loader hurtigt — også på mobil.
 
 Tjek at filen er gyldig, før du committer:
 
@@ -73,7 +88,8 @@ Gem, commit og push — så er opskriften på siden.
 │   ├── router.js            # Lille hash-router (#/ og #/opskrift/<slug>)
 │   └── views.js             # Bygger DOM ud fra opskrift-data
 ├── assets/
-│   └── styles.css           # Al styling (med mørkt tema)
+│   ├── styles.css           # Al styling (med mørkt tema)
+│   └── images/              # Billeder til opskrifter
 ├── scripts/
 │   └── validate.mjs         # Validerer recipes.json (uden afhængigheder)
 ├── package.json             # dev- og validate-scripts

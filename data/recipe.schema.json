@@ -43,6 +43,10 @@
           "type": "string",
           "description": "Emoji brugt som ikon for opskriften, fx '🥞'."
         },
+        "image": {
+          "type": "string",
+          "description": "Valgfrit billede. Sti relativ til projektets rod, fx 'assets/images/tunsalat.jpg'."
+        },
         "category": {
           "type": "string",
           "description": "Kategori opskriften hører til, fx 'Dessert'."

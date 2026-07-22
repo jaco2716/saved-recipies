@@ -5,11 +5,16 @@
 // vigtigste regler: påkrævede felter, typer, unikke slugs og slug-format.
 // Kør med:  node scripts/validate.mjs
 
-import { readFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { readFile, access } from "node:fs/promises";
 
 const root = new URL("../", import.meta.url);
 const dataPath = new URL("data/recipes.json", root);
+
+const fileExists = (relPath) =>
+  access(new URL(relPath, root)).then(
+    () => true,
+    () => false
+  );
 
 const errors = [];
 const fail = (msg) => errors.push(msg);
@@ -35,6 +40,7 @@ if (!Array.isArray(recipes)) {
 
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const seenSlugs = new Set();
+const imageChecks = [];
 
 recipes.forEach((r, i) => {
   const where = `opskrift #${i + 1}` + (r?.title ? ` ("${r.title}")` : "");
@@ -67,7 +73,20 @@ recipes.forEach((r, i) => {
   if (r.tags != null && !Array.isArray(r.tags)) {
     fail(`${where}: "tags" skal være en liste`);
   }
+  if (r.image != null) {
+    if (typeof r.image !== "string") {
+      fail(`${where}: "image" skal være en tekststi`);
+    } else {
+      imageChecks.push(
+        fileExists(r.image).then((ok) => {
+          if (!ok) fail(`${where}: billedet "${r.image}" findes ikke`);
+        })
+      );
+    }
+  }
 });
+
+await Promise.all(imageChecks);
 
 if (errors.length) {
   console.error(`✖ ${errors.length} fejl i data/recipes.json:\n`);
