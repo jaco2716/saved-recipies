@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#c1440e" />
+    <meta
+      name="description"
+      content="Min lille samling af opskrifter — data-drevet og bygget til at vokse."
+    />
     <title>Mine opskrifter</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>"
@@ -13,99 +17,19 @@
   </head>
   <body>
     <header class="site">
-      <h1>🍳 Mine opskrifter</h1>
+      <a class="site__home" href="#/">
+        <h1>🍳 Mine opskrifter</h1>
+      </a>
       <p>Min lille samling af opskrifter jeg vil gemme</p>
     </header>
 
-    <main class="wrap">
-      <!--
-        Sådan tilføjer du en ny opskrift:
-        1. Kopiér filen "opskrifter/skabelon.html" og giv den et nyt navn,
-           fx "opskrifter/lasagne.html".
-        2. Udfyld opskriften i den nye fil.
-        3. Tilføj en ny <li> herunder, der linker til filen.
-      -->
-      <h2 class="section">🥗 Nemme &amp; proteinrige (godt til vægttab)</h2>
-      <ul class="recipe-list">
-        <li>
-          <a href="opskrifter/tunsalat.html">
-            <span class="title">Tunsalat</span>
-            <span class="desc">Agurk, tomat, rødløg og tun · ~250 kcal · ~30 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/kylling-groentsager.html">
-            <span class="title">Stegt kylling med grøntsager</span>
-            <span class="desc">Hurtig og mættende · ~320 kcal · ~40 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/aeggehvide-omelet.html">
-            <span class="title">Æggehvide-omelet</span>
-            <span class="desc">Med spinat og tomat · ~200 kcal · ~28 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/skyr-skaal.html">
-            <span class="title">Skyr-skål med bær</span>
-            <span class="desc">Morgenmad på 5 min · ~230 kcal · ~25 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/hytteost-skaal.html">
-            <span class="title">Hytteost-skål</span>
-            <span class="desc">Med agurk og tomat · ~220 kcal · ~27 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/kylling-wrap.html">
-            <span class="title">Kylling-wrap med skyr-dressing</span>
-            <span class="desc">God frokost at tage med · ~350 kcal · ~35 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/bagt-laks.html">
-            <span class="title">Bagt laks med broccoli</span>
-            <span class="desc">Alt på én plade · ~380 kcal · ~34 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/oksekod-bowl.html">
-            <span class="title">Oksekød-bowl med ris og grønt</span>
-            <span class="desc">Mættende meal prep · ~420 kcal · ~38 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/rejesalat.html">
-            <span class="title">Rejesalat med avocado</span>
-            <span class="desc">Frisk og let · ~280 kcal · ~25 g protein</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/linsegryde.html">
-            <span class="title">Rød linsegryde</span>
-            <span class="desc">Vegetarisk &amp; billig · ~300 kcal · ~18 g protein</span>
-          </a>
-        </li>
-      </ul>
-
-      <h2 class="section">🍰 Bagværk &amp; andet</h2>
-      <ul class="recipe-list">
-        <li>
-          <a href="opskrifter/pandekager.html">
-            <span class="title">Pandekager</span>
-            <span class="desc">Klassiske tynde danske pandekager</span>
-          </a>
-        </li>
-        <li>
-          <a href="opskrifter/boller.html">
-            <span class="title">Boller</span>
-            <span class="desc">Bløde hjemmebagte morgenboller</span>
-          </a>
-        </li>
-      </ul>
+    <main id="app" class="wrap">
+      <!-- Indhold indsættes af src/app.js -->
+      <p class="empty">Indlæser opskrifter…</p>
     </main>
 
-    <footer class="site">Gemt og bygget med ❤️ i HTML</footer>
+    <footer class="site">Gemt og bygget med ❤️ — data ligger i én JSON-fil</footer>
+
+    <script type="module" src="src/app.js"></script>
   </body>
 </html>
