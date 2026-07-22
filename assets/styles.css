@@ -9,7 +9,22 @@
   --accent-soft: #f3d9c6;
   --border: #eaddcf;
   --shadow: 0 2px 10px rgba(80, 50, 20, 0.08);
+  --shadow-hover: 0 4px 16px rgba(80, 50, 20, 0.14);
   --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1712;
+    --card: #2a231c;
+    --text: #f0e6da;
+    --muted: #b09c88;
+    --accent: #ff7a45;
+    --accent-soft: #3a2c22;
+    --border: #3a3128;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
 }
 
 * {
@@ -43,6 +58,11 @@ header.site {
   padding: 28px 18px 8px;
 }
 
+header.site .site__home {
+  text-decoration: none;
+  color: inherit;
+}
+
 header.site h1 {
   margin: 0;
   font-size: 2rem;
@@ -68,17 +88,43 @@ header.site p {
   text-decoration: underline;
 }
 
+/* ---- Værktøjslinje / søgning ---- */
+.toolbar {
+  margin: 8px 0 22px;
+}
+
+.search {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.search:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 30px 0;
+}
+
 /* ---- Opskrift-oversigt (forside) ---- */
-.recipe-list {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0;
+.recipe-grid {
   display: grid;
   gap: 14px;
 }
 
-.recipe-list a {
-  display: block;
+.recipe-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -89,28 +135,49 @@ header.site p {
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
-.recipe-list a:active {
+.recipe-card:active {
   transform: scale(0.99);
 }
 
-.recipe-list a:hover {
-  box-shadow: 0 4px 16px rgba(80, 50, 20, 0.14);
+.recipe-card:hover {
+  box-shadow: var(--shadow-hover);
 }
 
-.recipe-list .title {
+.recipe-card__emoji {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.recipe-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-card__title {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--accent);
 }
 
-.recipe-list .desc {
+.recipe-card__desc {
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
+.recipe-card__tag {
+  margin-top: 8px;
+  align-self: flex-start;
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: var(--accent-soft);
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
 /* ---- Enkelt opskrift ---- */
-article.recipe {
+article.recipe,
+.message {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -118,7 +185,7 @@ article.recipe {
   box-shadow: var(--shadow);
 }
 
-article.recipe h1 {
+.recipe__title {
   margin: 0 0 4px;
   color: var(--accent);
   font-size: 1.7rem;
@@ -128,7 +195,7 @@ article.recipe h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px;
-  margin: 12px 0 20px;
+  margin: 12px 0 12px;
   padding: 12px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -136,8 +203,23 @@ article.recipe h1 {
   font-size: 0.92rem;
 }
 
-.meta span strong {
+.meta strong {
   color: var(--text);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 4px;
+}
+
+.tag {
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: var(--accent-soft);
+  padding: 2px 10px;
+  border-radius: 999px;
 }
 
 h2.section {
@@ -198,7 +280,7 @@ footer.site {
 
 /* ---- Større skærme ---- */
 @media (min-width: 620px) {
-  .recipe-list {
+  .recipe-grid {
     grid-template-columns: 1fr 1fr;
   }
 }

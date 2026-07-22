@@ -1,0 +1,61 @@
+{
+  "$schema": "./recipe.schema.json",
+  "version": 1,
+  "recipes": [
+    {
+      "slug": "pandekager",
+      "title": "Pandekager",
+      "description": "Klassiske tynde danske pandekager",
+      "emoji": "🥞",
+      "category": "Dessert",
+      "tags": ["klassisk", "dessert", "nem"],
+      "servings": "ca. 10 stk.",
+      "time": "30 min",
+      "ingredients": [
+        "250 g hvedemel",
+        "4 dl mælk",
+        "3 æg",
+        "1 spsk sukker",
+        "1 knivspids salt",
+        "Smør til stegning"
+      ],
+      "steps": [
+        "Pisk æg, sukker og salt sammen i en skål.",
+        "Tilsæt melet lidt ad gangen skiftevis med mælken, så dejen bliver glat og klumpefri.",
+        "Lad dejen hvile i ca. 15 minutter.",
+        "Smelt lidt smør på en pande ved middelvarme, og hæld et tyndt lag dej ud.",
+        "Steg pandekagen til den er gylden, vend den, og steg den færdig på den anden side.",
+        "Server med sukker, syltetøj eller det du bedst kan lide."
+      ],
+      "notes": "Lad dejen hvile lidt længere for endnu mere møre pandekager."
+    },
+    {
+      "slug": "boller",
+      "title": "Boller",
+      "description": "Bløde hjemmebagte morgenboller",
+      "emoji": "🍞",
+      "category": "Brød & bagning",
+      "tags": ["brød", "morgenmad", "bagning"],
+      "servings": "ca. 12 stk.",
+      "time": "2 timer (med hævning)",
+      "ingredients": [
+        "5 dl mælk",
+        "25 g gær",
+        "50 g smør, smeltet",
+        "1 spsk sukker",
+        "1 tsk salt",
+        "ca. 800 g hvedemel"
+      ],
+      "steps": [
+        "Lun mælken, og rør gæren ud i den.",
+        "Tilsæt smeltet smør, sukker og salt.",
+        "Rør melet i lidt ad gangen, og ælt dejen godt igennem, til den er smidig.",
+        "Lad dejen hæve tildækket et lunt sted i ca. 1 time.",
+        "Form dejen til boller, og læg dem på en bageplade.",
+        "Lad bollerne efterhæve i ca. 20 minutter.",
+        "Bag ved 220 °C i 12–15 minutter, til de er gyldne og lyder hule, når du banker på undersiden."
+      ],
+      "notes": "Pensl bollerne med sammenpisket æg før bagning for en flot blank skorpe."
+    }
+  ]
+}
