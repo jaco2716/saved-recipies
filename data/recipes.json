@@ -1513,6 +1513,764 @@
         "Anret og top med lidt revet parmesan."
       ],
       "notes": "Squash i stedet for pasta sparer mange kulhydrater og kalorier. Lad være med at koge zoodles for længe, ellers bliver de bløde og våde."
+    },
+    {
+      "slug": "havregroed-aeble-kanel",
+      "baseServings": 1,
+      "title": "Havregrød med æble og kanel",
+      "description": "Varm, mættende morgengrød · billig og hurtig",
+      "emoji": "🥣",
+      "image": "assets/images/havregroed-aeble-kanel.jpg",
+      "category": "Morgenmad",
+      "tags": [
+        "morgenmad",
+        "billig",
+        "nem",
+        "vegetarisk",
+        "meal-prep"
+      ],
+      "servings": "1 portion",
+      "time": "10 min",
+      "timeMinutes": 10,
+      "pricePerServing": 4,
+      "calories": "ca. 320 kcal",
+      "protein": "ca. 12 g",
+      "ingredients": [
+        {
+          "ref": "havregryn",
+          "amount": 0.5,
+          "unit": "dl"
+        },
+        {
+          "ref": "maelk",
+          "amount": 2,
+          "unit": "dl",
+          "note": "eller vand"
+        },
+        {
+          "ref": "aeble",
+          "amount": 1,
+          "note": "i små tern"
+        },
+        {
+          "ref": "kanel",
+          "amount": 0.5,
+          "unit": "tsk"
+        },
+        {
+          "ref": "honning",
+          "amount": 1,
+          "unit": "tsk",
+          "optional": true
+        },
+        {
+          "ref": "salt",
+          "note": "et nip"
+        }
+      ],
+      "steps": [
+        "Kom havregryn, mælk og et nip salt i en lille gryde.",
+        "Kog op under omrøring, og lad grøden simre 3-4 minutter, til den tykner.",
+        "Rør halvdelen af æbleternene i grøden det sidste minut.",
+        "Anret grøden, top med resten af æblet og drys kanel over.",
+        "Vend evt. lidt honning i efter smag."
+      ],
+      "notes": "Skift æble ud med et revet æble, hvis du vil have grøden mere cremet. Kan koges dagen før og varmes med en skvæt ekstra mælk."
+    },
+    {
+      "slug": "tomatsuppe-kikaerter",
+      "baseServings": 2,
+      "title": "Tomatsuppe med kikærter",
+      "description": "Cremet tomatsuppe med protein fra kikærter",
+      "emoji": "🍲",
+      "image": "assets/images/tomatsuppe-kikaerter.jpg",
+      "category": "Frokost",
+      "tags": [
+        "vegetarisk",
+        "billig",
+        "meal-prep",
+        "nem",
+        "protein"
+      ],
+      "servings": "2 portioner",
+      "time": "25 min",
+      "timeMinutes": 25,
+      "pricePerServing": 10,
+      "calories": "ca. 300 kcal",
+      "protein": "ca. 14 g",
+      "ingredients": [
+        {
+          "ref": "hakkede-tomater",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "kikaerter",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 3,
+          "unit": "dl"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "oregano",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg og hvidløg fint, og svits det blødt i olie i en gryde.",
+        "Tilsæt hakkede tomater, bouillon og oregano, og lad suppen simre 10 minutter.",
+        "Blend halvdelen af suppen glat med en stavblender for at gøre den cremet.",
+        "Vend kikærterne i, og lad dem varme med et par minutter.",
+        "Smag til med salt og peber."
+      ],
+      "notes": "Blend det hele, hvis du vil have en helt glat suppe. Server med et stykke groft brød."
+    },
+    {
+      "slug": "pasta-tun-tomat",
+      "baseServings": 2,
+      "title": "Pasta med tun og tomat",
+      "description": "Hurtig hverdagspasta · billig og proteinrig",
+      "emoji": "🍝",
+      "image": "assets/images/pasta-tun-tomat.jpg",
+      "category": "Aftensmad",
+      "tags": [
+        "fisk",
+        "protein",
+        "nem",
+        "billig",
+        "meal-prep"
+      ],
+      "servings": "2 portioner",
+      "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 12,
+      "calories": "ca. 480 kcal",
+      "protein": "ca. 30 g",
+      "ingredients": [
+        {
+          "ref": "pasta",
+          "amount": 180,
+          "unit": "g"
+        },
+        {
+          "ref": "tun",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "oregano",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "parmesan",
+          "note": "revet, til servering",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Kog pastaen i letsaltet vand efter anvisningen på pakken.",
+        "Svits imens hakket løg og hvidløg blødt i olie på en pande.",
+        "Tilsæt hakkede tomater og oregano, og lad saucen simre et par minutter.",
+        "Vend den drænede tun i saucen, og smag til med salt og peber.",
+        "Bland den kogte pasta i saucen, og server med revet parmesan."
+      ],
+      "notes": "En håndfuld frisk spinat vendt i til sidst giver ekstra grønt uden ekstra arbejde."
+    },
+    {
+      "slug": "rejewok-groentsager",
+      "baseServings": 1,
+      "title": "Rejewok med grøntsager",
+      "description": "Let og hurtig wok med rejer og masser af grønt",
+      "emoji": "🍤",
+      "image": "assets/images/rejewok-groentsager.jpg",
+      "category": "Aftensmad",
+      "tags": [
+        "fisk",
+        "protein",
+        "vægttab",
+        "nem"
+      ],
+      "servings": "1 portion",
+      "time": "15 min",
+      "timeMinutes": 15,
+      "pricePerServing": 26,
+      "calories": "ca. 280 kcal",
+      "protein": "ca. 30 g",
+      "ingredients": [
+        {
+          "ref": "rejer",
+          "amount": 125,
+          "unit": "g"
+        },
+        {
+          "ref": "wok-groentsager",
+          "amount": 300,
+          "unit": "g",
+          "note": "frosne"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "ingefaer",
+          "amount": 1,
+          "unit": "cm",
+          "note": "frisk",
+          "optional": true
+        },
+        {
+          "ref": "soja",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "frisk-chili",
+          "note": "efter smag",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Varm olien godt op i en wok eller stor pande.",
+        "Steg hvidløg og revet ingefær et halvt minut.",
+        "Kom wok-grøntsagerne i, og steg ved høj varme et par minutter, så de stadig har bid.",
+        "Vend rejerne i, og varm dem med i ca. 1 minut — de skal bare blive varme.",
+        "Vend soja i, smag til, og top med frisk chili."
+      ],
+      "notes": "Brug optøede, kogte rejer, og lad være med at stege dem for længe, ellers bliver de seje. Server evt. med lidt ris eller nudler."
+    },
+    {
+      "slug": "aeggemuffins-groent",
+      "baseServings": 2,
+      "title": "Bagte æggemuffins med grønt",
+      "description": "Grab-and-go proteinmuffins · perfekt til meal-prep",
+      "emoji": "🧁",
+      "image": "assets/images/aeggemuffins-groent.jpg",
+      "category": "Morgenmad",
+      "tags": [
+        "protein",
+        "meal-prep",
+        "vægttab",
+        "vegetarisk",
+        "nem"
+      ],
+      "servings": "6 stk. (2 portioner)",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 9,
+      "calories": "ca. 260 kcal",
+      "protein": "ca. 22 g",
+      "ingredients": [
+        {
+          "ref": "aeg",
+          "amount": 6
+        },
+        {
+          "ref": "spinat",
+          "amount": 50,
+          "unit": "g",
+          "note": "frisk, hakket"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 0.5,
+          "note": "i små tern"
+        },
+        {
+          "ref": "foraarsloeg",
+          "amount": 2,
+          "note": "i skiver"
+        },
+        {
+          "ref": "revet-ost",
+          "amount": 40,
+          "unit": "g"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 180 °C, og smør eller fôr en muffinform med 6 huller.",
+        "Pisk æggene sammen, og smag til med salt og peber.",
+        "Fordel spinat, peberfrugt, forårsløg og ost i muffinhullerne.",
+        "Hæld æggemassen over, så hullerne er cirka trekvart fyldte.",
+        "Bag i 18-20 minutter, til muffinsene er faste og let gyldne."
+      ],
+      "notes": "Holder 3-4 dage i køleskabet og kan spises kolde eller lunet. Byt gerne grøntsagerne ud med det, du har."
+    },
+    {
+      "slug": "kylling-fajita-pande",
+      "baseServings": 2,
+      "title": "Kylling-fajita-pande",
+      "description": "Krydret tex-mex på én pande · god i wraps eller med ris",
+      "emoji": "🌶️",
+      "image": "assets/images/kylling-fajita-pande.jpg",
+      "category": "Aftensmad",
+      "tags": [
+        "kylling",
+        "protein",
+        "nem",
+        "meal-prep"
+      ],
+      "servings": "2 portioner",
+      "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 20,
+      "calories": "ca. 380 kcal",
+      "protein": "ca. 40 g",
+      "ingredients": [
+        {
+          "ref": "kyllingebryst",
+          "amount": 300,
+          "unit": "g",
+          "note": "i strimler"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 2,
+          "note": "i strimler"
+        },
+        {
+          "ref": "roedloeg",
+          "amount": 1,
+          "note": "i både"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "paprika",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "spidskommen",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "chilipulver",
+          "amount": 0.5,
+          "unit": "tsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "tortilla",
+          "amount": 4,
+          "note": "til servering",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Bland paprika, spidskommen, chilipulver og lidt salt, og vend kyllingestrimlerne i krydderiblandingen.",
+        "Varm olien op på en stor pande, og steg kyllingen til den er gennemstegt. Tag den af panden.",
+        "Steg peberfrugt og rødløg et par minutter, så de får farve men stadig har bid.",
+        "Tilsæt hvidløg og kom kyllingen tilbage på panden. Vend det hele sammen.",
+        "Smag til med salt og peber, og server i varme tortillas eller med ris."
+      ],
+      "notes": "Top med lidt skyr eller revet ost. Kan laves som meal-prep og holder 3 dage i køleskabet."
+    },
+    {
+      "slug": "torsk-ratatouille",
+      "baseServings": 2,
+      "title": "Bagt torsk med ratatouille",
+      "description": "Mør torsk på et fad af sommergrøntsager",
+      "emoji": "🐟",
+      "image": "assets/images/torsk-ratatouille.jpg",
+      "category": "Aftensmad",
+      "tags": [
+        "fisk",
+        "protein",
+        "vægttab",
+        "meal-prep"
+      ],
+      "servings": "2 portioner",
+      "time": "40 min",
+      "timeMinutes": 40,
+      "pricePerServing": 28,
+      "calories": "ca. 320 kcal",
+      "protein": "ca. 34 g",
+      "ingredients": [
+        {
+          "ref": "torskefilet",
+          "amount": 300,
+          "unit": "g"
+        },
+        {
+          "ref": "squash",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "aubergine",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "olie",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "timian",
+          "amount": 1,
+          "unit": "tsk",
+          "note": "frisk eller tørret"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 200 °C. Svits løg og hvidløg blødt i olie i en ovnfast pande.",
+        "Tilsæt squash, aubergine og peberfrugt, og steg et par minutter.",
+        "Kom hakkede tomater og timian i, smag til med salt og peber, og lad det simre 5 minutter.",
+        "Læg torskefileterne oven på grøntsagerne, og dryp med lidt olie, salt og peber.",
+        "Bag i ovnen i ca. 15 minutter, til torsken er hvid og flager let."
+      ],
+      "notes": "Ratatouillen kan laves i forvejen og smager endnu bedre dagen efter. Server evt. med kogte kartofler eller brød."
+    },
+    {
+      "slug": "kikaerte-karry-spinat",
+      "baseServings": 2,
+      "title": "Kikærte-karry med spinat",
+      "description": "Cremet karry med kokosmælk · billig og vegetarisk",
+      "emoji": "🍛",
+      "image": "assets/images/kikaerte-karry-spinat.jpg",
+      "category": "Aftensmad",
+      "tags": [
+        "vegetarisk",
+        "protein",
+        "billig",
+        "meal-prep"
+      ],
+      "servings": "2 portioner",
+      "time": "25 min",
+      "timeMinutes": 25,
+      "pricePerServing": 14,
+      "calories": "ca. 450 kcal",
+      "protein": "ca. 16 g",
+      "ingredients": [
+        {
+          "ref": "kikaerter",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "spinat",
+          "amount": 100,
+          "unit": "g",
+          "note": "frisk"
+        },
+        {
+          "ref": "kokosmaelk",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 0.5,
+          "unit": "dåse"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "ingefaer",
+          "amount": 2,
+          "unit": "cm",
+          "note": "frisk",
+          "optional": true
+        },
+        {
+          "ref": "karry",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "ris",
+          "amount": 1.5,
+          "unit": "dl",
+          "note": "til servering",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg, hvidløg og ingefær, og svits det blødt i olie i en gryde.",
+        "Tilsæt karry, og lad det stege med et minut, til det dufter.",
+        "Kom kokosmælk og hakkede tomater i, og lad det simre 5 minutter.",
+        "Vend kikærterne i, og lad dem varme med et par minutter.",
+        "Rør spinaten i, til den falder sammen, og smag til med salt og peber. Server med ris."
+      ],
+      "notes": "En skvæt citron til sidst løfter smagen. Fryser godt i portioner."
+    },
+    {
+      "slug": "sund-gulerodskage-skyr",
+      "baseServings": 12,
+      "title": "Sund gulerodskage med skyr-topping",
+      "description": "Saftig gulerodskage med mindre sukker og skyr-topping",
+      "emoji": "🥕",
+      "image": "assets/images/sund-gulerodskage-skyr.jpg",
+      "category": "Brød & bagning",
+      "tags": [
+        "bagning",
+        "dessert",
+        "protein",
+        "vegetarisk"
+      ],
+      "servings": "ca. 12 stk.",
+      "time": "50 min",
+      "timeMinutes": 50,
+      "pricePerServing": 5,
+      "calories": "ca. 210 kcal",
+      "protein": "ca. 7 g",
+      "ingredients": [
+        {
+          "ref": "gulerod",
+          "amount": 300,
+          "unit": "g",
+          "note": "fintrevet"
+        },
+        {
+          "ref": "havregryn",
+          "amount": 2,
+          "unit": "dl"
+        },
+        {
+          "ref": "hvedemel",
+          "amount": 2,
+          "unit": "dl"
+        },
+        {
+          "ref": "aeg",
+          "amount": 3
+        },
+        {
+          "ref": "banan",
+          "amount": 2,
+          "note": "modne, mosede"
+        },
+        {
+          "ref": "honning",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "dl"
+        },
+        {
+          "ref": "mandler-noedder",
+          "amount": 75,
+          "unit": "g",
+          "note": "valnødder, hakkede"
+        },
+        {
+          "ref": "kanel",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "bagepulver",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "skyr",
+          "amount": 2,
+          "unit": "dl",
+          "note": "til topping"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 180 °C, og beklæd en firkantet form (ca. 20x20 cm) med bagepapir.",
+        "Pisk æg, mosede bananer, honning og olie sammen i en skål.",
+        "Bland havregryn, mel, kanel og bagepulver, og rør det i den våde masse.",
+        "Vend revet gulerod og hakkede valnødder i dejen.",
+        "Hæld dejen i formen, og bag i ca. 35 minutter, til en tandstik kommer ren ud. Lad kagen køle helt af.",
+        "Rør skyren glat, smør den på den afkølede kage, og drys evt. med lidt kanel."
+      ],
+      "notes": "Topping af ren skyr giver en frisk, syrlig kontrast med langt mindre sukker end klassisk flødeostglasur. Sødme kan justeres med lidt honning i skyren."
+    },
+    {
+      "slug": "bananbroed-havre",
+      "baseServings": 10,
+      "title": "Bananbrød med havre",
+      "description": "Saftigt bananbrød sødet af modne bananer",
+      "emoji": "🍌",
+      "image": "assets/images/bananbroed-havre.jpg",
+      "category": "Brød & bagning",
+      "tags": [
+        "bagning",
+        "morgenmad",
+        "billig",
+        "vegetarisk"
+      ],
+      "servings": "ca. 10 skiver",
+      "time": "60 min",
+      "timeMinutes": 60,
+      "pricePerServing": 3,
+      "calories": "ca. 190 kcal",
+      "protein": "ca. 5 g",
+      "ingredients": [
+        {
+          "ref": "banan",
+          "amount": 3,
+          "note": "meget modne"
+        },
+        {
+          "ref": "havregryn",
+          "amount": 2,
+          "unit": "dl"
+        },
+        {
+          "ref": "hvedemel",
+          "amount": 2.5,
+          "unit": "dl"
+        },
+        {
+          "ref": "aeg",
+          "amount": 2
+        },
+        {
+          "ref": "olie",
+          "amount": 0.5,
+          "unit": "dl"
+        },
+        {
+          "ref": "honning",
+          "amount": 2,
+          "unit": "spsk",
+          "optional": true
+        },
+        {
+          "ref": "bagepulver",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "kanel",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt",
+          "note": "et nip"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 175 °C, og beklæd en lille franskbrødsform med bagepapir.",
+        "Mos bananerne godt med en gaffel, og pisk æg, olie og evt. honning i.",
+        "Bland havregryn, mel, bagepulver, kanel og salt i en anden skål.",
+        "Rør de tørre ingredienser i bananmassen, til dejen lige er samlet.",
+        "Hæld dejen i formen, og bag i ca. 45-50 minutter, til en tandstik kommer ren ud.",
+        "Lad brødet køle af i formen 10 minutter, og vend det så ud på en rist."
+      ],
+      "notes": "Jo mere modne bananer, jo sødere brød. Vend en håndfuld hakkede nødder eller lidt mørk chokolade i for variation."
     }
   ]
 }

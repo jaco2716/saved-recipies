@@ -140,7 +140,13 @@ function buildPrompt(item, kind) {
   );
   if (item.description) parts.push(item.description);
   if (kind === "recipe" && Array.isArray(item.ingredients) && item.ingredients.length) {
-    parts.push("Key ingredients: " + item.ingredients.slice(0, 8).join(", ") + ".");
+    const names = item.ingredients
+      .slice(0, 8)
+      .map((ing) =>
+        typeof ing === "string" ? ing : INGREDIENT_NAMES.get(ing.ref) || ing.ref
+      )
+      .filter(Boolean);
+    if (names.length) parts.push("Key ingredients: " + names.join(", ") + ".");
   }
   parts.push(STYLE);
   // Bed eksplicit om ét billede, så web-UI'et genererer frem for at snakke.
@@ -191,6 +197,16 @@ async function loadJson(relPath) {
   const abs = resolve(ROOT, relPath);
   const raw = await readFile(abs, "utf8");
   return { abs, data: JSON.parse(raw) };
+}
+
+/** Kanonisk ingrediens-katalog (id → visningsnavn), så prompten kan nævne
+ *  rigtige ingredienser i stedet for "[object Object]". Fejler blødt. */
+const INGREDIENT_NAMES = new Map();
+try {
+  const { data } = await loadJson("data/ingredients.json");
+  for (const ing of data.ingredients || []) INGREDIENT_NAMES.set(ing.id, ing.name);
+} catch {
+  /* kataloget mangler — prompten falder tilbage til ref-id'er */
 }
 
 /** Find første synlige element blandt en liste af selektorer. */

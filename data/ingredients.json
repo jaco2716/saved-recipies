@@ -83,6 +83,11 @@
       "category": "Grønt"
     },
     {
+      "id": "aubergine",
+      "name": "Aubergine",
+      "category": "Grønt"
+    },
+    {
       "id": "broccoli",
       "name": "Broccoli",
       "category": "Grønt"
@@ -160,6 +165,11 @@
     {
       "id": "banan",
       "name": "Banan",
+      "category": "Frugt & bær"
+    },
+    {
+      "id": "aeble",
+      "name": "Æble",
       "category": "Frugt & bær"
     },
     {
@@ -245,6 +255,16 @@
     {
       "id": "ris",
       "name": "Brune ris",
+      "category": "Kolonial"
+    },
+    {
+      "id": "pasta",
+      "name": "Fuldkornspasta",
+      "category": "Kolonial"
+    },
+    {
+      "id": "kokosmaelk",
+      "name": "Kokosmælk",
       "category": "Kolonial"
     },
     {
@@ -345,6 +365,12 @@
     {
       "id": "honning",
       "name": "Honning",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "bagepulver",
+      "name": "Bagepulver",
       "category": "Basis",
       "pantry": true
     },
