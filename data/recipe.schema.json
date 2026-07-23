@@ -89,9 +89,37 @@
         },
         "ingredients": {
           "type": "array",
-          "description": "Liste af ingredienser.",
-          "items": { "type": "string" },
-          "minItems": 1
+          "description": "Liste af ingredienser som referencer til ingrediens-kataloget (data/ingredients.json).",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["ref"],
+            "additionalProperties": false,
+            "properties": {
+              "ref": {
+                "type": "string",
+                "description": "Id på en ingrediens i data/ingredients.json.",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              "amount": {
+                "type": "number",
+                "description": "Mængde (valgfri). Skaleres efter portioner på indkøbslisten.",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string",
+                "description": "Enhed, fx 'g', 'dl', 'spsk', 'fed', 'dåse'. Udelades for stk."
+              },
+              "note": {
+                "type": "string",
+                "description": "Uddybning/tilberedning, fx 'i tern', 'drænet og skyllet'."
+              },
+              "optional": {
+                "type": "boolean",
+                "description": "Sæt til true for ingredienser 'efter smag'/'(valgfrit)'."
+              }
+            }
+          }
         },
         "steps": {
           "type": "array",

@@ -5,6 +5,7 @@
 // (ingen risiko for at en apostrof eller < i en opskrift ødelægger siden).
 
 import { buildShoppingList } from "./shopping.js";
+import { resolveIngredient, formatIngredientDisplay } from "./ingredients.js";
 
 /** Opret et element med attributter og børn. */
 function el(tag, attrs = {}, children = []) {
@@ -256,8 +257,8 @@ export function renderList({ result, section, hasSnacks, query, category, sort, 
   return container;
 }
 
-/** Enkelt opskrift. */
-export function renderRecipe(recipe) {
+/** Enkelt opskrift. `catalog` er ingrediens-kataloget (Map id → post). */
+export function renderRecipe(recipe, catalog = new Map()) {
   const meta = el("div", { class: "meta" }, [
     recipe.servings
       ? el("span", {}, [el("strong", { text: "Antal: " }), document.createTextNode(recipe.servings)])
@@ -287,7 +288,12 @@ export function renderRecipe(recipe) {
   const ingredients = el(
     "ul",
     { class: "ingredients" },
-    (recipe.ingredients || []).map((i) => el("li", { text: i }))
+    (recipe.ingredients || []).map((ing) => {
+      const r = resolveIngredient(ing, catalog);
+      const li = el("li", { text: formatIngredientDisplay(r) });
+      if (r.optional) li.append(el("span", { class: "ingredient__opt", text: " · valgfri" }));
+      return li;
+    })
   );
 
   const steps = el(
@@ -346,8 +352,9 @@ export function renderMessage(title, message) {
  * @param {Array<object>} [opts.snacks] - snacks der kan lægges på listen
  * @param {Object<string, {selected: boolean, servings: number}>} opts.state
  * @param {(state: object) => void} opts.onChange - kaldes når valget ændres
+ * @param {Map<string, object>} [opts.catalog] - ingrediens-katalog
  */
-export function renderShoppingPage({ recipes, snacks = [], state, onChange }) {
+export function renderShoppingPage({ recipes, snacks = [], state, onChange, catalog = new Map() }) {
   // Snacks gemmes i samme state-objekt, men med "snack:"-præfiks så de ikke
   // kolliderer med opskrifter (der nøgles på slug).
   const snackKey = (slug) => `snack:${slug}`;
@@ -462,7 +469,7 @@ export function renderShoppingPage({ recipes, snacks = [], state, onChange }) {
       return;
     }
 
-    const { items, count } = buildShoppingList(chosen, chosenSnacks);
+    const { items, count, pantry } = buildShoppingList(chosen, chosenSnacks, catalog);
 
     const list = el(
       "ul",
@@ -470,13 +477,25 @@ export function renderShoppingPage({ recipes, snacks = [], state, onChange }) {
       items.map((item, idx) => {
         const cb = el("input", { type: "checkbox", id: `buy-${idx}`, class: "shopping-list__check" });
         const label = el("label", { class: "shopping-list__label", for: `buy-${idx}` }, [
-          el("span", { class: "shopping-list__text", text: item.display }),
+          el("span", { class: "shopping-list__text" }, [
+            document.createTextNode(item.display),
+            item.optional ? el("span", { class: "shopping-list__opt", text: " · valgfri" }) : null,
+          ]),
           el("span", { class: "shopping-list__from", text: item.sources.join(", ") }),
         ]);
         cb.addEventListener("change", () => label.classList.toggle("is-done", cb.checked));
         return el("li", { class: "shopping-list__item" }, [cb, label]);
       })
     );
+
+    // Basisvarer holdes af listen, men nævnes så man kan tjekke skabet.
+    const pantryNote =
+      pantry && pantry.length
+        ? el("p", { class: "shopping-pantry" }, [
+            el("strong", { text: "Basisvarer du nok har: " }),
+            document.createTextNode(pantry.join(", ") + "."),
+          ])
+        : null;
 
     const copyBtn = el("button", { class: "btn", type: "button", text: "📋 Kopiér liste" });
     copyBtn.addEventListener("click", async () => {
@@ -498,7 +517,8 @@ export function renderShoppingPage({ recipes, snacks = [], state, onChange }) {
         el("h2", { class: "section", text: `Din indkøbsliste (${count} varer)` }),
         el("div", { class: "shopping-output__actions" }, [copyBtn, printBtn]),
       ]),
-      list
+      list,
+      pantryNote
     );
   }
 

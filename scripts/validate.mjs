@@ -42,6 +42,37 @@ const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const seenSlugs = new Set();
 const imageChecks = [];
 
+// ---- Ingrediens-katalog (indlæses før opskrifterne, så refs kan tjekkes) ----
+const catalogIds = new Set();
+const catalogRaw = await readFile(new URL("data/ingredients.json", root), "utf8").catch(() => null);
+if (!catalogRaw) {
+  fail("Kunne ikke læse data/ingredients.json (ingrediens-kataloget).");
+} else {
+  let catalogPayload;
+  try {
+    catalogPayload = JSON.parse(catalogRaw);
+  } catch (e) {
+    fail(`Ugyldig JSON i data/ingredients.json: ${e.message}`);
+    catalogPayload = { ingredients: [] };
+  }
+  const catalog = Array.isArray(catalogPayload)
+    ? catalogPayload
+    : catalogPayload?.ingredients ?? [];
+  catalog.forEach((it, i) => {
+    const where = `ingrediens #${i + 1}` + (it?.name ? ` ("${it.name}")` : "");
+    if (typeof it?.id !== "string" || !slugPattern.test(it.id)) {
+      fail(`${where}: ugyldigt eller manglende id "${it?.id}"`);
+    } else if (catalogIds.has(it.id)) {
+      fail(`${where}: id "${it.id}" bruges mere end én gang`);
+    } else {
+      catalogIds.add(it.id);
+    }
+    if (typeof it?.name !== "string" || it.name.length === 0) {
+      fail(`${where}: mangler "name"`);
+    }
+  });
+}
+
 recipes.forEach((r, i) => {
   const where = `opskrift #${i + 1}` + (r?.title ? ` ("${r.title}")` : "");
 
@@ -63,12 +94,22 @@ recipes.forEach((r, i) => {
     }
     seenSlugs.add(r.slug);
   }
-  for (const field of ["ingredients", "steps"]) {
-    if (!Array.isArray(r[field]) || r[field].length === 0) {
-      fail(`${where}: "${field}" skal være en liste med mindst ét element`);
-    } else if (!r[field].every((x) => typeof x === "string")) {
-      fail(`${where}: alle elementer i "${field}" skal være tekst`);
-    }
+  if (!Array.isArray(r.steps) || r.steps.length === 0) {
+    fail(`${where}: "steps" skal være en liste med mindst ét element`);
+  } else if (!r.steps.every((x) => typeof x === "string")) {
+    fail(`${where}: alle elementer i "steps" skal være tekst`);
+  }
+  // Ingredienser er referencer til kataloget: { ref, amount?, unit?, note?, optional? }.
+  if (!Array.isArray(r.ingredients) || r.ingredients.length === 0) {
+    fail(`${where}: "ingredients" skal være en liste med mindst ét element`);
+  } else {
+    r.ingredients.forEach((ing, j) => {
+      if (typeof ing !== "object" || ing === null || typeof ing.ref !== "string") {
+        fail(`${where}: ingrediens #${j + 1} mangler "ref"`);
+      } else if (catalogIds.size && !catalogIds.has(ing.ref)) {
+        fail(`${where}: ingrediens-ref "${ing.ref}" findes ikke i data/ingredients.json`);
+      }
+    });
   }
   if (r.tags != null && !Array.isArray(r.tags)) {
     fail(`${where}: "tags" skal være en liste`);
@@ -136,5 +177,5 @@ if (errors.length) {
 }
 
 console.log(
-  `✔ Data er gyldig (${recipes.length} opskrifter, ${snacks.length} snacks).`
+  `✔ Data er gyldig (${recipes.length} opskrifter, ${snacks.length} snacks, ${catalogIds.size} ingredienser).`
 );

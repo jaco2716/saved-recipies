@@ -20,12 +20,34 @@
       "timeMinutes": 30,
       "pricePerServing": 4,
       "ingredients": [
-        "250 g hvedemel",
-        "4 dl mælk",
-        "3 æg",
-        "1 spsk sukker",
-        "1 knivspids salt",
-        "Smør til stegning"
+        {
+          "ref": "hvedemel",
+          "amount": 250,
+          "unit": "g"
+        },
+        {
+          "ref": "maelk",
+          "amount": 4,
+          "unit": "dl"
+        },
+        {
+          "ref": "aeg",
+          "amount": 3
+        },
+        {
+          "ref": "sukker",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salt",
+          "amount": 1,
+          "unit": "knivspids"
+        },
+        {
+          "ref": "olie",
+          "note": "smør til stegning"
+        }
       ],
       "steps": [
         "Pisk æg, sukker og salt sammen i en skål.",
@@ -55,12 +77,38 @@
       "timeMinutes": 120,
       "pricePerServing": 2,
       "ingredients": [
-        "5 dl mælk",
-        "25 g gær",
-        "50 g smør, smeltet",
-        "1 spsk sukker",
-        "1 tsk salt",
-        "ca. 800 g hvedemel"
+        {
+          "ref": "maelk",
+          "amount": 5,
+          "unit": "dl"
+        },
+        {
+          "ref": "gaer",
+          "amount": 25,
+          "unit": "g"
+        },
+        {
+          "ref": "smoer",
+          "amount": 50,
+          "unit": "g",
+          "note": "smeltet"
+        },
+        {
+          "ref": "sukker",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salt",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "hvedemel",
+          "amount": 800,
+          "unit": "g",
+          "note": "ca."
+        }
       ],
       "steps": [
         "Lun mælken, og rør gæren ud i den.",
@@ -95,13 +143,39 @@
       "calories": "ca. 200 kcal",
       "protein": "ca. 28 g",
       "ingredients": [
-        "4 æggehvider + 1 helt æg",
-        "En håndfuld spinat",
-        "4 cherrytomater",
-        "Lidt løg eller forårsløg",
-        "Salt og peber",
-        "Spray-olie eller lidt smør til panden",
-        "Hot sauce efter smag (valgfrit)"
+        {
+          "ref": "aeggehvider",
+          "amount": 4
+        },
+        {
+          "ref": "aeg",
+          "amount": 1,
+          "note": "helt"
+        },
+        {
+          "ref": "spinat",
+          "note": "en håndfuld"
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 4
+        },
+        {
+          "ref": "loeg",
+          "note": "lidt, eller forårsløg"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "olie",
+          "note": "spray-olie eller smør til panden"
+        },
+        {
+          "ref": "hot-sauce",
+          "note": "efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Pisk æggehvider og det hele æg sammen med salt og peber.",
@@ -133,13 +207,38 @@
       "calories": "ca. 380 kcal",
       "protein": "ca. 34 g",
       "ingredients": [
-        "1 laksefilet (ca. 150 g)",
-        "1 lille broccoli",
-        "Et bundt grønne asparges (valgfrit)",
-        "½ citron",
-        "1 fed hvidløg",
-        "1 tsk olie",
-        "Salt og peber"
+        {
+          "ref": "laksefilet",
+          "amount": 1,
+          "note": "ca. 150 g"
+        },
+        {
+          "ref": "broccoli",
+          "amount": 1,
+          "note": "lille"
+        },
+        {
+          "ref": "asparges",
+          "note": "et bundt",
+          "optional": true
+        },
+        {
+          "ref": "citron",
+          "amount": 0.5
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt-peber"
+        }
       ],
       "steps": [
         "Tænd ovnen på 200 °C.",
@@ -172,12 +271,31 @@
       "calories": "ca. 220 kcal",
       "protein": "ca. 27 g",
       "ingredients": [
-        "200 g hytteost",
-        "½ agurk",
-        "6 cherrytomater",
-        "Lidt forårsløg",
-        "Salt og peber",
-        "Hot sauce eller chiliflager efter smag (valgfrit)"
+        {
+          "ref": "hytteost",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "ref": "agurk",
+          "amount": 0.5
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 6
+        },
+        {
+          "ref": "foraarsloeg",
+          "note": "lidt"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "hot-sauce",
+          "note": "eller chiliflager, efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Skær agurk og cherrytomater i små stykker.",
@@ -208,14 +326,45 @@
       "calories": "ca. 320 kcal",
       "protein": "ca. 40 g",
       "ingredients": [
-        "150 g kyllingebryst i tern",
-        "1 peberfrugt",
-        "1 lille squash eller broccoli",
-        "½ løg",
-        "1 fed hvidløg",
-        "Salt, peber og paprika",
-        "Lidt spray-olie eller 1 tsk olie",
-        "Soja eller hot sauce efter smag (valgfrit)"
+        {
+          "ref": "kyllingebryst",
+          "amount": 150,
+          "unit": "g",
+          "note": "i tern"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1
+        },
+        {
+          "ref": "squash",
+          "amount": 1,
+          "note": "lille, eller broccoli"
+        },
+        {
+          "ref": "loeg",
+          "amount": 0.5
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "paprika"
+        },
+        {
+          "ref": "olie",
+          "note": "spray-olie eller 1 tsk"
+        },
+        {
+          "ref": "soja",
+          "note": "eller hot sauce, efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Skær kylling og grøntsager i mundrette stykker.",
@@ -246,15 +395,49 @@
       "calories": "ca. 350 kcal",
       "protein": "ca. 35 g",
       "ingredients": [
-        "1 fuldkornstortilla",
-        "120 g kyllingebryst",
-        "En håndfuld salat",
-        "1 tomat",
-        "Lidt agurk",
-        "2 spsk skyr (naturel)",
-        "1 lille fed hvidløg (revet)",
-        "Salt, peber og paprika",
-        "Hot sauce efter smag (valgfrit)"
+        {
+          "ref": "tortilla",
+          "amount": 1
+        },
+        {
+          "ref": "kyllingebryst",
+          "amount": 120,
+          "unit": "g"
+        },
+        {
+          "ref": "salat",
+          "note": "en håndfuld"
+        },
+        {
+          "ref": "tomat",
+          "amount": 1
+        },
+        {
+          "ref": "agurk",
+          "note": "lidt"
+        },
+        {
+          "ref": "skyr",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed",
+          "note": "lille, revet"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "paprika"
+        },
+        {
+          "ref": "hot-sauce",
+          "note": "efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Krydr kyllingen med salt, peber og paprika, og steg den gennem på en varm pande. Skær i strimler.",
@@ -286,15 +469,47 @@
       "calories": "ca. 300 kcal pr. portion",
       "protein": "ca. 18 g pr. portion",
       "ingredients": [
-        "2 dl røde linser",
-        "1 dåse hakkede tomater",
-        "1 løg",
-        "2 fed hvidløg",
-        "1 gulerod",
-        "1 spsk karry (eller efter smag)",
-        "4 dl grøntsagsbouillon",
-        "Salt og peber",
-        "Lidt olie til stegning"
+        {
+          "ref": "roede-linser",
+          "amount": 2,
+          "unit": "dl"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "gulerod",
+          "amount": 1
+        },
+        {
+          "ref": "karry",
+          "amount": 1,
+          "unit": "spsk",
+          "note": "eller efter smag"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 4,
+          "unit": "dl"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "olie",
+          "note": "lidt, til stegning"
+        }
       ],
       "steps": [
         "Hak løg, hvidløg og gulerod fint, og svits det i lidt olie i en gryde.",
@@ -325,14 +540,45 @@
       "calories": "ca. 420 kcal",
       "protein": "ca. 38 g",
       "ingredients": [
-        "125 g magert hakket oksekød (3-5 %)",
-        "1 dl brune ris (kogt)",
-        "1 lille broccoli",
-        "½ løg",
-        "1 fed hvidløg",
-        "2 spsk soja",
-        "Salt og peber",
-        "Hot sauce eller sesamfrø efter smag (valgfrit)"
+        {
+          "ref": "hakket-oksekod",
+          "amount": 125,
+          "unit": "g",
+          "note": "magert (3-5 %)"
+        },
+        {
+          "ref": "ris",
+          "amount": 1,
+          "unit": "dl",
+          "note": "kogt"
+        },
+        {
+          "ref": "broccoli",
+          "amount": 1,
+          "note": "lille"
+        },
+        {
+          "ref": "loeg",
+          "amount": 0.5
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "soja",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "hot-sauce",
+          "note": "eller sesamfrø, efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Kog risene efter anvisningen på pakken.",
@@ -364,14 +610,41 @@
       "calories": "ca. 280 kcal",
       "protein": "ca. 25 g",
       "ingredients": [
-        "150 g kogte rejer (drænet)",
-        "½ avocado",
-        "½ agurk",
-        "6 cherrytomater",
-        "En håndfuld salat",
-        "Saften fra ½ citron",
-        "Salt og peber",
-        "Lidt frisk dild eller chili (valgfrit)"
+        {
+          "ref": "rejer",
+          "amount": 150,
+          "unit": "g",
+          "note": "drænet"
+        },
+        {
+          "ref": "avocado",
+          "amount": 0.5
+        },
+        {
+          "ref": "agurk",
+          "amount": 0.5
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 6
+        },
+        {
+          "ref": "salat",
+          "note": "en håndfuld"
+        },
+        {
+          "ref": "citron",
+          "amount": 0.5,
+          "note": "saften"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "dild",
+          "note": "frisk, eller chili",
+          "optional": true
+        }
       ],
       "steps": [
         "Skær avocado, agurk og cherrytomater i mundrette stykker.",
@@ -403,11 +676,30 @@
       "calories": "ca. 230 kcal",
       "protein": "ca. 25 g",
       "ingredients": [
-        "200 g skyr (naturel)",
-        "En håndfuld bær (fx blåbær, hindbær eller jordbær)",
-        "1 spsk havregryn",
-        "Lidt kanel",
-        "Et par mandler eller nødder (valgfrit)"
+        {
+          "ref": "skyr",
+          "amount": 200,
+          "unit": "g",
+          "note": "naturel"
+        },
+        {
+          "ref": "baer",
+          "note": "en håndfuld (fx blåbær, hindbær eller jordbær)"
+        },
+        {
+          "ref": "havregryn",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "kanel",
+          "note": "lidt"
+        },
+        {
+          "ref": "mandler-noedder",
+          "note": "et par",
+          "optional": true
+        }
       ],
       "steps": [
         "Kom skyr i en skål.",
@@ -438,13 +730,37 @@
       "calories": "ca. 250 kcal",
       "protein": "ca. 30 g",
       "ingredients": [
-        "1 dåse tun i vand (drænet)",
-        "½ agurk",
-        "2 tomater",
-        "¼ rødløg",
-        "Salt og peber",
-        "Et skvæt citronsaft (valgfrit)",
-        "Hot sauce eller chili efter smag (valgfrit)"
+        {
+          "ref": "tun",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "i vand, drænet"
+        },
+        {
+          "ref": "agurk",
+          "amount": 0.5
+        },
+        {
+          "ref": "tomat",
+          "amount": 2
+        },
+        {
+          "ref": "roedloeg",
+          "amount": 0.25
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "citron",
+          "note": "et skvæt saft",
+          "optional": true
+        },
+        {
+          "ref": "hot-sauce",
+          "note": "eller chili, efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Skær agurk, tomat og rødløg i små tern.",
@@ -476,13 +792,44 @@
       "calories": "ca. 300 kcal",
       "protein": "ca. 20 g",
       "ingredients": [
-        "1 dl havregryn",
-        "1,5 dl mælk eller plantemælk",
-        "100 g skyr (naturel)",
-        "En håndfuld bær",
-        "1 tsk chiafrø (valgfrit)",
-        "Lidt kanel",
-        "1 tsk honning eller sødemiddel efter smag (valgfrit)"
+        {
+          "ref": "havregryn",
+          "amount": 1,
+          "unit": "dl"
+        },
+        {
+          "ref": "maelk",
+          "amount": 1.5,
+          "unit": "dl",
+          "note": "eller plantemælk"
+        },
+        {
+          "ref": "skyr",
+          "amount": 100,
+          "unit": "g",
+          "note": "naturel"
+        },
+        {
+          "ref": "baer",
+          "note": "en håndfuld"
+        },
+        {
+          "ref": "chiafroe",
+          "amount": 1,
+          "unit": "tsk",
+          "optional": true
+        },
+        {
+          "ref": "kanel",
+          "note": "lidt"
+        },
+        {
+          "ref": "honning",
+          "amount": 1,
+          "unit": "tsk",
+          "note": "eller sødemiddel, efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Bland havregryn, mælk, skyr og chiafrø i et glas eller en skål.",
@@ -514,12 +861,31 @@
       "calories": "ca. 240 kcal",
       "protein": "ca. 20 g",
       "ingredients": [
-        "3 æg",
-        "En stor håndfuld frisk spinat",
-        "4 cherrytomater",
-        "1 spsk mælk (valgfrit)",
-        "Salt og peber",
-        "Spray-olie eller lidt smør til panden"
+        {
+          "ref": "aeg",
+          "amount": 3
+        },
+        {
+          "ref": "spinat",
+          "note": "en stor håndfuld, frisk"
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 4
+        },
+        {
+          "ref": "maelk",
+          "amount": 1,
+          "unit": "spsk",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "olie",
+          "note": "spray-olie eller smør til panden"
+        }
       ],
       "steps": [
         "Pisk æg sammen med mælk, salt og peber.",
@@ -552,12 +918,38 @@
       "calories": "ca. 250 kcal",
       "protein": "ca. 28 g",
       "ingredients": [
-        "150 g skyr (naturel)",
-        "En håndfuld frosne bær",
-        "½ banan",
-        "2 dl vand eller mælk",
-        "Isterninger efter smag",
-        "1 tsk honning eller sødemiddel (valgfrit)"
+        {
+          "ref": "skyr",
+          "amount": 150,
+          "unit": "g",
+          "note": "naturel"
+        },
+        {
+          "ref": "baer",
+          "note": "en håndfuld, frosne"
+        },
+        {
+          "ref": "banan",
+          "amount": 0.5
+        },
+        {
+          "ref": "vand",
+          "amount": 2,
+          "unit": "dl",
+          "note": "eller mælk"
+        },
+        {
+          "ref": "isterninger",
+          "note": "efter smag",
+          "optional": true
+        },
+        {
+          "ref": "honning",
+          "amount": 1,
+          "unit": "tsk",
+          "note": "eller sødemiddel",
+          "optional": true
+        }
       ],
       "steps": [
         "Kom alle ingredienser i en blender.",
@@ -590,14 +982,47 @@
       "calories": "ca. 340 kcal",
       "protein": "ca. 16 g",
       "ingredients": [
-        "1 dåse kikærter (drænet og skyllet)",
-        "½ agurk",
-        "6 cherrytomater",
-        "¼ rødløg",
-        "50 g feta",
-        "Saften fra ½ citron",
-        "1 tsk olivenolie",
-        "Salt, peber og lidt frisk persille"
+        {
+          "ref": "kikaerter",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "agurk",
+          "amount": 0.5
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 6
+        },
+        {
+          "ref": "roedloeg",
+          "amount": 0.25
+        },
+        {
+          "ref": "feta",
+          "amount": 50,
+          "unit": "g"
+        },
+        {
+          "ref": "citron",
+          "amount": 0.5,
+          "note": "saften"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk",
+          "note": "oliven"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "persille",
+          "note": "lidt, frisk"
+        }
       ],
       "steps": [
         "Skær agurk, cherrytomater og rødløg i mundrette stykker.",
@@ -629,13 +1054,36 @@
       "calories": "ca. 330 kcal",
       "protein": "ca. 30 g",
       "ingredients": [
-        "1 fuldkornstortilla",
-        "100 g kalkunbryst (stegt eller pålæg)",
-        "2 spsk hummus",
-        "En håndfuld salat",
-        "½ tomat",
-        "Lidt agurk",
-        "Salt og peber"
+        {
+          "ref": "tortilla",
+          "amount": 1
+        },
+        {
+          "ref": "kalkunbryst",
+          "amount": 100,
+          "unit": "g",
+          "note": "stegt eller pålæg"
+        },
+        {
+          "ref": "hummus",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salat",
+          "note": "en håndfuld"
+        },
+        {
+          "ref": "tomat",
+          "amount": 0.5
+        },
+        {
+          "ref": "agurk",
+          "note": "lidt"
+        },
+        {
+          "ref": "salt-peber"
+        }
       ],
       "steps": [
         "Smør hummus ud på tortillaen.",
@@ -667,14 +1115,45 @@
       "calories": "ca. 180 kcal pr. portion",
       "protein": "ca. 10 g pr. portion",
       "ingredients": [
-        "500 g frosne ærter",
-        "1 løg",
-        "1 fed hvidløg",
-        "7 dl grøntsagsbouillon",
-        "Lidt frisk mynte eller basilikum (valgfrit)",
-        "Salt og peber",
-        "1 tsk olie til stegning",
-        "En klat skyr eller creme fraiche til servering (valgfrit)"
+        {
+          "ref": "aerter",
+          "amount": 500,
+          "unit": "g",
+          "note": "frosne"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 7,
+          "unit": "dl"
+        },
+        {
+          "ref": "mynte",
+          "note": "frisk, eller basilikum",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk",
+          "note": "til stegning"
+        },
+        {
+          "ref": "skyr",
+          "note": "en klat, eller creme fraiche, til servering",
+          "optional": true
+        }
       ],
       "steps": [
         "Hak løg og hvidløg, og svits det blødt i olie i en gryde.",
@@ -706,13 +1185,45 @@
       "calories": "ca. 340 kcal",
       "protein": "ca. 38 g",
       "ingredients": [
-        "150 g kyllingebryst i strimler",
-        "300 g frosne wok-grøntsager",
-        "1 fed hvidløg",
-        "1 cm frisk ingefær (valgfrit)",
-        "2 spsk soja",
-        "1 tsk olie",
-        "Chili eller sesamfrø efter smag (valgfrit)"
+        {
+          "ref": "kyllingebryst",
+          "amount": 150,
+          "unit": "g",
+          "note": "i strimler"
+        },
+        {
+          "ref": "wok-groentsager",
+          "amount": 300,
+          "unit": "g",
+          "note": "frosne"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "ingefaer",
+          "amount": 1,
+          "unit": "cm",
+          "note": "frisk",
+          "optional": true
+        },
+        {
+          "ref": "soja",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "frisk-chili",
+          "note": "eller sesamfrø, efter smag",
+          "optional": true
+        }
       ],
       "steps": [
         "Varm olien godt op i en wok eller stor pande.",
@@ -744,12 +1255,36 @@
       "calories": "ca. 260 kcal",
       "protein": "ca. 32 g",
       "ingredients": [
-        "1 torskefilet (ca. 170 g)",
-        "Et bundt grønne asparges",
-        "½ citron",
-        "1 fed hvidløg",
-        "1 tsk olie",
-        "Salt, peber og lidt frisk timian"
+        {
+          "ref": "torskefilet",
+          "amount": 1,
+          "note": "ca. 170 g"
+        },
+        {
+          "ref": "asparges",
+          "note": "et bundt, grønne"
+        },
+        {
+          "ref": "citron",
+          "amount": 0.5
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "timian",
+          "note": "lidt, frisk"
+        }
       ],
       "steps": [
         "Tænd ovnen på 200 °C.",
@@ -781,14 +1316,39 @@
       "calories": "ca. 290 kcal pr. portion",
       "protein": "ca. 22 g pr. portion",
       "ingredients": [
-        "6 æg",
-        "1 peberfrugt",
-        "En håndfuld spinat",
-        "½ løg",
-        "6 cherrytomater",
-        "50 g revet ost",
-        "Salt og peber",
-        "1 tsk olie"
+        {
+          "ref": "aeg",
+          "amount": 6
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1
+        },
+        {
+          "ref": "spinat",
+          "note": "en håndfuld"
+        },
+        {
+          "ref": "loeg",
+          "amount": 0.5
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 6
+        },
+        {
+          "ref": "revet-ost",
+          "amount": 50,
+          "unit": "g"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        }
       ],
       "steps": [
         "Tænd ovnen på 190 °C.",
@@ -821,16 +1381,54 @@
       "calories": "ca. 310 kcal pr. portion",
       "protein": "ca. 16 g pr. portion",
       "ingredients": [
-        "2 dåser sorte bønner (drænet og skyllet)",
-        "1 dåse hakkede tomater",
-        "1 løg",
-        "2 fed hvidløg",
-        "1 peberfrugt",
-        "1 tsk spidskommen",
-        "1-2 tsk chilipulver (efter smag)",
-        "2 dl grøntsagsbouillon",
-        "Salt og peber",
-        "1 tsk olie"
+        {
+          "ref": "sorte-bonner",
+          "amount": 2,
+          "unit": "dåser",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1
+        },
+        {
+          "ref": "spidskommen",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "chilipulver",
+          "amount": 2,
+          "unit": "tsk",
+          "note": "1-2, efter smag"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 2,
+          "unit": "dl"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        }
       ],
       "steps": [
         "Hak løg, hvidløg og peberfrugt, og svits det i olie i en gryde.",
@@ -862,15 +1460,50 @@
       "calories": "ca. 350 kcal",
       "protein": "ca. 34 g",
       "ingredients": [
-        "125 g magert hakket oksekød (3-5 %)",
-        "1 stor squash",
-        "½ dåse hakkede tomater",
-        "½ løg",
-        "1 fed hvidløg",
-        "1 tsk tørret oregano",
-        "Salt og peber",
-        "1 tsk olie",
-        "Lidt revet parmesan (valgfrit)"
+        {
+          "ref": "hakket-oksekod",
+          "amount": 125,
+          "unit": "g",
+          "note": "magert (3-5 %)"
+        },
+        {
+          "ref": "squash",
+          "amount": 1,
+          "note": "stor"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 0.5,
+          "unit": "dåse"
+        },
+        {
+          "ref": "loeg",
+          "amount": 0.5
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 1,
+          "unit": "fed"
+        },
+        {
+          "ref": "oregano",
+          "amount": 1,
+          "unit": "tsk",
+          "note": "tørret"
+        },
+        {
+          "ref": "salt-peber"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "parmesan",
+          "note": "lidt, revet",
+          "optional": true
+        }
       ],
       "steps": [
         "Lav zoodles ved at skære squashen i tynde strimler med en juliennejern eller spiralizer.",

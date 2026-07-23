@@ -1,0 +1,370 @@
+{
+  "$schema": "./ingredients.schema.json",
+  "version": 1,
+  "ingredients": [
+    {
+      "id": "kyllingebryst",
+      "name": "Kyllingebryst",
+      "category": "Kød & fjerkræ"
+    },
+    {
+      "id": "kalkunbryst",
+      "name": "Kalkunbryst",
+      "category": "Kød & fjerkræ"
+    },
+    {
+      "id": "hakket-oksekod",
+      "name": "Hakket oksekød",
+      "category": "Kød & fjerkræ"
+    },
+    {
+      "id": "laksefilet",
+      "name": "Laksefilet",
+      "category": "Fisk & skaldyr"
+    },
+    {
+      "id": "torskefilet",
+      "name": "Torskefilet",
+      "category": "Fisk & skaldyr"
+    },
+    {
+      "id": "rejer",
+      "name": "Kogte rejer",
+      "category": "Fisk & skaldyr"
+    },
+    {
+      "id": "tun",
+      "name": "Tun",
+      "category": "Fisk & skaldyr"
+    },
+    {
+      "id": "loeg",
+      "name": "Løg",
+      "category": "Grønt"
+    },
+    {
+      "id": "roedloeg",
+      "name": "Rødløg",
+      "category": "Grønt"
+    },
+    {
+      "id": "foraarsloeg",
+      "name": "Forårsløg",
+      "category": "Grønt"
+    },
+    {
+      "id": "hvidloeg",
+      "name": "Hvidløg",
+      "category": "Grønt"
+    },
+    {
+      "id": "cherrytomater",
+      "name": "Cherrytomater",
+      "category": "Grønt"
+    },
+    {
+      "id": "tomat",
+      "name": "Tomat",
+      "category": "Grønt"
+    },
+    {
+      "id": "agurk",
+      "name": "Agurk",
+      "category": "Grønt"
+    },
+    {
+      "id": "peberfrugt",
+      "name": "Peberfrugt",
+      "category": "Grønt"
+    },
+    {
+      "id": "squash",
+      "name": "Squash",
+      "category": "Grønt"
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "category": "Grønt"
+    },
+    {
+      "id": "asparges",
+      "name": "Grønne asparges",
+      "category": "Grønt"
+    },
+    {
+      "id": "gulerod",
+      "name": "Gulerod",
+      "category": "Grønt"
+    },
+    {
+      "id": "salat",
+      "name": "Salat",
+      "category": "Grønt"
+    },
+    {
+      "id": "spinat",
+      "name": "Spinat",
+      "category": "Grønt"
+    },
+    {
+      "id": "avocado",
+      "name": "Avocado",
+      "category": "Grønt"
+    },
+    {
+      "id": "aerter",
+      "name": "Ærter",
+      "category": "Grønt"
+    },
+    {
+      "id": "wok-groentsager",
+      "name": "Wok-grøntsager",
+      "category": "Grønt"
+    },
+    {
+      "id": "ingefaer",
+      "name": "Ingefær",
+      "category": "Grønt"
+    },
+    {
+      "id": "persille",
+      "name": "Persille",
+      "category": "Grønt"
+    },
+    {
+      "id": "dild",
+      "name": "Dild",
+      "category": "Grønt"
+    },
+    {
+      "id": "mynte",
+      "name": "Mynte",
+      "category": "Grønt"
+    },
+    {
+      "id": "frisk-chili",
+      "name": "Frisk chili",
+      "category": "Grønt"
+    },
+    {
+      "id": "timian",
+      "name": "Timian",
+      "category": "Grønt"
+    },
+    {
+      "id": "citron",
+      "name": "Citron",
+      "category": "Frugt & bær"
+    },
+    {
+      "id": "banan",
+      "name": "Banan",
+      "category": "Frugt & bær"
+    },
+    {
+      "id": "baer",
+      "name": "Bær",
+      "category": "Frugt & bær"
+    },
+    {
+      "id": "aeg",
+      "name": "Æg",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "aeggehvider",
+      "name": "Æggehvider",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "maelk",
+      "name": "Mælk",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "skyr",
+      "name": "Skyr",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "hytteost",
+      "name": "Hytteost",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "feta",
+      "name": "Feta",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "revet-ost",
+      "name": "Revet ost",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "parmesan",
+      "name": "Parmesan",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "smoer",
+      "name": "Smør",
+      "category": "Mejeri & æg"
+    },
+    {
+      "id": "hvedemel",
+      "name": "Hvedemel",
+      "category": "Kolonial"
+    },
+    {
+      "id": "gaer",
+      "name": "Gær",
+      "category": "Kolonial"
+    },
+    {
+      "id": "roede-linser",
+      "name": "Røde linser",
+      "category": "Kolonial"
+    },
+    {
+      "id": "kikaerter",
+      "name": "Kikærter",
+      "category": "Kolonial"
+    },
+    {
+      "id": "sorte-bonner",
+      "name": "Sorte bønner",
+      "category": "Kolonial"
+    },
+    {
+      "id": "hakkede-tomater",
+      "name": "Hakkede tomater",
+      "category": "Kolonial"
+    },
+    {
+      "id": "ris",
+      "name": "Brune ris",
+      "category": "Kolonial"
+    },
+    {
+      "id": "havregryn",
+      "name": "Havregryn",
+      "category": "Kolonial"
+    },
+    {
+      "id": "chiafroe",
+      "name": "Chiafrø",
+      "category": "Kolonial"
+    },
+    {
+      "id": "tortilla",
+      "name": "Fuldkornstortilla",
+      "category": "Kolonial"
+    },
+    {
+      "id": "hummus",
+      "name": "Hummus",
+      "category": "Kolonial"
+    },
+    {
+      "id": "mandler-noedder",
+      "name": "Mandler eller nødder",
+      "category": "Kolonial"
+    },
+    {
+      "id": "soja",
+      "name": "Soja",
+      "category": "Kolonial"
+    },
+    {
+      "id": "groentsagsbouillon",
+      "name": "Grøntsagsbouillon",
+      "category": "Kolonial"
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "salt-peber",
+      "name": "Salt og peber",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "olie",
+      "name": "Olie",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "sukker",
+      "name": "Sukker",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "paprika",
+      "name": "Paprika",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "karry",
+      "name": "Karry",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "spidskommen",
+      "name": "Spidskommen",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "chilipulver",
+      "name": "Chilipulver",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "oregano",
+      "name": "Oregano",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "kanel",
+      "name": "Kanel",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "honning",
+      "name": "Honning",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "vand",
+      "name": "Vand",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "isterninger",
+      "name": "Isterninger",
+      "category": "Basis",
+      "pantry": true
+    },
+    {
+      "id": "hot-sauce",
+      "name": "Hot sauce",
+      "category": "Basis",
+      "pantry": true
+    }
+  ]
+}

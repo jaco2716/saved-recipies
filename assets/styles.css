@@ -577,6 +577,22 @@ ol.steps li {
   color: var(--muted);
 }
 
+/* "valgfri"-markering ved ingredienser og indkøbslinjer. */
+.shopping-list__opt,
+.ingredient__opt {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85em;
+}
+
+/* Diskret note om basisvarer under indkøbslisten. */
+.shopping-pantry {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 /* ---- Print: vis kun selve listen ---- */
 @media print {
   header.site,

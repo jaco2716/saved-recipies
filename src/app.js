@@ -7,6 +7,7 @@ import {
   getFacets,
   getSnacks,
   searchSnacks,
+  getIngredientIndex,
   DataError,
 } from "./data.js";
 import { route, setNotFound, startRouter } from "./router.js";
@@ -142,7 +143,10 @@ async function showList(params) {
 async function showRecipe(params) {
   const slug = params[0];
   try {
-    const recipe = await getRecipeBySlug(slug);
+    const [recipe, catalog] = await Promise.all([
+      getRecipeBySlug(slug),
+      getIngredientIndex(),
+    ]);
     if (!recipe) {
       setPageChrome({ title: `Ikke fundet · ${BASE_TITLE}`, emoji: "🤔" });
       mount(
@@ -155,7 +159,7 @@ async function showRecipe(params) {
     }
     setPageChrome({ title: `${recipe.title} · ${BASE_TITLE}`, emoji: recipe.emoji || "🍳" });
     setActiveNav("list");
-    mount(renderRecipe(recipe));
+    mount(renderRecipe(recipe, catalog));
   } catch (err) {
     showError(err);
   }
@@ -165,9 +169,10 @@ async function showShopping() {
   try {
     setPageChrome({ title: `Indkøbsliste · ${BASE_TITLE}`, emoji: "🛒" });
     setActiveNav("shopping");
-    const [recipes, snacks] = await Promise.all([
+    const [recipes, snacks, catalog] = await Promise.all([
       getAllRecipes(),
       getSnacks().catch(() => []),
+      getIngredientIndex(),
     ]);
     const state = loadShoppingState();
     mount(
@@ -176,6 +181,7 @@ async function showShopping() {
         snacks,
         state,
         onChange: saveShoppingState,
+        catalog,
       })
     );
   } catch (err) {

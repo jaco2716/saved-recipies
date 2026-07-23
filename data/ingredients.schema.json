@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/ingredients.schema.json",
+  "title": "Ingrediens-katalog",
+  "description": "Kanonisk liste over alle ingredienser. Opskrifter refererer hertil via 'ref', så ens ingredienser kan lægges sammen på indkøbslisten og genbruges på tværs af opskrifter.",
+  "type": "object",
+  "required": ["ingredients"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": {
+      "type": "integer",
+      "description": "Dataformatets version. Øges hvis strukturen ændres.",
+      "minimum": 1
+    },
+    "ingredients": {
+      "type": "array",
+      "description": "Alle ingredienser.",
+      "items": { "$ref": "#/definitions/ingredient" }
+    }
+  },
+  "definitions": {
+    "ingredient": {
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unikt id brugt som 'ref' i opskrifter. Kun små bogstaver, tal og bindestreg.",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Visningsnavn, fx 'Kyllingebryst'.",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "description": "Varetype til gruppering, fx 'Kød & fjerkræ', 'Grønt', 'Basis'."
+        },
+        "pantry": {
+          "type": "boolean",
+          "description": "Basisvare (salt, peber, olie, vand mm.) man normalt har. Holdes af indkøbslisten."
+        }
+      }
+    }
+  }
+}

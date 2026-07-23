@@ -5,11 +5,16 @@
 // senere skal bruge en rigtig backend (fx Next.js med en database), skal kun
 // funktionerne herunder ændres — visning og routing rører du ikke.
 
+import { indexCatalog } from "./ingredients.js";
+
 const DATA_URL = new URL("../data/recipes.json", import.meta.url);
 const SNACKS_URL = new URL("../data/snacks.json", import.meta.url);
+const INGREDIENTS_URL = new URL("../data/ingredients.json", import.meta.url);
 
 let cache = null;
 let snacksCache = null;
+let ingredientsCache = null;
+let ingredientIndexCache = null;
 
 /**
  * Henter alle opskrifter (cachet efter første kald).
@@ -77,6 +82,37 @@ export async function getSnacks() {
   return snacksCache;
 }
 
+/**
+ * Henter ingrediens-kataloget (cachet). Kanonisk liste over alle ingredienser
+ * med visningsnavn, kategori og om det er en basisvare.
+ * @returns {Promise<Array<object>>}
+ */
+export async function getIngredients() {
+  if (ingredientsCache) return ingredientsCache;
+  let response;
+  try {
+    response = await fetch(INGREDIENTS_URL);
+  } catch (err) {
+    throw new DataError(
+      "Kunne ikke hente ingredienser. Åbner du siden direkte fra en fil " +
+        "(file://)? Brug en lille lokal server i stedet — se README."
+    );
+  }
+  if (!response.ok) {
+    throw new DataError(`Kunne ikke hente ingredienser (HTTP ${response.status}).`);
+  }
+  const payload = await response.json();
+  ingredientsCache = Array.isArray(payload) ? payload : payload.ingredients ?? [];
+  return ingredientsCache;
+}
+
+/** Katalog som opslags-Map (id → post), cachet. */
+export async function getIngredientIndex() {
+  if (ingredientIndexCache) return ingredientIndexCache;
+  ingredientIndexCache = indexCatalog(await getIngredients());
+  return ingredientIndexCache;
+}
+
 /** Fritekstsøgning i snacks (titel, beskrivelse, tags). */
 export async function searchSnacks(query) {
   const snacks = await getSnacks();
@@ -91,8 +127,14 @@ export async function searchSnacks(query) {
   );
 }
 
-function haystack(r) {
-  return [r.title, r.description, r.category, ...(r.tags ?? []), ...(r.ingredients ?? [])]
+function haystack(r, catalog) {
+  // Ingredienser er refs — slå navn op i kataloget, så søgning på fx "kylling"
+  // stadig rammer. Tag også noten med ("i tern", "drænet").
+  const ingredientText = (r.ingredients ?? []).map((ing) => {
+    const name = catalog?.get(ing.ref)?.name || ing.ref || "";
+    return `${name} ${ing.note || ""}`;
+  });
+  return [r.title, r.description, r.category, ...(r.tags ?? []), ...ingredientText]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
@@ -113,10 +155,11 @@ function matchesFacet(r, key) {
  * @returns {Promise<Array<object>>}
  */
 export async function searchRecipes(query) {
-  const recipes = await getAllRecipes();
   const q = (query || "").trim().toLowerCase();
+  const recipes = await getAllRecipes();
   if (!q) return recipes;
-  return recipes.filter((r) => haystack(r).includes(q));
+  const catalog = await getIngredientIndex();
+  return recipes.filter((r) => haystack(r, catalog).includes(q));
 }
 
 /**
@@ -129,7 +172,10 @@ export async function filterRecipes({ query = "", category = "" } = {}) {
   const cat = category.trim();
   const q = query.trim().toLowerCase();
   if (cat) recipes = recipes.filter((r) => matchesFacet(r, cat));
-  if (q) recipes = recipes.filter((r) => haystack(r).includes(q));
+  if (q) {
+    const catalog = await getIngredientIndex();
+    recipes = recipes.filter((r) => haystack(r, catalog).includes(q));
+  }
   return recipes;
 }
 
