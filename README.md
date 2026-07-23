@@ -92,6 +92,18 @@ Fanerne dannes automatisk ud fra data — faner uden opskrifter skjules. Vil du
 ændre rækkefølgen eller hvilke gennemgående tags der vises som faner, så rediger
 `CATEGORY_ORDER` og `HIGHLIGHT_TAGS` øverst i `src/app.js`.
 
+## Snacks
+
+Yderst til højre i fanerne — adskilt fra mad-kategorierne med en skillelinje —
+er fanen **🍿 Snacks**. Den viser en separat samling af hurtige snacks, der
+ligger i sin egen fil, `data/snacks.json`, med sit eget skema
+(`data/snacks.schema.json`).
+
+Snacks er bevidst enklere end opskrifter: kun `slug`, `title`, `emoji`,
+`description` og `tags` — ingen ingredienser eller fremgangsmåde. De vises som
+info-kort (uden egen underside) og kan søges i som opskrifterne. Tilføj en snack
+ved at føje et objekt til `snacks`-listen i `data/snacks.json`.
+
 ## Indkøbsliste
 
 Under **🛒 Indkøbsliste** i menuen kan du vælge de opskrifter, du vil handle
@@ -116,7 +128,9 @@ mængderne på sammensatte ingredienser.
 ├── index.html               # App-skal (header + tomt indholdsområde)
 ├── data/
 │   ├── recipes.json         # ← ALLE opskrifter (kilden til alt indhold)
-│   └── recipe.schema.json   # JSON-skema: validering + autofuldførelse
+│   ├── recipe.schema.json   # JSON-skema: validering + autofuldførelse
+│   ├── snacks.json          # Separat snack-samling
+│   └── snacks.schema.json   # JSON-skema for snacks
 ├── src/
 │   ├── app.js               # Indgang: binder data, router og visning sammen
 │   ├── data.js              # Dataadgangslag (skift hertil for et rigtigt API)

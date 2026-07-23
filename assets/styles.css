@@ -180,6 +180,16 @@ header.site p {
   border-color: var(--accent);
 }
 
+/* Skillelinje mellem mad-faner og snacks. */
+.tabs__divider {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 1px;
+  height: 22px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
 /* ---- Opskrift-oversigt (forside) ---- */
 .recipe-grid {
   display: grid;

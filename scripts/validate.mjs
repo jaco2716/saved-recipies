@@ -88,10 +88,40 @@ recipes.forEach((r, i) => {
 
 await Promise.all(imageChecks);
 
+// ---- Snacks (separat samling) ----
+let snacks = [];
+const snacksRaw = await readFile(new URL("data/snacks.json", root), "utf8").catch(() => null);
+if (snacksRaw) {
+  let snacksPayload;
+  try {
+    snacksPayload = JSON.parse(snacksRaw);
+  } catch (e) {
+    fail(`Ugyldig JSON i data/snacks.json: ${e.message}`);
+  }
+  snacks = Array.isArray(snacksPayload) ? snacksPayload : snacksPayload?.snacks ?? [];
+  const snackSlugs = new Set();
+  snacks.forEach((s, i) => {
+    const where = `snack #${i + 1}` + (s?.title ? ` ("${s.title}")` : "");
+    for (const field of ["slug", "title"]) {
+      if (typeof s?.[field] !== "string" || s[field].length === 0) {
+        fail(`${where}: mangler tekstfeltet "${field}"`);
+      }
+    }
+    if (typeof s?.slug === "string") {
+      if (!slugPattern.test(s.slug)) fail(`${where}: ugyldigt slug "${s.slug}"`);
+      if (snackSlugs.has(s.slug)) fail(`${where}: slug "${s.slug}" bruges to gange`);
+      snackSlugs.add(s.slug);
+    }
+    if (s?.tags != null && !Array.isArray(s.tags)) fail(`${where}: "tags" skal være en liste`);
+  });
+}
+
 if (errors.length) {
-  console.error(`✖ ${errors.length} fejl i data/recipes.json:\n`);
+  console.error(`✖ ${errors.length} fejl i data:\n`);
   for (const e of errors) console.error("  - " + e);
   process.exit(1);
 }
 
-console.log(`✔ data/recipes.json er gyldig (${recipes.length} opskrifter).`);
+console.log(
+  `✔ Data er gyldig (${recipes.length} opskrifter, ${snacks.length} snacks).`
+);

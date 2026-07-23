@@ -5,6 +5,8 @@ import {
   getRecipeBySlug,
   filterRecipes,
   getFacets,
+  getSnacks,
+  searchSnacks,
   DataError,
 } from "./data.js";
 import { route, setNotFound, startRouter } from "./router.js";
@@ -24,6 +26,28 @@ const SHOPPING_KEY = "indkobsliste-valg";
 // Faner, der ikke matcher nogen opskrift, skjules automatisk (se getFacets).
 const CATEGORY_ORDER = ["Morgenmad", "Frokost", "Aftensmad", "Brød & bagning", "Dessert"];
 const HIGHLIGHT_TAGS = ["vægttab", "vegetarisk", "meal-prep"];
+
+// Snacks er en separat samling (ikke mad-opskrifter). Den får sin egen fane,
+// adskilt fra kategorierne med en skillelinje.
+const SNACKS_KEY = "snacks";
+
+/** Byg listen af faner: opskrifts-kategorier + en adskilt Snacks-fane. */
+async function buildFacets() {
+  const recipeFacets = await getFacets(CATEGORY_ORDER, HIGHLIGHT_TAGS);
+  const snacks = await getSnacks().catch(() => []);
+  if (snacks.length > 0) {
+    recipeFacets.push({ key: SNACKS_KEY, label: "🍿 Snacks", divider: true });
+  }
+  return recipeFacets;
+}
+
+/** Hent resultatet for et givet filter — enten opskrifter eller snacks. */
+async function fetchResult({ query, category }) {
+  if (category === SNACKS_KEY) {
+    return { kind: "snacks", items: await searchSnacks(query) };
+  }
+  return { kind: "recipes", items: await filterRecipes({ query, category }) };
+}
 
 /** Udskift hele appens indhold og rul til toppen. */
 function mount(node) {
@@ -66,25 +90,25 @@ async function showList(params) {
   try {
     setPageChrome({ title: BASE_TITLE, emoji: "🍳" });
     setActiveNav("list");
-    const [recipes, facets] = await Promise.all([
-      filterRecipes({ query, category }),
-      getFacets(CATEGORY_ORDER, HIGHLIGHT_TAGS),
+    const [result, facets] = await Promise.all([
+      fetchResult({ query, category }),
+      buildFacets(),
     ]);
     mount(
       renderList({
-        recipes,
+        result,
         query,
         category,
         facets,
         // Kaldes når søgetekst eller fane ændres. Opdaterer den delbare URL
-        // og returnerer de matchende opskrifter til visningslaget.
+        // og returnerer det matchende resultat (opskrifter eller snacks).
         onFilter: async (f) => {
           const next = new URLSearchParams();
           if (f.query.trim()) next.set("q", f.query.trim());
           if (f.category) next.set("kat", f.category);
           const suffix = next.toString();
           history.replaceState(null, "", suffix ? `#/?${suffix}` : "#/");
-          return filterRecipes(f);
+          return fetchResult(f);
         },
       })
     );

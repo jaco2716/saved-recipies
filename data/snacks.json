@@ -1,0 +1,62 @@
+{
+  "$schema": "./snacks.schema.json",
+  "version": 1,
+  "snacks": [
+    {
+      "slug": "hytteost",
+      "title": "Hytteost (naturel)",
+      "emoji": "🧀",
+      "description": "Meget protein og få kalorier. Spis den som den er, eller top med lidt peber eller bær.",
+      "tags": ["protein", "vægttab", "vegetarisk"]
+    },
+    {
+      "slug": "groentsagsstaenger-hummus",
+      "title": "Grøntsagsstænger med hummus",
+      "emoji": "🥕",
+      "description": "Gulerod, agurk og peberfrugt i stænger dyppet i hummus. Fibre, knas og lidt protein.",
+      "tags": ["fibre", "vegetarisk", "vægttab"]
+    },
+    {
+      "slug": "edamamebonner",
+      "title": "Edamamebønner",
+      "emoji": "🫛",
+      "description": "Fås frosne. Kog 3 minutter, drys med lidt salt. Højt indhold af protein og fibre.",
+      "tags": ["protein", "fibre", "vegetarisk"]
+    },
+    {
+      "slug": "haardkogte-aeg",
+      "title": "Hårdkogte æg",
+      "emoji": "🥚",
+      "description": "Kan købes færdigkogte. Mættende proteinsnack med næsten ingen forberedelse.",
+      "tags": ["protein", "vægttab", "nem"]
+    },
+    {
+      "slug": "mandler-noedder",
+      "title": "En håndfuld nødder",
+      "emoji": "🥜",
+      "description": "Mandler eller valnødder. Sunde fedtstoffer, men hold portionen til ca. 30 g pga. kalorier.",
+      "tags": ["sundt-fedt", "vegetarisk"]
+    },
+    {
+      "slug": "rugkiks-kalkun",
+      "title": "Rugkiks med kalkun",
+      "emoji": "🍘",
+      "description": "Wasa eller rugkiks toppet med magert kalkunpålæg. Fibre og protein i én snack.",
+      "tags": ["protein", "fibre", "nem"]
+    },
+    {
+      "slug": "popcorn",
+      "title": "Luftpoppet popcorn",
+      "emoji": "🍿",
+      "description": "Popcorn uden smør. Overraskende få kalorier og masser af volumen, der mætter.",
+      "tags": ["fibre", "vegetarisk", "snack"]
+    },
+    {
+      "slug": "frugt",
+      "title": "Et stykke frugt",
+      "emoji": "🍎",
+      "description": "Æble, appelsin eller en håndfuld bær. Naturlig sødme, vitaminer og fibre.",
+      "tags": ["fibre", "vegetarisk", "vægttab"]
+    }
+  ]
+}

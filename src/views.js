@@ -47,10 +47,33 @@ function recipeCard(recipe) {
   ]);
 }
 
-function resultsFor(recipes) {
-  return recipes.length > 0
-    ? el("div", { class: "recipe-grid" }, recipes.map(recipeCard))
-    : el("p", { class: "empty", text: "Ingen opskrifter matcher dit valg." });
+/** Kort til en snack (ingen fremgangsmåde — kun info). */
+function snackCard(snack) {
+  return el("div", { class: "recipe-card snack-card" }, [
+    el("span", { class: "recipe-card__emoji", "aria-hidden": "true", text: snack.emoji || "🍿" }),
+    el("span", { class: "recipe-card__body" }, [
+      el("span", { class: "recipe-card__title", text: snack.title }),
+      snack.description
+        ? el("span", { class: "recipe-card__desc", text: snack.description })
+        : null,
+      snack.tags && snack.tags.length
+        ? el("div", { class: "tags" }, snack.tags.map((t) => el("span", { class: "tag", text: t })))
+        : null,
+    ]),
+  ]);
+}
+
+/**
+ * Byg resultat-gitteret. `result` er { kind, items }, hvor kind afgør, om der
+ * vises opskrifts- eller snack-kort.
+ */
+function resultsFor(result) {
+  const { kind, items } = result;
+  if (items.length === 0) {
+    return el("p", { class: "empty", text: "Ingen matcher dit valg." });
+  }
+  const render = kind === "snacks" ? snackCard : recipeCard;
+  return el("div", { class: "recipe-grid" }, items.map(render));
 }
 
 /**
@@ -58,16 +81,16 @@ function resultsFor(recipes) {
  *
  * Søgefelt og faner oprettes én gang og genbruges, så søgefeltet ikke mister
  * fokus mens man skriver. Kun resultat-listen tegnes om. `onFilter` skal
- * returnere en Promise med de matchende opskrifter.
+ * returnere en Promise med et resultat { kind, items }.
  *
  * @param {object} opts
- * @param {Array<object>} opts.recipes - startresultater
+ * @param {{kind: string, items: Array<object>}} opts.result - startresultat
  * @param {string} opts.query - startsøgetekst
- * @param {string} opts.category - aktiv kategori/tag (tom = Alle)
- * @param {Array<{key: string, label: string}>} opts.facets - tilgængelige faner
- * @param {(f: {query: string, category: string}) => Promise<Array<object>>} opts.onFilter
+ * @param {string} opts.category - aktiv fane (tom = Alle)
+ * @param {Array<{key: string, label: string, divider?: boolean}>} opts.facets
+ * @param {(f: {query: string, category: string}) => Promise<{kind: string, items: Array<object>}>} opts.onFilter
  */
-export function renderList({ recipes, query, category, facets, onFilter }) {
+export function renderList({ result, query, category, facets, onFilter }) {
   const state = { query: query || "", category: category || "" };
 
   const search = el("input", {
@@ -90,10 +113,14 @@ export function renderList({ recipes, query, category, facets, onFilter }) {
     tabButtons.set(key, btn);
     return btn;
   }
-  const tabs = el("div", { class: "tabs", role: "tablist", "aria-label": "Kategorier" }, [
-    makeTab("", "Alle"),
-    ...facets.map((f) => makeTab(f.key, f.label)),
-  ]);
+
+  const tabChildren = [makeTab("", "Alle")];
+  for (const f of facets) {
+    // En 'divider' adskiller fx snacks visuelt fra mad-kategorierne.
+    if (f.divider) tabChildren.push(el("span", { class: "tabs__divider", "aria-hidden": "true" }));
+    tabChildren.push(makeTab(f.key, f.label));
+  }
+  const tabs = el("div", { class: "tabs", role: "tablist", "aria-label": "Kategorier" }, tabChildren);
 
   function syncTabs() {
     for (const [key, btn] of tabButtons) {
@@ -111,20 +138,18 @@ export function renderList({ recipes, query, category, facets, onFilter }) {
     );
   }
 
-  const results = resultsFor(recipes);
-
   const section = el("section", {}, [
     el("div", { class: "toolbar" }, [search]),
     tabs,
-    results,
+    resultsFor(result),
   ]);
 
   let seq = 0;
   async function run() {
     const mine = ++seq;
-    const matches = await onFilter({ query: state.query, category: state.category });
+    const next = await onFilter({ query: state.query, category: state.category });
     if (mine !== seq) return; // forældet svar — brugeren nåede at ændre noget
-    section.replaceChild(resultsFor(matches), section.lastChild);
+    section.replaceChild(resultsFor(next), section.lastChild);
   }
 
   search.addEventListener("input", (e) => {

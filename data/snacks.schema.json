@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/snacks.schema.json",
+  "title": "Snacksamling",
+  "description": "Skema for sunde snacks man kan købe. Disse har ingen eller minimal tilberedning og holdes derfor adskilt fra opskrifterne.",
+  "type": "object",
+  "required": ["snacks"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": {
+      "type": "integer",
+      "description": "Dataformatets version. Øges hvis strukturen ændres.",
+      "minimum": 1
+    },
+    "snacks": {
+      "type": "array",
+      "description": "Alle snacks.",
+      "items": { "$ref": "#/definitions/snack" }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "snack": {
+      "type": "object",
+      "required": ["slug", "title", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "type": "string",
+          "description": "Unikt id. Kun små bogstaver, tal og bindestreg.",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "description": "Snackens navn.",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "description": "Kort beskrivelse af, hvorfor snacken er sund, og hvordan den spises."
+        },
+        "emoji": {
+          "type": "string",
+          "description": "Emoji brugt som ikon, fx '🥕'."
+        },
+        "tags": {
+          "type": "array",
+          "description": "Frie nøgleord til søgning og filtrering.",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

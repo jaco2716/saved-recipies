@@ -6,8 +6,10 @@
 // funktionerne herunder ændres — visning og routing rører du ikke.
 
 const DATA_URL = new URL("../data/recipes.json", import.meta.url);
+const SNACKS_URL = new URL("../data/snacks.json", import.meta.url);
 
 let cache = null;
+let snacksCache = null;
 
 /**
  * Henter alle opskrifter (cachet efter første kald).
@@ -48,6 +50,45 @@ export async function getAllRecipes() {
 export async function getRecipeBySlug(slug) {
   const recipes = await getAllRecipes();
   return recipes.find((r) => r.slug === slug) ?? null;
+}
+
+/**
+ * Henter snack-samlingen (cachet). Snacks er en separat, enklere datatype end
+ * opskrifter — kun titel, emoji, beskrivelse og tags, ingen fremgangsmåde.
+ * @returns {Promise<Array<object>>}
+ */
+export async function getSnacks() {
+  if (snacksCache) return snacksCache;
+  let response;
+  try {
+    response = await fetch(SNACKS_URL);
+  } catch (err) {
+    throw new DataError(
+      "Kunne ikke hente snacks. Åbner du siden direkte fra en fil (file://)? " +
+        "Brug en lille lokal server i stedet — se README."
+    );
+  }
+  if (!response.ok) {
+    throw new DataError(`Kunne ikke hente snacks (HTTP ${response.status}).`);
+  }
+  const payload = await response.json();
+  const snacks = Array.isArray(payload) ? payload : payload.snacks ?? [];
+  snacksCache = snacks.slice().sort((a, b) => a.title.localeCompare(b.title, "da"));
+  return snacksCache;
+}
+
+/** Fritekstsøgning i snacks (titel, beskrivelse, tags). */
+export async function searchSnacks(query) {
+  const snacks = await getSnacks();
+  const q = (query || "").trim().toLowerCase();
+  if (!q) return snacks;
+  return snacks.filter((s) =>
+    [s.title, s.description, ...(s.tags ?? [])]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase()
+      .includes(q)
+  );
 }
 
 function haystack(r) {

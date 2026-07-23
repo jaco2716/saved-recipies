@@ -10,7 +10,11 @@
       "emoji": "🥞",
       "image": "assets/images/pandekager.jpg",
       "category": "Dessert",
-      "tags": ["klassisk", "dessert", "nem"],
+      "tags": [
+        "klassisk",
+        "dessert",
+        "nem"
+      ],
       "servings": "ca. 10 stk.",
       "time": "30 min",
       "ingredients": [
@@ -39,7 +43,11 @@
       "emoji": "🍞",
       "image": "assets/images/boller.jpg",
       "category": "Brød & bagning",
-      "tags": ["brød", "morgenmad", "bagning"],
+      "tags": [
+        "brød",
+        "morgenmad",
+        "bagning"
+      ],
       "servings": "ca. 12 stk.",
       "time": "2 timer (med hævning)",
       "ingredients": [
@@ -69,7 +77,13 @@
       "emoji": "🍳",
       "image": "assets/images/aeggehvide-omelet.jpg",
       "category": "Morgenmad",
-      "tags": ["protein", "vægttab", "morgenmad", "nem", "vegetarisk"],
+      "tags": [
+        "protein",
+        "vægttab",
+        "morgenmad",
+        "nem",
+        "vegetarisk"
+      ],
       "servings": "1 portion",
       "time": "10 min",
       "calories": "ca. 200 kcal",
@@ -100,7 +114,12 @@
       "emoji": "🐟",
       "image": "assets/images/bagt-laks.jpg",
       "category": "Aftensmad",
-      "tags": ["fisk", "protein", "vægttab", "nem"],
+      "tags": [
+        "fisk",
+        "protein",
+        "vægttab",
+        "nem"
+      ],
       "servings": "1 portion",
       "time": "20 min",
       "calories": "ca. 380 kcal",
@@ -131,7 +150,13 @@
       "emoji": "🧀",
       "image": "assets/images/hytteost-skaal.jpg",
       "category": "Frokost",
-      "tags": ["protein", "vægttab", "nem", "snack", "vegetarisk"],
+      "tags": [
+        "protein",
+        "vægttab",
+        "nem",
+        "snack",
+        "vegetarisk"
+      ],
       "servings": "1 portion",
       "time": "5 min",
       "calories": "ca. 220 kcal",
@@ -160,7 +185,12 @@
       "emoji": "🍗",
       "image": "assets/images/kylling-groentsager.jpg",
       "category": "Aftensmad",
-      "tags": ["kylling", "protein", "vægttab", "nem"],
+      "tags": [
+        "kylling",
+        "protein",
+        "vægttab",
+        "nem"
+      ],
       "servings": "1 portion",
       "time": "15 min",
       "calories": "ca. 320 kcal",
@@ -191,7 +221,12 @@
       "emoji": "🌯",
       "image": "assets/images/kylling-wrap.jpg",
       "category": "Frokost",
-      "tags": ["kylling", "protein", "frokost", "meal-prep"],
+      "tags": [
+        "kylling",
+        "protein",
+        "frokost",
+        "meal-prep"
+      ],
       "servings": "1 wrap",
       "time": "15 min",
       "calories": "ca. 350 kcal",
@@ -224,7 +259,12 @@
       "emoji": "🍲",
       "image": "assets/images/linsegryde.jpg",
       "category": "Aftensmad",
-      "tags": ["vegetarisk", "meal-prep", "billig", "protein"],
+      "tags": [
+        "vegetarisk",
+        "meal-prep",
+        "billig",
+        "protein"
+      ],
       "servings": "3-4 portioner",
       "time": "25 min",
       "calories": "ca. 300 kcal pr. portion",
@@ -257,7 +297,11 @@
       "emoji": "🍚",
       "image": "assets/images/oksekod-bowl.jpg",
       "category": "Aftensmad",
-      "tags": ["oksekød", "protein", "meal-prep"],
+      "tags": [
+        "oksekød",
+        "protein",
+        "meal-prep"
+      ],
       "servings": "1 portion",
       "time": "20 min",
       "calories": "ca. 420 kcal",
@@ -289,7 +333,12 @@
       "emoji": "🍤",
       "image": "assets/images/rejesalat.jpg",
       "category": "Frokost",
-      "tags": ["fisk", "protein", "vægttab", "salat"],
+      "tags": [
+        "fisk",
+        "protein",
+        "vægttab",
+        "salat"
+      ],
       "servings": "1 portion",
       "time": "10 min",
       "calories": "ca. 280 kcal",
@@ -320,7 +369,13 @@
       "emoji": "🥣",
       "image": "assets/images/skyr-skaal.jpg",
       "category": "Morgenmad",
-      "tags": ["protein", "morgenmad", "nem", "snack", "vegetarisk"],
+      "tags": [
+        "protein",
+        "morgenmad",
+        "nem",
+        "snack",
+        "vegetarisk"
+      ],
       "servings": "1 portion",
       "time": "5 min",
       "calories": "ca. 230 kcal",
@@ -347,7 +402,13 @@
       "emoji": "🥗",
       "image": "assets/images/tunsalat.jpg",
       "category": "Frokost",
-      "tags": ["fisk", "protein", "vægttab", "salat", "nem"],
+      "tags": [
+        "fisk",
+        "protein",
+        "vægttab",
+        "salat",
+        "nem"
+      ],
       "servings": "1 portion",
       "time": "10 min",
       "calories": "ca. 250 kcal",
@@ -368,6 +429,400 @@
         "Top med lidt hot sauce eller chili, hvis du vil have mere smag."
       ],
       "notes": "Byt tunen ud med ca. 100 g kogt eller grillet kylling i strimler for en anden variant med samme høje proteinindhold. En spiseskefuld skyr eller light mayo gør salaten mere cremet uden mange ekstra kalorier."
+    },
+    {
+      "slug": "overnight-oats",
+      "baseServings": 1,
+      "title": "Overnight oats",
+      "description": "Røres om aftenen · klar til at spise om morgenen",
+      "emoji": "🌙",
+      "category": "Morgenmad",
+      "tags": [
+        "morgenmad",
+        "meal-prep",
+        "nem",
+        "vegetarisk",
+        "protein"
+      ],
+      "servings": "1 portion",
+      "time": "5 min (+ natten over)",
+      "calories": "ca. 300 kcal",
+      "protein": "ca. 20 g",
+      "ingredients": [
+        "1 dl havregryn",
+        "1,5 dl mælk eller plantemælk",
+        "100 g skyr (naturel)",
+        "En håndfuld bær",
+        "1 tsk chiafrø (valgfrit)",
+        "Lidt kanel",
+        "1 tsk honning eller sødemiddel efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Bland havregryn, mælk, skyr og chiafrø i et glas eller en skål.",
+        "Rør kanel og evt. honning i.",
+        "Sæt på køl natten over (mindst 4 timer).",
+        "Top med friske bær inden servering."
+      ],
+      "notes": "Perfekt til travle morgener — lav gerne 2-3 portioner ad gangen. Chiafrø gør den tykkere og mere mættende."
+    },
+    {
+      "slug": "roeraeg-spinat",
+      "baseServings": 1,
+      "title": "Røræg med spinat",
+      "description": "Cremet røræg med friske grøntsager · proteinrig",
+      "emoji": "🍳",
+      "category": "Morgenmad",
+      "tags": [
+        "morgenmad",
+        "protein",
+        "vægttab",
+        "nem",
+        "vegetarisk"
+      ],
+      "servings": "1 portion",
+      "time": "10 min",
+      "calories": "ca. 240 kcal",
+      "protein": "ca. 20 g",
+      "ingredients": [
+        "3 æg",
+        "En stor håndfuld frisk spinat",
+        "4 cherrytomater",
+        "1 spsk mælk (valgfrit)",
+        "Salt og peber",
+        "Spray-olie eller lidt smør til panden"
+      ],
+      "steps": [
+        "Pisk æg sammen med mælk, salt og peber.",
+        "Steg de halverede cherrytomater kort på en varm pande.",
+        "Tilsæt spinaten, og lad den falde sammen.",
+        "Hæld æggemassen ved, og rør forsigtigt ved middelvarme, til æggene er cremede og lige akkurat sat.",
+        "Servér med det samme, evt. med en skive rugbrød."
+      ],
+      "notes": "Tag panden af varmen lige før æggene er helt færdige — de stivner lidt efter af restvarmen og bliver mest cremede sådan."
+    },
+    {
+      "slug": "proteinsmoothie",
+      "baseServings": 1,
+      "title": "Proteinsmoothie med bær",
+      "description": "Blendes på et minut · god før eller efter træning",
+      "emoji": "🥤",
+      "category": "Morgenmad",
+      "tags": [
+        "protein",
+        "morgenmad",
+        "snack",
+        "nem",
+        "vegetarisk"
+      ],
+      "servings": "1 portion",
+      "time": "5 min",
+      "calories": "ca. 250 kcal",
+      "protein": "ca. 28 g",
+      "ingredients": [
+        "150 g skyr (naturel)",
+        "En håndfuld frosne bær",
+        "½ banan",
+        "2 dl vand eller mælk",
+        "Isterninger efter smag",
+        "1 tsk honning eller sødemiddel (valgfrit)"
+      ],
+      "steps": [
+        "Kom alle ingredienser i en blender.",
+        "Blend til en jævn og cremet smoothie.",
+        "Smag til, og spæd med mere vand, hvis den er for tyk.",
+        "Hæld i et glas og drik med det samme."
+      ],
+      "notes": "Brug frosne bær i stedet for is for mere smag. Tilsæt evt. en skefuld proteinpulver, hvis du vil have endnu mere protein."
+    },
+    {
+      "slug": "kikaertesalat-feta",
+      "baseServings": 1,
+      "title": "Kikærtesalat med feta",
+      "description": "Mættende salat med protein og fibre · vegetarisk",
+      "emoji": "🫘",
+      "category": "Frokost",
+      "tags": [
+        "vegetarisk",
+        "protein",
+        "vægttab",
+        "salat",
+        "nem",
+        "meal-prep"
+      ],
+      "servings": "1 portion",
+      "time": "10 min",
+      "calories": "ca. 340 kcal",
+      "protein": "ca. 16 g",
+      "ingredients": [
+        "1 dåse kikærter (drænet og skyllet)",
+        "½ agurk",
+        "6 cherrytomater",
+        "¼ rødløg",
+        "50 g feta",
+        "Saften fra ½ citron",
+        "1 tsk olivenolie",
+        "Salt, peber og lidt frisk persille"
+      ],
+      "steps": [
+        "Skær agurk, cherrytomater og rødløg i mundrette stykker.",
+        "Kom kikærter og grøntsager i en skål.",
+        "Smuldr feta over, og dryp med citronsaft og olie.",
+        "Smag til med salt, peber og persille."
+      ],
+      "notes": "Kikærter giver både protein og fibre, der holder dig mæt længe. Salaten holder sig fint et par dage på køl og er god til meal prep."
+    },
+    {
+      "slug": "kalkun-wrap-hummus",
+      "baseServings": 1,
+      "title": "Kalkun-wrap med hummus",
+      "description": "Hurtig wrap at tage med · magert protein",
+      "emoji": "🌯",
+      "category": "Frokost",
+      "tags": [
+        "kalkun",
+        "protein",
+        "frokost",
+        "meal-prep",
+        "nem"
+      ],
+      "servings": "1 wrap",
+      "time": "10 min",
+      "calories": "ca. 330 kcal",
+      "protein": "ca. 30 g",
+      "ingredients": [
+        "1 fuldkornstortilla",
+        "100 g kalkunbryst (stegt eller pålæg)",
+        "2 spsk hummus",
+        "En håndfuld salat",
+        "½ tomat",
+        "Lidt agurk",
+        "Salt og peber"
+      ],
+      "steps": [
+        "Smør hummus ud på tortillaen.",
+        "Skær tomat og agurk i tynde skiver.",
+        "Læg salat, kalkun, tomat og agurk på.",
+        "Krydr med salt og peber, og rul wrappen stramt sammen."
+      ],
+      "notes": "Kalkun er endnu magrere end kylling. Wrappen kan pakkes ind og tages med som madpakke."
+    },
+    {
+      "slug": "groen-aertesuppe",
+      "baseServings": 3,
+      "title": "Grøn ærtesuppe",
+      "description": "Cremet suppe på få ingredienser · billig og let",
+      "emoji": "🥣",
+      "category": "Frokost",
+      "tags": [
+        "vegetarisk",
+        "vægttab",
+        "billig",
+        "meal-prep",
+        "nem"
+      ],
+      "servings": "3 portioner",
+      "time": "20 min",
+      "calories": "ca. 180 kcal pr. portion",
+      "protein": "ca. 10 g pr. portion",
+      "ingredients": [
+        "500 g frosne ærter",
+        "1 løg",
+        "1 fed hvidløg",
+        "7 dl grøntsagsbouillon",
+        "Lidt frisk mynte eller basilikum (valgfrit)",
+        "Salt og peber",
+        "1 tsk olie til stegning",
+        "En klat skyr eller creme fraiche til servering (valgfrit)"
+      ],
+      "steps": [
+        "Hak løg og hvidløg, og svits det blødt i olie i en gryde.",
+        "Tilsæt bouillon, og bring det i kog.",
+        "Kom ærterne i, og lad det koge op i 3-4 minutter.",
+        "Blend suppen jævn med en stavblender.",
+        "Smag til med salt, peber og evt. friske krydderurter, og top med en klat skyr."
+      ],
+      "notes": "Meget billig og hurtig. Blend evt. en dåse hvide bønner med for mere protein og en endnu mere cremet suppe."
+    },
+    {
+      "slug": "kylling-wok",
+      "baseServings": 1,
+      "title": "Kylling-wok med grøntsager",
+      "description": "Alt i én wok · masser af grønt og protein",
+      "emoji": "🥢",
+      "category": "Aftensmad",
+      "tags": [
+        "kylling",
+        "protein",
+        "vægttab",
+        "nem"
+      ],
+      "servings": "1 portion",
+      "time": "15 min",
+      "calories": "ca. 340 kcal",
+      "protein": "ca. 38 g",
+      "ingredients": [
+        "150 g kyllingebryst i strimler",
+        "300 g frosne wok-grøntsager",
+        "1 fed hvidløg",
+        "1 cm frisk ingefær (valgfrit)",
+        "2 spsk soja",
+        "1 tsk olie",
+        "Chili eller sesamfrø efter smag (valgfrit)"
+      ],
+      "steps": [
+        "Varm olien godt op i en wok eller stor pande.",
+        "Steg kyllingestrimlerne, til de er gennemstegte.",
+        "Tilsæt hvidløg og revet ingefær, og steg et halvt minut.",
+        "Kom wok-grøntsagerne i, og steg ved høj varme et par minutter, så de stadig har bid.",
+        "Vend soja i, smag til, og top med chili eller sesamfrø."
+      ],
+      "notes": "Frosne wok-grøntsager gør retten superhurtig. Vil du have kulhydrater, så servér med lidt kogte nudler eller ris."
+    },
+    {
+      "slug": "bagt-torsk",
+      "baseServings": 1,
+      "title": "Torsk i ovn med citron og asparges",
+      "description": "Let hvid fisk fra ovnen · magert protein",
+      "emoji": "🐟",
+      "category": "Aftensmad",
+      "tags": [
+        "fisk",
+        "protein",
+        "vægttab",
+        "nem"
+      ],
+      "servings": "1 portion",
+      "time": "20 min",
+      "calories": "ca. 260 kcal",
+      "protein": "ca. 32 g",
+      "ingredients": [
+        "1 torskefilet (ca. 170 g)",
+        "Et bundt grønne asparges",
+        "½ citron",
+        "1 fed hvidløg",
+        "1 tsk olie",
+        "Salt, peber og lidt frisk timian"
+      ],
+      "steps": [
+        "Tænd ovnen på 200 °C.",
+        "Læg torsk og asparges på en bageplade med bagepapir.",
+        "Dryp med olie, pres hvidløg over, og krydr med salt, peber og timian.",
+        "Læg tynde citronskiver på fisken.",
+        "Bag i ca. 12-15 minutter, til torsken er hvid og flager let."
+      ],
+      "notes": "Torsk er meget magert og proteinrigt. Pas på ikke at bage den for længe, så den ikke bliver tør."
+    },
+    {
+      "slug": "frittata",
+      "baseServings": 2,
+      "title": "Frittata med grøntsager og ost",
+      "description": "Bagt æggekage · god varm eller kold til madpakken",
+      "emoji": "🍳",
+      "category": "Aftensmad",
+      "tags": [
+        "protein",
+        "vegetarisk",
+        "meal-prep",
+        "nem"
+      ],
+      "servings": "2 portioner",
+      "time": "25 min",
+      "calories": "ca. 290 kcal pr. portion",
+      "protein": "ca. 22 g pr. portion",
+      "ingredients": [
+        "6 æg",
+        "1 peberfrugt",
+        "En håndfuld spinat",
+        "½ løg",
+        "6 cherrytomater",
+        "50 g revet ost",
+        "Salt og peber",
+        "1 tsk olie"
+      ],
+      "steps": [
+        "Tænd ovnen på 190 °C.",
+        "Steg løg, peberfrugt og halverede tomater blødt i en ovnfast pande.",
+        "Tilsæt spinaten, og lad den falde sammen.",
+        "Pisk æggene med salt og peber, og hæld dem over grøntsagerne.",
+        "Drys ost på, og bag i ovnen i ca. 15 minutter, til frittataen er sat.",
+        "Skær i både og servér."
+      ],
+      "notes": "God til meal prep — resterne smager fint kolde næste dag. Byt gerne grøntsagerne ud med det, du har i køleskabet."
+    },
+    {
+      "slug": "sort-bonne-chili",
+      "baseServings": 3,
+      "title": "Sort bønne-chili",
+      "description": "Krydret vegetarisk gryde · mættende og billig",
+      "emoji": "🌶️",
+      "category": "Aftensmad",
+      "tags": [
+        "vegetarisk",
+        "protein",
+        "meal-prep",
+        "billig"
+      ],
+      "servings": "3 portioner",
+      "time": "25 min",
+      "calories": "ca. 310 kcal pr. portion",
+      "protein": "ca. 16 g pr. portion",
+      "ingredients": [
+        "2 dåser sorte bønner (drænet og skyllet)",
+        "1 dåse hakkede tomater",
+        "1 løg",
+        "2 fed hvidløg",
+        "1 peberfrugt",
+        "1 tsk spidskommen",
+        "1-2 tsk chilipulver (efter smag)",
+        "2 dl grøntsagsbouillon",
+        "Salt og peber",
+        "1 tsk olie"
+      ],
+      "steps": [
+        "Hak løg, hvidløg og peberfrugt, og svits det i olie i en gryde.",
+        "Tilsæt spidskommen og chilipulver, og lad krydderierne stege med et halvt minut.",
+        "Kom bønner, hakkede tomater og bouillon i, og rør rundt.",
+        "Lad det simre i ca. 15 minutter, til det tykner lidt.",
+        "Smag til med salt og peber."
+      ],
+      "notes": "Fryser fint, så lav en stor portion. Server evt. med en klat skyr og lidt frisk koriander. En smule mørk chokolade rørt i giver ekstra dybde."
+    },
+    {
+      "slug": "zoodles-kodsovs",
+      "baseServings": 1,
+      "title": "Zoodles med kødsovs",
+      "description": "Squash-strimler i stedet for pasta · lavt i kulhydrater",
+      "emoji": "🍝",
+      "category": "Aftensmad",
+      "tags": [
+        "protein",
+        "vægttab",
+        "lavkulhydrat",
+        "nem"
+      ],
+      "servings": "1 portion",
+      "time": "20 min",
+      "calories": "ca. 350 kcal",
+      "protein": "ca. 34 g",
+      "ingredients": [
+        "125 g magert hakket oksekød (3-5 %)",
+        "1 stor squash",
+        "½ dåse hakkede tomater",
+        "½ løg",
+        "1 fed hvidløg",
+        "1 tsk tørret oregano",
+        "Salt og peber",
+        "1 tsk olie",
+        "Lidt revet parmesan (valgfrit)"
+      ],
+      "steps": [
+        "Lav zoodles ved at skære squashen i tynde strimler med en juliennejern eller spiralizer.",
+        "Steg løg og hvidløg i olie, tilsæt oksekødet, og steg det gennem.",
+        "Kom hakkede tomater og oregano i, og lad sovsen simre et par minutter. Smag til med salt og peber.",
+        "Vend squash-strimlerne i den varme sovs i ca. 1-2 minutter, så de lige bliver møre men stadig har bid.",
+        "Anret og top med lidt revet parmesan."
+      ],
+      "notes": "Squash i stedet for pasta sparer mange kulhydrater og kalorier. Lad være med at koge zoodles for længe, ellers bliver de bløde og våde."
     }
   ]
 }
