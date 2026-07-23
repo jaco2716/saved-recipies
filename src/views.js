@@ -49,8 +49,17 @@ function recipeCard(recipe) {
 
 /** Kort til en snack (ingen fremgangsmåde — kun info). */
 function snackCard(snack) {
+  const thumb = snack.image
+    ? el("img", {
+        class: "recipe-card__thumb",
+        src: snack.image,
+        alt: "",
+        loading: "lazy",
+      })
+    : el("span", { class: "recipe-card__emoji", "aria-hidden": "true", text: snack.emoji || "🍿" });
+
   return el("div", { class: "recipe-card snack-card" }, [
-    el("span", { class: "recipe-card__emoji", "aria-hidden": "true", text: snack.emoji || "🍿" }),
+    thumb,
     el("span", { class: "recipe-card__body" }, [
       el("span", { class: "recipe-card__title", text: snack.title }),
       snack.description

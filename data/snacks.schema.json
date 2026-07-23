@@ -43,6 +43,10 @@
           "type": "string",
           "description": "Emoji brugt som ikon, fx '🥕'."
         },
+        "image": {
+          "type": "string",
+          "description": "Valgfrit billede. Sti relativ til projektets rod, fx 'assets/images/popcorn.jpg'. Vises på snack-kortet i stedet for emoji, når det findes."
+        },
         "tags": {
           "type": "array",
           "description": "Frie nøgleord til søgning og filtrering.",

@@ -113,8 +113,21 @@ if (snacksRaw) {
       snackSlugs.add(s.slug);
     }
     if (s?.tags != null && !Array.isArray(s.tags)) fail(`${where}: "tags" skal være en liste`);
+    if (s?.image != null) {
+      if (typeof s.image !== "string") {
+        fail(`${where}: "image" skal være en tekststi`);
+      } else {
+        imageChecks.push(
+          fileExists(s.image).then((ok) => {
+            if (!ok) fail(`${where}: billedet "${s.image}" findes ikke`);
+          })
+        );
+      }
+    }
   });
 }
+
+await Promise.all(imageChecks);
 
 if (errors.length) {
   console.error(`✖ ${errors.length} fejl i data:\n`);
