@@ -86,12 +86,16 @@ function normalizeKey({ qty, unit, name, raw }) {
 }
 
 /**
- * Byg en samlet indkøbsliste ud fra valgte opskrifter.
+ * Byg en samlet indkøbsliste ud fra valgte opskrifter og snacks.
+ *
+ * Snacks har ingen ingredienser — de tilføjes som én linje hver (deres titel),
+ * uden mængde eller portionsskalering.
  *
  * @param {Array<{recipe: object, servings: number}>} selections
+ * @param {Array<object>} [snacks] - valgte snacks ({title, ...})
  * @returns {{items: Array<{display: string, sources: string[]}>, count: number}}
  */
-export function buildShoppingList(selections) {
+export function buildShoppingList(selections, snacks = []) {
   const merged = new Map();
 
   for (const { recipe, servings } of selections) {
@@ -133,5 +137,15 @@ export function buildShoppingList(selections) {
     }))
     .sort((a, b) => a.sortKey.localeCompare(b.sortKey, "da"));
 
-  return { items, count: items.length };
+  // Snacks lægges nederst som enkeltlinjer (ingen mængde), sorteret for sig.
+  const snackItems = snacks
+    .map((s) => ({
+      display: s.title,
+      sortKey: (s.title || "").toLowerCase(),
+      sources: ["Snack"],
+    }))
+    .sort((a, b) => a.sortKey.localeCompare(b.sortKey, "da"));
+
+  const all = [...items, ...snackItems];
+  return { items: all, count: all.length };
 }

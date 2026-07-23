@@ -47,14 +47,17 @@ Lagdelt, så data er adskilt fra visning. Data flyder: **JSON → `data.js` → 
 - **`src/router.js`** — minimal hash-router (`#/`, `#/opskrift/<slug>`,
   `#/indkobsliste`). Hash-baseret, så det virker på GitHub Pages uden
   server-config. Forsidens filter/søgning ligger i query-strengen
-  (`#/?q=...&kat=...`) og opdateres via `history.replaceState` (ingen ny
-  hash-navigation pr. tastetryk).
+  (`#/?sektion=snacks&q=...&kat=...`) og opdateres via `history.replaceState`
+  (ingen ny hash-navigation pr. tastetryk). `sektion` er `mad` (default, kan
+  udelades) eller `snacks`; `kat` bruges kun i mad-sektionen.
 - **`src/views.js`** — bygger DOM via en `el()`-hjælper (aldrig `innerHTML` med
   rå data, så indhold escapes automatisk). `renderList` ejer forsidens
   søgefelt + faner og gen-tegner kun resultat-gitteret (bevarer fokus).
 - **`src/shopping.js`** — ren logik til indkøbslisten: parser mængder ud af
   ingrediens-tekster, skalerer efter portioner og lægger ens ingredienser
-  sammen. Testet i `scripts/test-shopping.mjs`.
+  sammen. `buildShoppingList(selections, snacks)` tager også valgte snacks, der
+  lægges på som enkeltlinjer nederst (ingen mængde/skalering). Testet i
+  `scripts/test-shopping.mjs`.
 - **`src/app.js`** — binder det hele sammen: ruter, forsidens filter-state,
   fane-konfiguration og localStorage-persistering af indkøbslistens valg.
 
@@ -64,9 +67,11 @@ Lagdelt, så data er adskilt fra visning. Data flyder: **JSON → `data.js` → 
   ingrediensmængderne er beregnet til). Sæt det på nye opskrifter, ellers
   antages 1. Ingredienser er fri tekst; skaleringen læser tallet i starten af
   hver linje (fx "250 g mel", "½ agurk") og lader tekst uden tal stå urørt.
-- **Faner** styres af `CATEGORY_ORDER` og `HIGHLIGHT_TAGS` øverst i `src/app.js`.
-  Faner uden matchende opskrifter skjules automatisk. Snacks er en særskilt fane
-  (`SNACKS_KEY`), adskilt fra mad-kategorierne med en skillelinje.
+- **Faner** er todelt: to primære faner (Mad / Snacks) øverst, og — kun i
+  mad-sektionen — kategori-underfaner styret af `CATEGORY_ORDER` og
+  `HIGHLIGHT_TAGS` øverst i `src/app.js`. Underfaner uden matchende opskrifter
+  skjules automatisk. Snacks-fanen vises kun hvis `data/snacks.json` har poster;
+  snacks har ingen kategori-underfaner.
 - **Billeder**: læg dem i `assets/images/`, referér med `image`-feltet (sti
   relativ til roden). Hold dem små (~1200 px, JPG). `npm run validate` fejler,
   hvis et refereret billede mangler. Opskrifter uden billede falder tilbage til

@@ -180,14 +180,15 @@ header.site p {
   border-color: var(--accent);
 }
 
-/* Skillelinje mellem mad-faner og snacks. */
-.tabs__divider {
-  flex: 0 0 auto;
-  align-self: center;
-  width: 1px;
-  height: 22px;
-  background: var(--border);
-  margin: 0 4px;
+/* Primære faner (Mad / Snacks) — større og tydeligere end kategori-fanerne. */
+.tabs--primary {
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.tabs--primary .tab {
+  font-size: 1rem;
+  padding: 9px 20px;
 }
 
 /* ---- Opskrift-oversigt (forside) ---- */

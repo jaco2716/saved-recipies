@@ -59,5 +59,21 @@ test("respekterer baseServings > 1", () => {
   const { items } = buildShoppingList([{ recipe: r, servings: 8 }]);
   assert.equal(items[0].display, "500 g mel"); // 250 * (8/4)
 });
+test("snacks lægges på som enkeltlinjer nederst", () => {
+  const r = { title: "R", baseServings: 1, ingredients: ["2 æg"] };
+  const { items, count } = buildShoppingList(
+    [{ recipe: r, servings: 1 }],
+    [{ title: "Popcorn" }, { title: "Edamamebønner" }]
+  );
+  assert.equal(count, 3);
+  assert.equal(items[0].display, "2 æg"); // opskrift-ingrediens først
+  assert.deepEqual(items.slice(1).map((i) => i.display), ["Edamamebønner", "Popcorn"]); // snacks sorteret
+  assert.deepEqual(items[1].sources, ["Snack"]);
+});
+test("kun snacks uden opskrifter virker", () => {
+  const { items, count } = buildShoppingList([], [{ title: "Frugt" }]);
+  assert.equal(count, 1);
+  assert.equal(items[0].display, "Frugt");
+});
 
 console.log(`\n✔ Alle ${passed} tests bestået.`);

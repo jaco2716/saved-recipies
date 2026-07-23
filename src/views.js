@@ -86,31 +86,71 @@ function resultsFor(result) {
 }
 
 /**
- * Forsidens oversigt med søgefelt og kategori-faner.
+ * Forsidens oversigt med primære faner (Mad/Snacks), søgefelt og — kun for
+ * mad — kategori-underfaner.
  *
- * Søgefelt og faner oprettes én gang og genbruges, så søgefeltet ikke mister
+ * Faner og søgefelt oprettes én gang og genbruges, så søgefeltet ikke mister
  * fokus mens man skriver. Kun resultat-listen tegnes om. `onFilter` skal
  * returnere en Promise med et resultat { kind, items }.
  *
  * @param {object} opts
  * @param {{kind: string, items: Array<object>}} opts.result - startresultat
+ * @param {string} opts.section - aktiv sektion ("mad" | "snacks")
+ * @param {boolean} opts.hasSnacks - om der overhovedet findes snacks
  * @param {string} opts.query - startsøgetekst
- * @param {string} opts.category - aktiv fane (tom = Alle)
- * @param {Array<{key: string, label: string, divider?: boolean}>} opts.facets
- * @param {(f: {query: string, category: string}) => Promise<{kind: string, items: Array<object>}>} opts.onFilter
+ * @param {string} opts.category - aktiv kategori-fane (tom = Alle)
+ * @param {Array<{key: string, label: string}>} opts.facets
+ * @param {(f: {section: string, query: string, category: string}) => Promise<{kind: string, items: Array<object>}>} opts.onFilter
  */
-export function renderList({ result, query, category, facets, onFilter }) {
-  const state = { query: query || "", category: category || "" };
+export function renderList({ result, section, hasSnacks, query, category, facets, onFilter }) {
+  const state = { section: section === "snacks" ? "snacks" : "mad", query: query || "", category: category || "" };
 
   const search = el("input", {
     class: "search",
     type: "search",
-    placeholder: "Søg efter opskrift, ingrediens eller kategori…",
     value: state.query,
-    "aria-label": "Søg i opskrifter",
+    "aria-label": "Søg",
   });
+  function syncSearchPlaceholder() {
+    search.placeholder =
+      state.section === "snacks"
+        ? "Søg efter snack…"
+        : "Søg efter opskrift, ingrediens eller kategori…";
+  }
 
-  // Kategori-faner: "Alle" + én pr. facet.
+  // Primære faner: Mad / Snacks. Vises kun hvis der findes snacks.
+  const primaryButtons = new Map();
+  function makePrimary(key, label) {
+    const btn = el("button", { class: "tab", type: "button", text: label });
+    btn.addEventListener("click", () => {
+      if (state.section === key) return;
+      state.section = key;
+      state.category = ""; // nulstil kategori når man skifter sektion
+      state.query = "";
+      search.value = "";
+      syncPrimary();
+      syncTabs();
+      syncSectionUi();
+      run();
+    });
+    primaryButtons.set(key, btn);
+    return btn;
+  }
+  const primaryTabs = hasSnacks
+    ? el("div", { class: "tabs tabs--primary", role: "tablist", "aria-label": "Mad eller snacks" }, [
+        makePrimary("mad", "🍽️ Mad"),
+        makePrimary("snacks", "🍿 Snacks"),
+      ])
+    : null;
+  function syncPrimary() {
+    for (const [key, btn] of primaryButtons) {
+      const active = key === state.section;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    }
+  }
+
+  // Kategori-underfaner (kun for mad): "Alle" + én pr. facet.
   const tabButtons = new Map();
   function makeTab(key, label) {
     const btn = el("button", { class: "tab", type: "button", text: label });
@@ -124,11 +164,7 @@ export function renderList({ result, query, category, facets, onFilter }) {
   }
 
   const tabChildren = [makeTab("", "Alle")];
-  for (const f of facets) {
-    // En 'divider' adskiller fx snacks visuelt fra mad-kategorierne.
-    if (f.divider) tabChildren.push(el("span", { class: "tabs__divider", "aria-hidden": "true" }));
-    tabChildren.push(makeTab(f.key, f.label));
-  }
+  for (const f of facets) tabChildren.push(makeTab(f.key, f.label));
   const tabs = el("div", { class: "tabs", role: "tablist", "aria-label": "Kategorier" }, tabChildren);
 
   function syncTabs() {
@@ -138,16 +174,28 @@ export function renderList({ result, query, category, facets, onFilter }) {
       btn.setAttribute("aria-selected", active ? "true" : "false");
     }
   }
-  syncTabs();
 
-  // Rul den aktive fane ind i billedet (fx ved dybt link til en fane til højre).
-  if (state.category) {
+  // Skjul kategori-underfaner i snacks-sektionen og opdatér søge-placeholder.
+  // (Inline display, ikke `hidden`-attributten: `.tabs { display: flex }` ville
+  // ellers overtrumfe browserens [hidden]-regel og vise fanerne alligevel.)
+  function syncSectionUi() {
+    tabs.style.display = state.section === "snacks" ? "none" : "";
+    syncSearchPlaceholder();
+  }
+
+  syncPrimary();
+  syncTabs();
+  syncSectionUi();
+
+  // Rul den aktive kategori ind i billedet (fx ved dybt link til en fane til højre).
+  if (state.section === "mad" && state.category) {
     requestAnimationFrame(() =>
       tabButtons.get(state.category)?.scrollIntoView({ inline: "center", block: "nearest" })
     );
   }
 
-  const section = el("section", {}, [
+  const container = el("section", {}, [
+    primaryTabs,
     el("div", { class: "toolbar" }, [search]),
     tabs,
     resultsFor(result),
@@ -156,9 +204,9 @@ export function renderList({ result, query, category, facets, onFilter }) {
   let seq = 0;
   async function run() {
     const mine = ++seq;
-    const next = await onFilter({ query: state.query, category: state.category });
+    const next = await onFilter({ section: state.section, query: state.query, category: state.category });
     if (mine !== seq) return; // forældet svar — brugeren nåede at ændre noget
-    section.replaceChild(resultsFor(next), section.lastChild);
+    container.replaceChild(resultsFor(next), container.lastChild);
   }
 
   search.addEventListener("input", (e) => {
@@ -166,7 +214,7 @@ export function renderList({ result, query, category, facets, onFilter }) {
     run();
   });
 
-  return section;
+  return container;
 }
 
 /** Enkelt opskrift. */
@@ -253,10 +301,15 @@ export function renderMessage(title, message) {
  *
  * @param {object} opts
  * @param {Array<object>} opts.recipes
+ * @param {Array<object>} [opts.snacks] - snacks der kan lægges på listen
  * @param {Object<string, {selected: boolean, servings: number}>} opts.state
  * @param {(state: object) => void} opts.onChange - kaldes når valget ændres
  */
-export function renderShoppingPage({ recipes, state, onChange }) {
+export function renderShoppingPage({ recipes, snacks = [], state, onChange }) {
+  // Snacks gemmes i samme state-objekt, men med "snack:"-præfiks så de ikke
+  // kolliderer med opskrifter (der nøgles på slug).
+  const snackKey = (slug) => `snack:${slug}`;
+
   const controls = el("div", { class: "picker" }, [
     el("h2", { class: "section", text: "Vælg opskrifter" }),
   ]);
@@ -310,10 +363,39 @@ export function renderShoppingPage({ recipes, state, onChange }) {
     controls.append(row);
   }
 
+  // Snacks: kun en afkrydsning (ingen ingredienser/portioner).
+  if (snacks.length) {
+    controls.append(el("h2", { class: "section", text: "Snacks" }));
+    for (const snack of snacks) {
+      const key = snackKey(snack.slug);
+      const checkbox = el("input", {
+        type: "checkbox",
+        class: "picker__check",
+        id: `pick-${key}`,
+      });
+      checkbox.checked = Boolean(state[key]?.selected);
+
+      const row = el("div", { class: "picker__row" }, [
+        el("label", { class: "picker__label", for: `pick-${key}` }, [
+          checkbox,
+          el("span", { text: `${snack.emoji ? snack.emoji + " " : ""}${snack.title}` }),
+        ]),
+      ]);
+
+      checkbox.addEventListener("change", () => {
+        state[key] = { selected: checkbox.checked };
+        onChange(state);
+        update();
+      });
+
+      controls.append(row);
+    }
+  }
+
   const output = el("div", { class: "shopping-output" });
 
   const section = el("section", { class: "shopping" }, [
-    el("p", { class: "shopping__intro", text: "Vælg de opskrifter du vil handle ind til, og hvor mange portioner af hver. Så lægger vi ingredienserne sammen til én liste. Tjek mængderne — de skaleres automatisk ud fra opskrifternes normale størrelse." }),
+    el("p", { class: "shopping__intro", text: "Vælg de opskrifter og snacks du vil handle ind til, og hvor mange portioner af hver opskrift. Så lægger vi ingredienserne sammen til én liste. Tjek mængderne — de skaleres automatisk ud fra opskrifternes normale størrelse. Snacks lægges på som enkeltvarer." }),
     controls,
     output,
   ]);
@@ -324,16 +406,21 @@ export function renderShoppingPage({ recipes, state, onChange }) {
       .map((r) => ({ recipe: r, servings: state[r.slug].servings || r.baseServings || 1 }));
   }
 
+  function snackSelections() {
+    return snacks.filter((s) => state[snackKey(s.slug)]?.selected);
+  }
+
   function update() {
     const chosen = selections();
-    if (chosen.length === 0) {
+    const chosenSnacks = snackSelections();
+    if (chosen.length === 0 && chosenSnacks.length === 0) {
       output.replaceChildren(
-        el("p", { class: "empty", text: "Vælg mindst én opskrift for at få en indkøbsliste." })
+        el("p", { class: "empty", text: "Vælg mindst én opskrift eller snack for at få en indkøbsliste." })
       );
       return;
     }
 
-    const { items, count } = buildShoppingList(chosen);
+    const { items, count } = buildShoppingList(chosen, chosenSnacks);
 
     const list = el(
       "ul",

@@ -27,23 +27,19 @@ const SHOPPING_KEY = "indkobsliste-valg";
 const CATEGORY_ORDER = ["Morgenmad", "Frokost", "Aftensmad", "Brød & bagning", "Dessert"];
 const HIGHLIGHT_TAGS = ["vægttab", "vegetarisk", "meal-prep"];
 
-// Snacks er en separat samling (ikke mad-opskrifter). Den får sin egen fane,
-// adskilt fra kategorierne med en skillelinje.
-const SNACKS_KEY = "snacks";
+// Forsiden har to primære sektioner: mad-opskrifter og snacks. De vises som
+// store faner øverst; mad har desuden kategori-underfaner, snacks har ingen.
+const SNACKS_SECTION = "snacks";
+const FOOD_SECTION = "mad";
 
-/** Byg listen af faner: opskrifts-kategorier + en adskilt Snacks-fane. */
-async function buildFacets() {
-  const recipeFacets = await getFacets(CATEGORY_ORDER, HIGHLIGHT_TAGS);
-  const snacks = await getSnacks().catch(() => []);
-  if (snacks.length > 0) {
-    recipeFacets.push({ key: SNACKS_KEY, label: "🍿 Snacks", divider: true });
-  }
-  return recipeFacets;
+/** Normalisér sektion-parameteren fra URL'en til "mad" eller "snacks". */
+function normalizeSection(value) {
+  return value === SNACKS_SECTION ? SNACKS_SECTION : FOOD_SECTION;
 }
 
 /** Hent resultatet for et givet filter — enten opskrifter eller snacks. */
-async function fetchResult({ query, category }) {
-  if (category === SNACKS_KEY) {
+async function fetchResult({ section, query, category }) {
+  if (section === SNACKS_SECTION) {
     return { kind: "snacks", items: await searchSnacks(query) };
   }
   return { kind: "recipes", items: await filterRecipes({ query, category }) };
@@ -87,25 +83,30 @@ async function showList(params) {
   const qs = new URLSearchParams(params[0] || "");
   const query = (qs.get("q") || "").trim();
   const category = (qs.get("kat") || "").trim();
+  const section = normalizeSection((qs.get("sektion") || "").trim());
   try {
     setPageChrome({ title: BASE_TITLE, emoji: "🍳" });
     setActiveNav("list");
-    const [result, facets] = await Promise.all([
-      fetchResult({ query, category }),
-      buildFacets(),
+    const [result, facets, snacks] = await Promise.all([
+      fetchResult({ section, query, category }),
+      getFacets(CATEGORY_ORDER, HIGHLIGHT_TAGS),
+      getSnacks().catch(() => []),
     ]);
     mount(
       renderList({
         result,
+        section,
+        hasSnacks: snacks.length > 0,
         query,
         category,
         facets,
-        // Kaldes når søgetekst eller fane ændres. Opdaterer den delbare URL
-        // og returnerer det matchende resultat (opskrifter eller snacks).
+        // Kaldes når sektion, søgetekst eller fane ændres. Opdaterer den
+        // delbare URL og returnerer det matchende resultat.
         onFilter: async (f) => {
           const next = new URLSearchParams();
+          if (f.section === SNACKS_SECTION) next.set("sektion", SNACKS_SECTION);
           if (f.query.trim()) next.set("q", f.query.trim());
-          if (f.category) next.set("kat", f.category);
+          if (f.section !== SNACKS_SECTION && f.category) next.set("kat", f.category);
           const suffix = next.toString();
           history.replaceState(null, "", suffix ? `#/?${suffix}` : "#/");
           return fetchResult(f);
@@ -143,11 +144,15 @@ async function showShopping() {
   try {
     setPageChrome({ title: `Indkøbsliste · ${BASE_TITLE}`, emoji: "🛒" });
     setActiveNav("shopping");
-    const recipes = await getAllRecipes();
+    const [recipes, snacks] = await Promise.all([
+      getAllRecipes(),
+      getSnacks().catch(() => []),
+    ]);
     const state = loadShoppingState();
     mount(
       renderShoppingPage({
         recipes,
+        snacks,
         state,
         onChange: saveShoppingState,
       })
