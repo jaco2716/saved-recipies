@@ -6,57 +6,96 @@
       "slug": "hytteost",
       "title": "Hytteost (naturel)",
       "emoji": "🧀",
+      "image": "assets/images/hytteost.jpg",
       "description": "Meget protein og få kalorier. Spis den som den er, eller top med lidt peber eller bær.",
-      "tags": ["protein", "vægttab", "vegetarisk"]
+      "tags": [
+        "protein",
+        "vægttab",
+        "vegetarisk"
+      ]
     },
     {
       "slug": "groentsagsstaenger-hummus",
       "title": "Grøntsagsstænger med hummus",
       "emoji": "🥕",
+      "image": "assets/images/groentsagsstaenger-hummus.jpg",
       "description": "Gulerod, agurk og peberfrugt i stænger dyppet i hummus. Fibre, knas og lidt protein.",
-      "tags": ["fibre", "vegetarisk", "vægttab"]
+      "tags": [
+        "fibre",
+        "vegetarisk",
+        "vægttab"
+      ]
     },
     {
       "slug": "edamamebonner",
       "title": "Edamamebønner",
       "emoji": "🫛",
+      "image": "assets/images/edamamebonner.jpg",
       "description": "Fås frosne. Kog 3 minutter, drys med lidt salt. Højt indhold af protein og fibre.",
-      "tags": ["protein", "fibre", "vegetarisk"]
+      "tags": [
+        "protein",
+        "fibre",
+        "vegetarisk"
+      ]
     },
     {
       "slug": "haardkogte-aeg",
       "title": "Hårdkogte æg",
       "emoji": "🥚",
+      "image": "assets/images/haardkogte-aeg.jpg",
       "description": "Kan købes færdigkogte. Mættende proteinsnack med næsten ingen forberedelse.",
-      "tags": ["protein", "vægttab", "nem"]
+      "tags": [
+        "protein",
+        "vægttab",
+        "nem"
+      ]
     },
     {
       "slug": "mandler-noedder",
       "title": "En håndfuld nødder",
       "emoji": "🥜",
+      "image": "assets/images/mandler-noedder.jpg",
       "description": "Mandler eller valnødder. Sunde fedtstoffer, men hold portionen til ca. 30 g pga. kalorier.",
-      "tags": ["sundt-fedt", "vegetarisk"]
+      "tags": [
+        "sundt-fedt",
+        "vegetarisk"
+      ]
     },
     {
       "slug": "rugkiks-kalkun",
       "title": "Rugkiks med kalkun",
       "emoji": "🍘",
+      "image": "assets/images/rugkiks-kalkun.jpg",
       "description": "Wasa eller rugkiks toppet med magert kalkunpålæg. Fibre og protein i én snack.",
-      "tags": ["protein", "fibre", "nem"]
+      "tags": [
+        "protein",
+        "fibre",
+        "nem"
+      ]
     },
     {
       "slug": "popcorn",
       "title": "Luftpoppet popcorn",
       "emoji": "🍿",
+      "image": "assets/images/popcorn.jpg",
       "description": "Popcorn uden smør. Overraskende få kalorier og masser af volumen, der mætter.",
-      "tags": ["fibre", "vegetarisk", "snack"]
+      "tags": [
+        "fibre",
+        "vegetarisk",
+        "snack"
+      ]
     },
     {
       "slug": "frugt",
       "title": "Et stykke frugt",
       "emoji": "🍎",
+      "image": "assets/images/frugt.jpg",
       "description": "Æble, appelsin eller en håndfuld bær. Naturlig sødme, vitaminer og fibre.",
-      "tags": ["fibre", "vegetarisk", "vægttab"]
+      "tags": [
+        "fibre",
+        "vegetarisk",
+        "vægttab"
+      ]
     }
   ]
 }

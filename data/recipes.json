@@ -436,6 +436,7 @@
       "title": "Overnight oats",
       "description": "Røres om aftenen · klar til at spise om morgenen",
       "emoji": "🌙",
+      "image": "assets/images/overnight-oats.jpg",
       "category": "Morgenmad",
       "tags": [
         "morgenmad",
@@ -471,6 +472,7 @@
       "title": "Røræg med spinat",
       "description": "Cremet røræg med friske grøntsager · proteinrig",
       "emoji": "🍳",
+      "image": "assets/images/roeraeg-spinat.jpg",
       "category": "Morgenmad",
       "tags": [
         "morgenmad",
@@ -506,6 +508,7 @@
       "title": "Proteinsmoothie med bær",
       "description": "Blendes på et minut · god før eller efter træning",
       "emoji": "🥤",
+      "image": "assets/images/proteinsmoothie.jpg",
       "category": "Morgenmad",
       "tags": [
         "protein",
@@ -540,6 +543,7 @@
       "title": "Kikærtesalat med feta",
       "description": "Mættende salat med protein og fibre · vegetarisk",
       "emoji": "🫘",
+      "image": "assets/images/kikaertesalat-feta.jpg",
       "category": "Frokost",
       "tags": [
         "vegetarisk",
@@ -577,6 +581,7 @@
       "title": "Kalkun-wrap med hummus",
       "description": "Hurtig wrap at tage med · magert protein",
       "emoji": "🌯",
+      "image": "assets/images/kalkun-wrap-hummus.jpg",
       "category": "Frokost",
       "tags": [
         "kalkun",
@@ -612,6 +617,7 @@
       "title": "Grøn ærtesuppe",
       "description": "Cremet suppe på få ingredienser · billig og let",
       "emoji": "🥣",
+      "image": "assets/images/groen-aertesuppe.jpg",
       "category": "Frokost",
       "tags": [
         "vegetarisk",
@@ -649,6 +655,7 @@
       "title": "Kylling-wok med grøntsager",
       "description": "Alt i én wok · masser af grønt og protein",
       "emoji": "🥢",
+      "image": "assets/images/kylling-wok.jpg",
       "category": "Aftensmad",
       "tags": [
         "kylling",
@@ -684,6 +691,7 @@
       "title": "Torsk i ovn med citron og asparges",
       "description": "Let hvid fisk fra ovnen · magert protein",
       "emoji": "🐟",
+      "image": "assets/images/bagt-torsk.jpg",
       "category": "Aftensmad",
       "tags": [
         "fisk",
@@ -718,6 +726,7 @@
       "title": "Frittata med grøntsager og ost",
       "description": "Bagt æggekage · god varm eller kold til madpakken",
       "emoji": "🍳",
+      "image": "assets/images/frittata.jpg",
       "category": "Aftensmad",
       "tags": [
         "protein",
@@ -755,6 +764,7 @@
       "title": "Sort bønne-chili",
       "description": "Krydret vegetarisk gryde · mættende og billig",
       "emoji": "🌶️",
+      "image": "assets/images/sort-bonne-chili.jpg",
       "category": "Aftensmad",
       "tags": [
         "vegetarisk",
@@ -793,6 +803,7 @@
       "title": "Zoodles med kødsovs",
       "description": "Squash-strimler i stedet for pasta · lavt i kulhydrater",
       "emoji": "🍝",
+      "image": "assets/images/zoodles-kodsovs.jpg",
       "category": "Aftensmad",
       "tags": [
         "protein",
