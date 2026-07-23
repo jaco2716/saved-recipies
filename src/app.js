@@ -37,12 +37,30 @@ function normalizeSection(value) {
   return value === SNACKS_SECTION ? SNACKS_SECTION : FOOD_SECTION;
 }
 
-/** Hent resultatet for et givet filter — enten opskrifter eller snacks. */
-async function fetchResult({ section, query, category }) {
-  if (section === SNACKS_SECTION) {
-    return { kind: "snacks", items: await searchSnacks(query) };
+/** Sortér resultatet efter pris eller tid (tid kun for opskrifter). */
+function sortItems(items, sort, kind) {
+  if (sort === "pris") {
+    return [...items].sort(
+      (a, b) => (a.pricePerServing ?? Infinity) - (b.pricePerServing ?? Infinity)
+    );
   }
-  return { kind: "recipes", items: await filterRecipes({ query, category }) };
+  if (sort === "tid" && kind === "recipes") {
+    return [...items].sort(
+      (a, b) => (a.timeMinutes ?? Infinity) - (b.timeMinutes ?? Infinity)
+    );
+  }
+  return items; // standard: datarækkefølgen
+}
+
+/** Hent resultatet for et givet filter — enten opskrifter eller snacks. */
+async function fetchResult({ section, query, category, sort }) {
+  if (section === SNACKS_SECTION) {
+    return { kind: "snacks", items: sortItems(await searchSnacks(query), sort, "snacks") };
+  }
+  return {
+    kind: "recipes",
+    items: sortItems(await filterRecipes({ query, category }), sort, "recipes"),
+  };
 }
 
 /** Udskift hele appens indhold og rul til toppen. */
@@ -84,11 +102,12 @@ async function showList(params) {
   const query = (qs.get("q") || "").trim();
   const category = (qs.get("kat") || "").trim();
   const section = normalizeSection((qs.get("sektion") || "").trim());
+  const sort = (qs.get("sort") || "").trim();
   try {
     setPageChrome({ title: BASE_TITLE, emoji: "🍳" });
     setActiveNav("list");
     const [result, facets, snacks] = await Promise.all([
-      fetchResult({ section, query, category }),
+      fetchResult({ section, query, category, sort }),
       getFacets(CATEGORY_ORDER, HIGHLIGHT_TAGS),
       getSnacks().catch(() => []),
     ]);
@@ -99,14 +118,16 @@ async function showList(params) {
         hasSnacks: snacks.length > 0,
         query,
         category,
+        sort,
         facets,
-        // Kaldes når sektion, søgetekst eller fane ændres. Opdaterer den
-        // delbare URL og returnerer det matchende resultat.
+        // Kaldes når sektion, søgetekst, fane eller sortering ændres. Opdaterer
+        // den delbare URL og returnerer det matchende resultat.
         onFilter: async (f) => {
           const next = new URLSearchParams();
           if (f.section === SNACKS_SECTION) next.set("sektion", SNACKS_SECTION);
           if (f.query.trim()) next.set("q", f.query.trim());
           if (f.section !== SNACKS_SECTION && f.category) next.set("kat", f.category);
+          if (f.sort) next.set("sort", f.sort);
           const suffix = next.toString();
           history.replaceState(null, "", suffix ? `#/?${suffix}` : "#/");
           return fetchResult(f);

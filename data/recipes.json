@@ -17,6 +17,8 @@
       ],
       "servings": "ca. 10 stk.",
       "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 4,
       "ingredients": [
         "250 g hvedemel",
         "4 dl mælk",
@@ -50,6 +52,8 @@
       ],
       "servings": "ca. 12 stk.",
       "time": "2 timer (med hævning)",
+      "timeMinutes": 120,
+      "pricePerServing": 2,
       "ingredients": [
         "5 dl mælk",
         "25 g gær",
@@ -86,6 +90,8 @@
       ],
       "servings": "1 portion",
       "time": "10 min",
+      "timeMinutes": 10,
+      "pricePerServing": 12,
       "calories": "ca. 200 kcal",
       "protein": "ca. 28 g",
       "ingredients": [
@@ -122,6 +128,8 @@
       ],
       "servings": "1 portion",
       "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 30,
       "calories": "ca. 380 kcal",
       "protein": "ca. 34 g",
       "ingredients": [
@@ -159,6 +167,8 @@
       ],
       "servings": "1 portion",
       "time": "5 min",
+      "timeMinutes": 5,
+      "pricePerServing": 14,
       "calories": "ca. 220 kcal",
       "protein": "ca. 27 g",
       "ingredients": [
@@ -193,6 +203,8 @@
       ],
       "servings": "1 portion",
       "time": "15 min",
+      "timeMinutes": 15,
+      "pricePerServing": 22,
       "calories": "ca. 320 kcal",
       "protein": "ca. 40 g",
       "ingredients": [
@@ -229,6 +241,8 @@
       ],
       "servings": "1 wrap",
       "time": "15 min",
+      "timeMinutes": 15,
+      "pricePerServing": 22,
       "calories": "ca. 350 kcal",
       "protein": "ca. 35 g",
       "ingredients": [
@@ -267,6 +281,8 @@
       ],
       "servings": "3-4 portioner",
       "time": "25 min",
+      "timeMinutes": 25,
+      "pricePerServing": 5,
       "calories": "ca. 300 kcal pr. portion",
       "protein": "ca. 18 g pr. portion",
       "ingredients": [
@@ -304,6 +320,8 @@
       ],
       "servings": "1 portion",
       "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 22,
       "calories": "ca. 420 kcal",
       "protein": "ca. 38 g",
       "ingredients": [
@@ -341,6 +359,8 @@
       ],
       "servings": "1 portion",
       "time": "10 min",
+      "timeMinutes": 10,
+      "pricePerServing": 32,
       "calories": "ca. 280 kcal",
       "protein": "ca. 25 g",
       "ingredients": [
@@ -378,6 +398,8 @@
       ],
       "servings": "1 portion",
       "time": "5 min",
+      "timeMinutes": 5,
+      "pricePerServing": 12,
       "calories": "ca. 230 kcal",
       "protein": "ca. 25 g",
       "ingredients": [
@@ -411,6 +433,8 @@
       ],
       "servings": "1 portion",
       "time": "10 min",
+      "timeMinutes": 10,
+      "pricePerServing": 18,
       "calories": "ca. 250 kcal",
       "protein": "ca. 30 g",
       "ingredients": [
@@ -447,6 +471,8 @@
       ],
       "servings": "1 portion",
       "time": "5 min (+ natten over)",
+      "timeMinutes": 5,
+      "pricePerServing": 10,
       "calories": "ca. 300 kcal",
       "protein": "ca. 20 g",
       "ingredients": [
@@ -483,6 +509,8 @@
       ],
       "servings": "1 portion",
       "time": "10 min",
+      "timeMinutes": 10,
+      "pricePerServing": 12,
       "calories": "ca. 240 kcal",
       "protein": "ca. 20 g",
       "ingredients": [
@@ -519,6 +547,8 @@
       ],
       "servings": "1 portion",
       "time": "5 min",
+      "timeMinutes": 5,
+      "pricePerServing": 11,
       "calories": "ca. 250 kcal",
       "protein": "ca. 28 g",
       "ingredients": [
@@ -555,6 +585,8 @@
       ],
       "servings": "1 portion",
       "time": "10 min",
+      "timeMinutes": 10,
+      "pricePerServing": 20,
       "calories": "ca. 340 kcal",
       "protein": "ca. 16 g",
       "ingredients": [
@@ -592,6 +624,8 @@
       ],
       "servings": "1 wrap",
       "time": "10 min",
+      "timeMinutes": 10,
+      "pricePerServing": 22,
       "calories": "ca. 330 kcal",
       "protein": "ca. 30 g",
       "ingredients": [
@@ -628,6 +662,8 @@
       ],
       "servings": "3 portioner",
       "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 5,
       "calories": "ca. 180 kcal pr. portion",
       "protein": "ca. 10 g pr. portion",
       "ingredients": [
@@ -665,6 +701,8 @@
       ],
       "servings": "1 portion",
       "time": "15 min",
+      "timeMinutes": 15,
+      "pricePerServing": 22,
       "calories": "ca. 340 kcal",
       "protein": "ca. 38 g",
       "ingredients": [
@@ -701,6 +739,8 @@
       ],
       "servings": "1 portion",
       "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 30,
       "calories": "ca. 260 kcal",
       "protein": "ca. 32 g",
       "ingredients": [
@@ -736,6 +776,8 @@
       ],
       "servings": "2 portioner",
       "time": "25 min",
+      "timeMinutes": 25,
+      "pricePerServing": 15,
       "calories": "ca. 290 kcal pr. portion",
       "protein": "ca. 22 g pr. portion",
       "ingredients": [
@@ -774,6 +816,8 @@
       ],
       "servings": "3 portioner",
       "time": "25 min",
+      "timeMinutes": 25,
+      "pricePerServing": 7,
       "calories": "ca. 310 kcal pr. portion",
       "protein": "ca. 16 g pr. portion",
       "ingredients": [
@@ -813,6 +857,8 @@
       ],
       "servings": "1 portion",
       "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 22,
       "calories": "ca. 350 kcal",
       "protein": "ca. 34 g",
       "ingredients": [

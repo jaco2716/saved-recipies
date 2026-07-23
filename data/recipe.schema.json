@@ -67,7 +67,17 @@
         },
         "time": {
           "type": "string",
-          "description": "Tilberedningstid, fx '30 min'."
+          "description": "Tilberedningstid som tekst, fx '30 min' eller '2 timer (med hævning)'. Vises på opskriften."
+        },
+        "timeMinutes": {
+          "type": "integer",
+          "description": "Aktiv tilberedningstid i minutter. Bruges til at sortere forsiden efter tid.",
+          "minimum": 0
+        },
+        "pricePerServing": {
+          "type": "number",
+          "description": "Estimeret pris pr. person i danske kroner. Bruges til visning og sortering.",
+          "minimum": 0
         },
         "calories": {
           "type": "string",

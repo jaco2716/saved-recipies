@@ -115,11 +115,14 @@ header.site p {
 
 /* ---- Værktøjslinje / søgning ---- */
 .toolbar {
+  display: flex;
+  gap: 10px;
   margin: 8px 0 22px;
 }
 
 .search {
-  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
   padding: 12px 16px;
   font-size: 1rem;
   color: var(--text);
@@ -132,6 +135,36 @@ header.site p {
 .search:focus {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
+}
+
+/* Sorterings-vælger ved siden af søgefeltet. */
+.sort {
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 12px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.sort:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* På smalle skærme: læg vælgeren under søgefeltet. */
+@media (max-width: 480px) {
+  .toolbar {
+    flex-wrap: wrap;
+  }
+  .sort {
+    flex: 1 1 100%;
+    padding: 10px 12px;
+  }
 }
 
 .empty {
@@ -253,6 +286,16 @@ header.site p {
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+/* Pris/tid-linje på kortene. */
+.recipe-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
 }
 
 .recipe-card__tag {

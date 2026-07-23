@@ -22,6 +22,19 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
+/** Lille pris/tid-linje til kort. `withTime` er falsk for snacks (ingen tid). */
+function statsLine(item, withTime) {
+  const stats = [];
+  if (withTime && item.time) {
+    stats.push(el("span", { class: "recipe-card__stat", text: `⏱️ ${item.time}` }));
+  }
+  if (item.pricePerServing != null) {
+    const suffix = withTime ? " pr. pers." : "";
+    stats.push(el("span", { class: "recipe-card__stat", text: `💰 ca. ${item.pricePerServing} kr.${suffix}` }));
+  }
+  return stats.length ? el("span", { class: "recipe-card__stats" }, stats) : null;
+}
+
 /** Kort til forsidens oversigt. */
 function recipeCard(recipe) {
   const thumb = recipe.image
@@ -40,6 +53,7 @@ function recipeCard(recipe) {
       recipe.description
         ? el("span", { class: "recipe-card__desc", text: recipe.description })
         : null,
+      statsLine(recipe, true),
       recipe.category
         ? el("span", { class: "recipe-card__tag", text: recipe.category })
         : null,
@@ -65,6 +79,7 @@ function snackCard(snack) {
       snack.description
         ? el("span", { class: "recipe-card__desc", text: snack.description })
         : null,
+      statsLine(snack, false), // snacks har pris men ingen tid
       snack.tags && snack.tags.length
         ? el("div", { class: "tags" }, snack.tags.map((t) => el("span", { class: "tag", text: t })))
         : null,
@@ -99,11 +114,17 @@ function resultsFor(result) {
  * @param {boolean} opts.hasSnacks - om der overhovedet findes snacks
  * @param {string} opts.query - startsøgetekst
  * @param {string} opts.category - aktiv kategori-fane (tom = Alle)
+ * @param {string} opts.sort - sortering ("" | "pris" | "tid")
  * @param {Array<{key: string, label: string}>} opts.facets
- * @param {(f: {section: string, query: string, category: string}) => Promise<{kind: string, items: Array<object>}>} opts.onFilter
+ * @param {(f: {section: string, query: string, category: string, sort: string}) => Promise<{kind: string, items: Array<object>}>} opts.onFilter
  */
-export function renderList({ result, section, hasSnacks, query, category, facets, onFilter }) {
-  const state = { section: section === "snacks" ? "snacks" : "mad", query: query || "", category: category || "" };
+export function renderList({ result, section, hasSnacks, query, category, sort, facets, onFilter }) {
+  const state = {
+    section: section === "snacks" ? "snacks" : "mad",
+    query: query || "",
+    category: category || "",
+    sort: sort || "",
+  };
 
   const search = el("input", {
     class: "search",
@@ -116,6 +137,23 @@ export function renderList({ result, section, hasSnacks, query, category, facets
       state.section === "snacks"
         ? "Søg efter snack…"
         : "Søg efter opskrift, ingrediens eller kategori…";
+  }
+
+  // Sortering: standard, pris eller tid. Tid gælder kun mad (snacks har ingen).
+  const sortSelect = el("select", { class: "sort", "aria-label": "Sortér" });
+  sortSelect.append(el("option", { value: "", text: "Sortér: Standard" }));
+  sortSelect.append(el("option", { value: "pris", text: "Pris (lav → høj)" }));
+  const tidOption = el("option", { value: "tid", text: "Tid (kort → lang)" });
+  sortSelect.append(tidOption);
+  sortSelect.value = state.sort;
+  sortSelect.addEventListener("change", () => {
+    state.sort = sortSelect.value;
+    run();
+  });
+  function syncSortUi() {
+    tidOption.hidden = state.section === "snacks";
+    if (state.section === "snacks" && state.sort === "tid") state.sort = "";
+    sortSelect.value = state.sort;
   }
 
   // Primære faner: Mad / Snacks. Vises kun hvis der findes snacks.
@@ -181,6 +219,7 @@ export function renderList({ result, section, hasSnacks, query, category, facets
   function syncSectionUi() {
     tabs.style.display = state.section === "snacks" ? "none" : "";
     syncSearchPlaceholder();
+    syncSortUi();
   }
 
   syncPrimary();
@@ -196,7 +235,7 @@ export function renderList({ result, section, hasSnacks, query, category, facets
 
   const container = el("section", {}, [
     primaryTabs,
-    el("div", { class: "toolbar" }, [search]),
+    el("div", { class: "toolbar" }, [search, sortSelect]),
     tabs,
     resultsFor(result),
   ]);
@@ -204,7 +243,7 @@ export function renderList({ result, section, hasSnacks, query, category, facets
   let seq = 0;
   async function run() {
     const mine = ++seq;
-    const next = await onFilter({ section: state.section, query: state.query, category: state.category });
+    const next = await onFilter({ section: state.section, query: state.query, category: state.category, sort: state.sort });
     if (mine !== seq) return; // forældet svar — brugeren nåede at ændre noget
     container.replaceChild(resultsFor(next), container.lastChild);
   }
@@ -225,6 +264,9 @@ export function renderRecipe(recipe) {
       : null,
     recipe.time
       ? el("span", {}, [el("strong", { text: "Tid: " }), document.createTextNode(recipe.time)])
+      : null,
+    recipe.pricePerServing != null
+      ? el("span", {}, [el("strong", { text: "Pris: " }), document.createTextNode(`ca. ${recipe.pricePerServing} kr. pr. person`)])
       : null,
     recipe.category
       ? el("span", {}, [el("strong", { text: "Kategori: " }), document.createTextNode(recipe.category)])

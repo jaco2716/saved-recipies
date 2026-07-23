@@ -47,9 +47,10 @@ Lagdelt, så data er adskilt fra visning. Data flyder: **JSON → `data.js` → 
 - **`src/router.js`** — minimal hash-router (`#/`, `#/opskrift/<slug>`,
   `#/indkobsliste`). Hash-baseret, så det virker på GitHub Pages uden
   server-config. Forsidens filter/søgning ligger i query-strengen
-  (`#/?sektion=snacks&q=...&kat=...`) og opdateres via `history.replaceState`
-  (ingen ny hash-navigation pr. tastetryk). `sektion` er `mad` (default, kan
-  udelades) eller `snacks`; `kat` bruges kun i mad-sektionen.
+  (`#/?sektion=snacks&q=...&kat=...&sort=...`) og opdateres via
+  `history.replaceState` (ingen ny hash-navigation pr. tastetryk). `sektion` er
+  `mad` (default, kan udelades) eller `snacks`; `kat` bruges kun i
+  mad-sektionen; `sort` er tom (standard), `pris` eller `tid` (tid kun for mad).
 - **`src/views.js`** — bygger DOM via en `el()`-hjælper (aldrig `innerHTML` med
   rå data, så indhold escapes automatisk). `renderList` ejer forsidens
   søgefelt + faner og gen-tegner kun resultat-gitteret (bevarer fokus).
@@ -72,6 +73,11 @@ Lagdelt, så data er adskilt fra visning. Data flyder: **JSON → `data.js` → 
   `HIGHLIGHT_TAGS` øverst i `src/app.js`. Underfaner uden matchende opskrifter
   skjules automatisk. Snacks-fanen vises kun hvis `data/snacks.json` har poster;
   snacks har ingen kategori-underfaner.
+- **Pris og tid til sortering**: hver opskrift har `pricePerServing` (kr. pr.
+  person) og `timeMinutes` (aktiv tilberedningstid); snacks har kun
+  `pricePerServing`. De numeriske felter driver forsidens sortering (`app.js`
+  `sortItems`) og den lille pris/tid-tekst på kort/opskrift. `time` (fri tekst)
+  vises stadig; `timeMinutes` er kun til sortering. Sæt begge på nye opskrifter.
 - **Billeder**: læg dem i `assets/images/`, referér med `image`-feltet (sti
   relativ til roden). Hold dem små (~1200 px, JPG). `npm run validate` fejler,
   hvis et refereret billede mangler. Opskrifter uden billede falder tilbage til

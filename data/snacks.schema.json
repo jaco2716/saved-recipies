@@ -39,6 +39,11 @@
           "type": "string",
           "description": "Kort beskrivelse af, hvorfor snacken er sund, og hvordan den spises."
         },
+        "pricePerServing": {
+          "type": "number",
+          "description": "Estimeret pris pr. portion i danske kroner. Bruges til visning og sortering.",
+          "minimum": 0
+        },
         "emoji": {
           "type": "string",
           "description": "Emoji brugt som ikon, fx '🥕'."

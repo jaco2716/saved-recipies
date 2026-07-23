@@ -8,6 +8,7 @@
       "emoji": "🧀",
       "image": "assets/images/hytteost.jpg",
       "description": "Meget protein og få kalorier. Spis den som den er, eller top med lidt peber eller bær.",
+      "pricePerServing": 6,
       "tags": [
         "protein",
         "vægttab",
@@ -20,6 +21,7 @@
       "emoji": "🥕",
       "image": "assets/images/groentsagsstaenger-hummus.jpg",
       "description": "Gulerod, agurk og peberfrugt i stænger dyppet i hummus. Fibre, knas og lidt protein.",
+      "pricePerServing": 8,
       "tags": [
         "fibre",
         "vegetarisk",
@@ -32,6 +34,7 @@
       "emoji": "🫛",
       "image": "assets/images/edamamebonner.jpg",
       "description": "Fås frosne. Kog 3 minutter, drys med lidt salt. Højt indhold af protein og fibre.",
+      "pricePerServing": 6,
       "tags": [
         "protein",
         "fibre",
@@ -44,6 +47,7 @@
       "emoji": "🥚",
       "image": "assets/images/haardkogte-aeg.jpg",
       "description": "Kan købes færdigkogte. Mættende proteinsnack med næsten ingen forberedelse.",
+      "pricePerServing": 4,
       "tags": [
         "protein",
         "vægttab",
@@ -56,6 +60,7 @@
       "emoji": "🥜",
       "image": "assets/images/mandler-noedder.jpg",
       "description": "Mandler eller valnødder. Sunde fedtstoffer, men hold portionen til ca. 30 g pga. kalorier.",
+      "pricePerServing": 5,
       "tags": [
         "sundt-fedt",
         "vegetarisk"
@@ -67,6 +72,7 @@
       "emoji": "🍘",
       "image": "assets/images/rugkiks-kalkun.jpg",
       "description": "Wasa eller rugkiks toppet med magert kalkunpålæg. Fibre og protein i én snack.",
+      "pricePerServing": 5,
       "tags": [
         "protein",
         "fibre",
@@ -79,6 +85,7 @@
       "emoji": "🍿",
       "image": "assets/images/popcorn.jpg",
       "description": "Popcorn uden smør. Overraskende få kalorier og masser af volumen, der mætter.",
+      "pricePerServing": 2,
       "tags": [
         "fibre",
         "vegetarisk",
@@ -91,6 +98,7 @@
       "emoji": "🍎",
       "image": "assets/images/frugt.jpg",
       "description": "Æble, appelsin eller en håndfuld bær. Naturlig sødme, vitaminer og fibre.",
+      "pricePerServing": 3,
       "tags": [
         "fibre",
         "vegetarisk",
