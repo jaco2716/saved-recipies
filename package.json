@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "python3 -m http.server 8000",
     "validate": "node scripts/validate.mjs",
-    "test": "node scripts/test-shopping.mjs"
+    "test": "node scripts/test-shopping.mjs && node scripts/test-queue.mjs"
   },
   "license": "MIT"
 }

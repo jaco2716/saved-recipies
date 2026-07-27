@@ -23,6 +23,33 @@ function el(tag, attrs = {}, children = []) {
   return node;
 }
 
+/**
+ * Formatér et tidsstempel (ms) som en kort dansk relativ dato: "i dag",
+ * "i går", "for N dage siden", ellers "27. jul.". Bruges af kø og historik.
+ */
+function formatWhen(ts) {
+  if (!ts) return "";
+  const d = new Date(ts);
+  if (Number.isNaN(d.getTime())) return "";
+  const startOfDay = (x) => new Date(x.getFullYear(), x.getMonth(), x.getDate()).getTime();
+  const days = Math.round((startOfDay(new Date()) - startOfDay(d)) / 86400000);
+  if (days <= 0) return "i dag";
+  if (days === 1) return "i går";
+  if (days < 7) return `for ${days} dage siden`;
+  return d.toLocaleDateString("da-DK", { day: "numeric", month: "short" });
+}
+
+/** Lille firkantet miniature (eller emoji-reserve) til kø-/historik-rækker. */
+function queueThumb(recipe) {
+  return recipe.image
+    ? el("img", { class: "queue-item__thumb", src: recipe.image, alt: "", loading: "lazy" })
+    : el("span", {
+        class: "queue-item__thumb queue-item__thumb--emoji",
+        "aria-hidden": "true",
+        text: recipe.emoji || "🍽️",
+      });
+}
+
 /** Lille pris/tid-linje til kort. `withTime` er falsk for snacks (ingen tid). */
 function statsLine(item, withTime) {
   const stats = [];
@@ -257,8 +284,13 @@ export function renderList({ result, section, hasSnacks, query, category, sort, 
   return container;
 }
 
-/** Enkelt opskrift. `catalog` er ingrediens-kataloget (Map id → post). */
-export function renderRecipe(recipe, catalog = new Map()) {
+/**
+ * Enkelt opskrift. `catalog` er ingrediens-kataloget (Map id → post).
+ * `actions` er valgfri kø-integration: { queued: boolean, onToggleQueue?:
+ * (nowQueued: boolean) => void }. Er `onToggleQueue` sat, vises en
+ * "Læg i kø"/"Fjern fra kø"-knap, der selv holder styr på sin tilstand.
+ */
+export function renderRecipe(recipe, catalog = new Map(), actions = {}) {
   const meta = el("div", { class: "meta" }, [
     recipe.servings
       ? el("span", {}, [el("strong", { text: "Antal: " }), document.createTextNode(recipe.servings)])
@@ -317,17 +349,159 @@ export function renderRecipe(recipe, catalog = new Map()) {
       })
     : null;
 
+  // Kø-knap: skifter selv label/udseende og melder ny tilstand tilbage.
+  let queueRow = null;
+  if (actions.onToggleQueue) {
+    let queued = Boolean(actions.queued);
+    const btn = el("button", { class: "btn", type: "button" });
+    const sync = () => {
+      btn.textContent = queued ? "✓ I køen · fjern igen" : "🧺 Læg i kø";
+      btn.classList.toggle("btn--ghost", queued);
+    };
+    btn.addEventListener("click", () => {
+      queued = !queued;
+      actions.onToggleQueue(queued);
+      sync();
+    });
+    sync();
+    queueRow = el("div", { class: "recipe__actions" }, [btn]);
+  }
+
   return el("article", { class: "recipe" }, [
     el("a", { class: "back", href: "#/" }, "← Alle opskrifter"),
     el("h1", { class: "recipe__title", text: `${recipe.emoji ? recipe.emoji + " " : ""}${recipe.title}` }),
     hero,
     meta,
     tags,
+    queueRow,
     el("h2", { class: "section", text: "Ingredienser" }),
     ingredients,
     el("h2", { class: "section", text: "Fremgangsmåde" }),
     steps,
     notes,
+  ]);
+}
+
+/**
+ * Kø-siden: opskrifter man har handlet ind til og vil lave.
+ *
+ * @param {object} opts
+ * @param {Array<{recipe: object, addedAt: number}>} opts.items - ældst først
+ * @param {(slug: string) => void} opts.onRemove - fjern uden at gemme i historik
+ * @param {(slug: string) => void} opts.onMade - markér som lavet → historik
+ */
+export function renderQueuePage({ items, onRemove, onMade }) {
+  const data = [...items];
+  const body = el("div", { class: "queue-body" });
+
+  function rowFor({ recipe, addedAt }) {
+    const made = el("button", { class: "btn", type: "button", text: "✅ Lavet" });
+    made.addEventListener("click", () => {
+      onMade(recipe.slug);
+      drop(recipe.slug);
+    });
+    const rm = el("button", { class: "btn btn--ghost", type: "button", text: "Fjern" });
+    rm.addEventListener("click", () => {
+      onRemove(recipe.slug);
+      drop(recipe.slug);
+    });
+    return el("li", { class: "queue-item" }, [
+      el("a", { class: "queue-item__main", href: `#/opskrift/${recipe.slug}` }, [
+        queueThumb(recipe),
+        el("span", { class: "queue-item__body" }, [
+          el("span", { class: "queue-item__title", text: `${recipe.emoji ? recipe.emoji + " " : ""}${recipe.title}` }),
+          el("span", { class: "queue-item__meta", text: `Lagt i kø ${formatWhen(addedAt)}` }),
+        ]),
+      ]),
+      el("div", { class: "queue-item__actions" }, [made, rm]),
+    ]);
+  }
+
+  function draw() {
+    if (!data.length) {
+      body.replaceChildren(
+        el("p", { class: "empty", text: "Køen er tom. Åbn en opskrift og tryk “🧺 Læg i kø”." })
+      );
+      return;
+    }
+    body.replaceChildren(el("ul", { class: "queue-list" }, data.map(rowFor)));
+  }
+
+  function drop(slug) {
+    const i = data.findIndex((d) => d.recipe.slug === slug);
+    if (i >= 0) data.splice(i, 1);
+    draw();
+  }
+
+  draw();
+  return el("section", { class: "queue" }, [
+    el("h1", { class: "recipe__title", text: "🧺 Min kø" }),
+    el("p", { class: "shopping__intro" }, [
+      document.createTextNode("Opskrifter du har handlet ind til og vil lave. Tryk “✅ Lavet”, når du er færdig — så ryger den i "),
+      el("a", { href: "#/historik", text: "historikken" }),
+      document.createTextNode("."),
+    ]),
+    body,
+  ]);
+}
+
+/**
+ * Historik-siden: opskrifter man for nylig har lavet (senest øverst).
+ *
+ * @param {object} opts
+ * @param {Array<{recipe: object, madeAt: number}>} opts.items
+ * @param {(slug: string) => void} opts.onRequeue - læg i kø igen
+ * @param {() => void} opts.onClear - ryd hele historikken
+ */
+export function renderHistoryPage({ items, onRequeue, onClear }) {
+  const data = [...items];
+  const body = el("div", { class: "queue-body" });
+
+  function rowFor({ recipe, madeAt }) {
+    const again = el("button", { class: "btn btn--ghost", type: "button", text: "🧺 Læg i kø igen" });
+    again.addEventListener("click", () => {
+      onRequeue(recipe.slug);
+      again.textContent = "✓ Lagt i kø igen";
+      again.disabled = true;
+    });
+    return el("li", { class: "queue-item" }, [
+      el("a", { class: "queue-item__main", href: `#/opskrift/${recipe.slug}` }, [
+        queueThumb(recipe),
+        el("span", { class: "queue-item__body" }, [
+          el("span", { class: "queue-item__title", text: `${recipe.emoji ? recipe.emoji + " " : ""}${recipe.title}` }),
+          el("span", { class: "queue-item__meta", text: `Lavet ${formatWhen(madeAt)}` }),
+        ]),
+      ]),
+      el("div", { class: "queue-item__actions" }, [again]),
+    ]);
+  }
+
+  function draw() {
+    if (!data.length) {
+      body.replaceChildren(
+        el("p", { class: "empty", text: "Ingen opskrifter i historikken endnu. Når du markerer noget som lavet, dukker det op her." })
+      );
+      return;
+    }
+    body.replaceChildren(el("ul", { class: "queue-list" }, data.map(rowFor)));
+  }
+
+  const clearBtn = el("button", { class: "btn btn--ghost", type: "button", text: "Ryd historik" });
+  clearBtn.addEventListener("click", () => {
+    onClear();
+    data.length = 0;
+    clearBtn.remove();
+    draw();
+  });
+
+  draw();
+  return el("section", { class: "queue" }, [
+    el("div", { class: "shopping-output__head" }, [
+      el("h1", { class: "recipe__title", text: "🕘 Historik" }),
+      data.length ? el("div", { class: "shopping-output__actions" }, [clearBtn]) : null,
+    ]),
+    el("p", { class: "shopping__intro", text: "Opskrifter du for nylig har lavet — senest øverst." }),
+    body,
   ]);
 }
 
@@ -353,8 +527,10 @@ export function renderMessage(title, message) {
  * @param {Object<string, {selected: boolean, servings: number}>} opts.state
  * @param {(state: object) => void} opts.onChange - kaldes når valget ændres
  * @param {Map<string, object>} [opts.catalog] - ingrediens-katalog
+ * @param {(slugs: string[]) => void} [opts.onQueueSelected] - læg de valgte
+ *   opskrifter i køen (snacks tælles ikke med)
  */
-export function renderShoppingPage({ recipes, snacks = [], state, onChange, catalog = new Map() }) {
+export function renderShoppingPage({ recipes, snacks = [], state, onChange, catalog = new Map(), onQueueSelected }) {
   // Snacks gemmes i samme state-objekt, men med "snack:"-præfiks så de ikke
   // kolliderer med opskrifter (der nøgles på slug).
   const snackKey = (slug) => `snack:${slug}`;
@@ -512,10 +688,23 @@ export function renderShoppingPage({ recipes, snacks = [], state, onChange, cata
     const printBtn = el("button", { class: "btn btn--ghost", type: "button", text: "🖨️ Print" });
     printBtn.addEventListener("click", () => window.print());
 
+    // Bro til køen: læg de valgte opskrifter (ikke snacks) i køen, så man
+    // efter indkøb kan huske hvad man skal lave. Vises kun når mindst én
+    // opskrift er valgt.
+    let queueBtn = null;
+    if (onQueueSelected && chosen.length) {
+      queueBtn = el("button", { class: "btn btn--ghost", type: "button", text: "🧺 Læg opskrifter i kø" });
+      queueBtn.addEventListener("click", () => {
+        onQueueSelected(chosen.map((c) => c.recipe.slug));
+        queueBtn.textContent = "✓ Lagt i kø";
+        setTimeout(() => (queueBtn.textContent = "🧺 Læg opskrifter i kø"), 1500);
+      });
+    }
+
     output.replaceChildren(
       el("div", { class: "shopping-output__head" }, [
         el("h2", { class: "section", text: `Din indkøbsliste (${count} varer)` }),
-        el("div", { class: "shopping-output__actions" }, [copyBtn, printBtn]),
+        el("div", { class: "shopping-output__actions" }, [copyBtn, printBtn, queueBtn]),
       ]),
       list,
       pantryNote

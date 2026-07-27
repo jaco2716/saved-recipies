@@ -78,6 +78,7 @@ header.site p {
 /* ---- Topmenu ---- */
 .site__nav {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
   margin-top: 16px;
@@ -591,6 +592,104 @@ ol.steps li {
   color: var(--muted);
   font-size: 0.88rem;
   line-height: 1.5;
+}
+
+/* ---- Kø-knap på opskrift-siden ---- */
+.recipe__actions {
+  margin: 18px 0 4px;
+}
+
+/* ---- Kø & historik ---- */
+.queue-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.queue-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px 14px;
+}
+
+.queue-item__main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1 1 auto;
+  text-decoration: none;
+  color: inherit;
+}
+
+.queue-item__thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--accent-soft);
+  flex: 0 0 auto;
+}
+
+.queue-item__thumb--emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.queue-item__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.queue-item__title {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.queue-item__meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.queue-item__actions {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.queue-item__actions .btn {
+  padding: 7px 12px;
+  font-size: 0.9rem;
+}
+
+.queue-item__actions .btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* På smalle skærme: læg knapperne under teksten i fuld bredde. */
+@media (max-width: 480px) {
+  .queue-item {
+    flex-wrap: wrap;
+  }
+  .queue-item__actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 /* ---- Print: vis kun selve listen ---- */

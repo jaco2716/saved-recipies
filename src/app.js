@@ -16,12 +16,17 @@ import {
   renderRecipe,
   renderMessage,
   renderShoppingPage,
+  renderQueuePage,
+  renderHistoryPage,
   setPageChrome,
 } from "./views.js";
+import { addToQueue, removeFromQueue, isQueued, markMade } from "./queue.js";
 
 const app = document.getElementById("app");
 const BASE_TITLE = "Mine opskrifter";
 const SHOPPING_KEY = "indkobsliste-valg";
+const QUEUE_KEY = "opskrift-koe";
+const HISTORY_KEY = "opskrift-historik";
 
 // Kategori-faner: foretrukken rækkefølge af kategorier + gennemgående tags.
 // Faner, der ikke matcher nogen opskrift, skjules automatisk (se getFacets).
@@ -95,6 +100,28 @@ function saveShoppingState(state) {
 }
 
 /**
+ * Læs en liste af {slug, ...}-poster fra localStorage (kø og historik).
+ * Beskadigede/ukendte data ignoreres, så en enkelt dårlig post ikke vælter
+ * siden.
+ */
+function loadList(key) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return Array.isArray(value) ? value.filter((x) => x && typeof x.slug === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveList(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    /* privat browsing e.l. — så husker vi bare ikke listen */
+  }
+}
+
+/**
  * Forside med søgning og kategori-faner. Både søgetekst og valgt kategori
  * ligger i URL'en (#/?q=...&kat=...), så en filtreret visning kan deles.
  */
@@ -159,7 +186,20 @@ async function showRecipe(params) {
     }
     setPageChrome({ title: `${recipe.title} · ${BASE_TITLE}`, emoji: recipe.emoji || "🍳" });
     setActiveNav("list");
-    mount(renderRecipe(recipe, catalog));
+    mount(
+      renderRecipe(recipe, catalog, {
+        queued: isQueued(loadList(QUEUE_KEY), recipe.slug),
+        // Læs friskt fra storage i callbacket, så valget ikke bliver forældet
+        // hvis køen er ændret på en anden fane imellemtiden.
+        onToggleQueue: (nowQueued) => {
+          const queue = loadList(QUEUE_KEY);
+          saveList(
+            QUEUE_KEY,
+            nowQueued ? addToQueue(queue, recipe.slug) : removeFromQueue(queue, recipe.slug)
+          );
+        },
+      })
+    );
   } catch (err) {
     showError(err);
   }
@@ -182,6 +222,59 @@ async function showShopping() {
         state,
         onChange: saveShoppingState,
         catalog,
+        onQueueSelected: (slugs) => {
+          let queue = loadList(QUEUE_KEY);
+          for (const slug of slugs) queue = addToQueue(queue, slug);
+          saveList(QUEUE_KEY, queue);
+        },
+      })
+    );
+  } catch (err) {
+    showError(err);
+  }
+}
+
+/** Køen: opskrifter man har handlet ind til og vil lave. */
+async function showQueue() {
+  try {
+    setPageChrome({ title: `Min kø · ${BASE_TITLE}`, emoji: "🧺" });
+    setActiveNav("queue");
+    const recipes = await getAllRecipes();
+    const bySlug = new Map(recipes.map((r) => [r.slug, r]));
+    const items = loadList(QUEUE_KEY)
+      .filter((q) => bySlug.has(q.slug)) // slettede opskrifter falder fra
+      .map((q) => ({ recipe: bySlug.get(q.slug), addedAt: q.addedAt }));
+    mount(
+      renderQueuePage({
+        items,
+        onRemove: (slug) => saveList(QUEUE_KEY, removeFromQueue(loadList(QUEUE_KEY), slug)),
+        onMade: (slug) => {
+          const { queue, history } = markMade(loadList(QUEUE_KEY), loadList(HISTORY_KEY), slug);
+          saveList(QUEUE_KEY, queue);
+          saveList(HISTORY_KEY, history);
+        },
+      })
+    );
+  } catch (err) {
+    showError(err);
+  }
+}
+
+/** Historik: opskrifter man for nylig har lavet. */
+async function showHistory() {
+  try {
+    setPageChrome({ title: `Historik · ${BASE_TITLE}`, emoji: "🕘" });
+    setActiveNav("history");
+    const recipes = await getAllRecipes();
+    const bySlug = new Map(recipes.map((r) => [r.slug, r]));
+    const items = loadList(HISTORY_KEY)
+      .filter((h) => bySlug.has(h.slug))
+      .map((h) => ({ recipe: bySlug.get(h.slug), madeAt: h.madeAt }));
+    mount(
+      renderHistoryPage({
+        items,
+        onRequeue: (slug) => saveList(QUEUE_KEY, addToQueue(loadList(QUEUE_KEY), slug)),
+        onClear: () => saveList(HISTORY_KEY, []),
       })
     );
   } catch (err) {
@@ -202,6 +295,8 @@ function showError(err) {
 // Ruter.
 route(/^\/opskrift\/([^/]+)$/, showRecipe);
 route(/^\/indkobsliste$/, showShopping);
+route(/^\/koe$/, showQueue);
+route(/^\/historik$/, showHistory);
 route(/^\/(?:\?(.*))?$/, showList); // forside, evt. med ?q=...&kat=...
 setNotFound(() =>
   mount(renderMessage("Siden findes ikke", "Denne adresse fører ikke til noget."))

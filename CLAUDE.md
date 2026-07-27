@@ -13,14 +13,16 @@ Hostes gratis på GitHub Pages. Al tekst i UI og data er på dansk.
 ```bash
 npm run dev        # lokal server (python3 -m http.server 8000) → http://localhost:8000
 npm run validate   # validér data/recipes.json + data/snacks.json mod skemaerne
-npm test           # kør enhedstests for indkøbsliste-logikken (scripts/test-shopping.mjs)
+npm test           # kør enhedstests for indkøbsliste- og kø-logikken
+                   # (scripts/test-shopping.mjs + scripts/test-queue.mjs)
 ```
 
 Der er **ingen build, bundler eller transpilering**. Kør ét af ovenstående, eller
 åbn siden via GitHub Pages.
 
 Kør en enkelt test: der er ikke en test-runner med filtrering — `scripts/test-shopping.mjs`
-er en enkelt zero-dependency fil, der køres i sin helhed med `node`.
+og `scripts/test-queue.mjs` er enkelte zero-dependency filer, der hver køres i sin
+helhed med `node` (fx `node scripts/test-queue.mjs`).
 
 ## Vigtig begrænsning: skal serveres over http
 
@@ -50,7 +52,7 @@ Lagdelt, så data er adskilt fra visning. Data flyder: **JSON → `data.js` → 
   `category` og `tags`; fritekstsøgning resolver ingrediens-`ref`→navn via
   kataloget (`haystack`), så søgning på fx "kylling" stadig rammer.
 - **`src/router.js`** — minimal hash-router (`#/`, `#/opskrift/<slug>`,
-  `#/indkobsliste`). Hash-baseret, så det virker på GitHub Pages uden
+  `#/indkobsliste`, `#/koe`, `#/historik`). Hash-baseret, så det virker på GitHub Pages uden
   server-config. Forsidens filter/søgning ligger i query-strengen
   (`#/?sektion=snacks&q=...&kat=...&sort=...`) og opdateres via
   `history.replaceState` (ingen ny hash-navigation pr. tastetryk). `sektion` er
@@ -69,8 +71,19 @@ Lagdelt, så data er adskilt fra visning. Data flyder: **JSON → `data.js` → 
   samles pr. enhed, så forskellige enheder vises "4 dl + 1 spsk mælk").
   Basisvarer (`pantry`) holdes af listen og returneres separat som `pantry`.
   Snacks lægges på som enkeltlinjer nederst. Testet i `scripts/test-shopping.mjs`.
+- **`src/queue.js`** — ren logik til opskrifts-**køen** og **historikken**.
+  Køen (`#/koe`) er de opskrifter man har handlet ind til og vil lave; når en
+  markeres som lavet, flyttes den til historikken (`#/historik`, "nyligt i
+  køen"). Rene funktioner på almindelige arrays: `addToQueue` (ingen dubletter),
+  `removeFromQueue`, `isQueued`, `markMade` (flytter kø→historik, dedup'er så
+  samme opskrift kun står én gang, beskærer til `HISTORY_LIMIT`). Datamodel: kø
+  `[{slug, addedAt}]`, historik `[{slug, addedAt, madeAt}]`. Persisteres i
+  localStorage (`opskrift-koe`, `opskrift-historik`) af `app.js`. Testet i
+  `scripts/test-queue.mjs`.
 - **`src/app.js`** — binder det hele sammen: ruter, forsidens filter-state,
-  fane-konfiguration og localStorage-persistering af indkøbslistens valg.
+  fane-konfiguration og localStorage-persistering af indkøbslistens valg samt
+  kø/historik. Kø-data resolves slug→opskrift via `getAllRecipes`; slettede
+  opskrifter falder automatisk fra kø/historik.
 
 ## Konventioner ved dataændringer
 
