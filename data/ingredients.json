@@ -18,6 +18,11 @@
       "category": "Kød & fjerkræ"
     },
     {
+      "id": "hakket-kalkun",
+      "name": "Hakket kalkun",
+      "category": "Kød & fjerkræ"
+    },
+    {
       "id": "laksefilet",
       "name": "Laksefilet",
       "category": "Fisk & skaldyr"
@@ -100,6 +105,16 @@
     {
       "id": "gulerod",
       "name": "Gulerod",
+      "category": "Grønt"
+    },
+    {
+      "id": "kartoffel",
+      "name": "Kartoffel",
+      "category": "Grønt"
+    },
+    {
+      "id": "porre",
+      "name": "Porre",
       "category": "Grønt"
     },
     {
@@ -245,6 +260,21 @@
     {
       "id": "sorte-bonner",
       "name": "Sorte bønner",
+      "category": "Kolonial"
+    },
+    {
+      "id": "kidneybonner",
+      "name": "Kidneybønner",
+      "category": "Kolonial"
+    },
+    {
+      "id": "majs",
+      "name": "Majs",
+      "category": "Kolonial"
+    },
+    {
+      "id": "pesto",
+      "name": "Pesto",
       "category": "Kolonial"
     },
     {

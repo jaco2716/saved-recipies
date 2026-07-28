@@ -2271,6 +2271,843 @@
         "Lad brødet køle af i formen 10 minutter, og vend det så ud på en rist."
       ],
       "notes": "Jo mere modne bananer, jo sødere brød. Vend en håndfuld hakkede nødder eller lidt mørk chokolade i for variation."
+    },
+    {
+      "slug": "chili-con-carne",
+      "baseServings": 4,
+      "title": "Chili con carne",
+      "description": "Krydret gryde med oksekød og bønner · perfekt til meal prep",
+      "emoji": "🌶️",
+      "category": "Aftensmad",
+      "tags": [
+        "oksekød",
+        "protein",
+        "meal-prep",
+        "billig"
+      ],
+      "servings": "4 portioner",
+      "time": "35 min",
+      "timeMinutes": 35,
+      "pricePerServing": 16,
+      "calories": "ca. 410 kcal pr. portion",
+      "protein": "ca. 32 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "hakket-oksekod",
+          "amount": 500,
+          "unit": "g",
+          "note": "magert (3-5 %)"
+        },
+        {
+          "ref": "kidneybonner",
+          "amount": 2,
+          "unit": "dåser",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "majs",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 2,
+          "unit": "dåser"
+        },
+        {
+          "ref": "loeg",
+          "amount": 2
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 3,
+          "unit": "fed"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 2,
+          "note": "i tern"
+        },
+        {
+          "ref": "spidskommen",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "chilipulver",
+          "amount": 2,
+          "unit": "tsk",
+          "note": "1-3, efter smag"
+        },
+        {
+          "ref": "paprika",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 3,
+          "unit": "dl"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg, hvidløg og peberfrugt, og svits det blødt i olie i en stor gryde.",
+        "Tilsæt oksekødet, og steg det gennem, mens du rører det i stykker.",
+        "Rør spidskommen, chilipulver og paprika i, og lad krydderierne stege med et halvt minut.",
+        "Kom hakkede tomater, bouillon, kidneybønner og majs i, og rør rundt.",
+        "Lad chilien simre ved svag varme i ca. 20 minutter, til den tykner. Smag til med salt og peber."
+      ],
+      "notes": "Fryser rigtig fint i portioner. Server med ris, i en wrap eller med en klat skyr. Smager endnu bedre dagen efter."
+    },
+    {
+      "slug": "kylling-groentsagsfad",
+      "baseServings": 4,
+      "title": "Kylling-og-grøntsagsfad fra ovnen",
+      "description": "Alt bages på én plade · masser af protein og grønt",
+      "emoji": "🍗",
+      "category": "Aftensmad",
+      "tags": [
+        "kylling",
+        "protein",
+        "meal-prep",
+        "nem"
+      ],
+      "servings": "4 portioner",
+      "time": "40 min",
+      "timeMinutes": 40,
+      "pricePerServing": 18,
+      "calories": "ca. 380 kcal pr. portion",
+      "protein": "ca. 40 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "kyllingebryst",
+          "amount": 600,
+          "unit": "g",
+          "note": "i tern"
+        },
+        {
+          "ref": "kartoffel",
+          "amount": 600,
+          "unit": "g",
+          "note": "i både"
+        },
+        {
+          "ref": "broccoli",
+          "amount": 1,
+          "note": "i buketter"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 2,
+          "note": "i strimler"
+        },
+        {
+          "ref": "roedloeg",
+          "amount": 1,
+          "note": "i både"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 3,
+          "unit": "fed"
+        },
+        {
+          "ref": "olie",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "paprika",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "oregano",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 200 °C, og find en stor bageplade frem.",
+        "Skær kartofler i både, og læg dem på pladen. Dryp med lidt olie, og forbag dem 10 minutter.",
+        "Vend kylling, broccoli, peberfrugt, rødløg og presset hvidløg med resten af olien, paprika, oregano, salt og peber.",
+        "Fordel det hele på pladen sammen med kartoflerne.",
+        "Bag i ca. 20-25 minutter, til kyllingen er gennemstegt og grøntsagerne har fået farve. Vend en gang undervejs."
+      ],
+      "notes": "Fordel i madkasser og gem i op til 3-4 dage. Byt gerne grøntsagerne ud med det, du har i køleskabet."
+    },
+    {
+      "slug": "linse-bolognese",
+      "baseServings": 4,
+      "title": "Linse-bolognese med pasta",
+      "description": "Vegetarisk bolognese med røde linser · billig og mættende",
+      "emoji": "🍝",
+      "category": "Aftensmad",
+      "tags": [
+        "vegetarisk",
+        "protein",
+        "meal-prep",
+        "billig"
+      ],
+      "servings": "4 portioner",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 9,
+      "calories": "ca. 430 kcal pr. portion",
+      "protein": "ca. 19 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "roede-linser",
+          "amount": 2.5,
+          "unit": "dl"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 2,
+          "unit": "dåser"
+        },
+        {
+          "ref": "gulerod",
+          "amount": 2,
+          "note": "fintrevet"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 4,
+          "unit": "dl"
+        },
+        {
+          "ref": "oregano",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "pasta",
+          "amount": 320,
+          "unit": "g"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "parmesan",
+          "note": "revet, til servering",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg og hvidløg fint, og svits det blødt i olie i en gryde sammen med den revne gulerod.",
+        "Tilsæt røde linser, hakkede tomater, bouillon og oregano, og rør rundt.",
+        "Lad saucen simre i ca. 20 minutter, til linserne er møre og saucen tyk. Rør en gang imellem.",
+        "Kog imens pastaen i letsaltet vand efter anvisningen på pakken.",
+        "Smag saucen til med salt og peber, og server over pastaen med revet parmesan."
+      ],
+      "notes": "Røde linser giver samme fylde som kødsovs til en brøkdel af prisen. Saucen fryser fint — lav gerne dobbelt op."
+    },
+    {
+      "slug": "kyllingesuppe-groentsager",
+      "baseServings": 4,
+      "title": "Klar kyllingesuppe med grøntsager",
+      "description": "Nærende suppe med masser af grønt · god at fryse",
+      "emoji": "🍲",
+      "category": "Frokost",
+      "tags": [
+        "kylling",
+        "protein",
+        "meal-prep",
+        "vægttab",
+        "billig"
+      ],
+      "servings": "4 portioner",
+      "time": "35 min",
+      "timeMinutes": 35,
+      "pricePerServing": 13,
+      "calories": "ca. 240 kcal pr. portion",
+      "protein": "ca. 28 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "kyllingebryst",
+          "amount": 400,
+          "unit": "g",
+          "note": "i tern"
+        },
+        {
+          "ref": "gulerod",
+          "amount": 3,
+          "note": "i skiver"
+        },
+        {
+          "ref": "kartoffel",
+          "amount": 3,
+          "note": "i tern"
+        },
+        {
+          "ref": "porre",
+          "amount": 1,
+          "note": "i skiver"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 12,
+          "unit": "dl"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "persille",
+          "note": "frisk, hakket"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg og hvidløg, og svits det blødt i olie i en stor gryde.",
+        "Tilsæt gulerod, kartoffel og porre, og steg et par minutter.",
+        "Hæld bouillon i, bring det i kog, og lad det simre 10 minutter.",
+        "Kom kyllingeternene i, og lad suppen simre videre i ca. 8-10 minutter, til kyllingen er gennemkogt og grøntsagerne møre.",
+        "Smag til med salt og peber, og drys med frisk persille inden servering."
+      ],
+      "notes": "En let og mættende suppe, der fryser fint i portioner. Vil du have den mere fyldig, så kog en håndfuld små pastaskaller med til sidst."
+    },
+    {
+      "slug": "bagt-fetapasta",
+      "baseServings": 4,
+      "title": "Bagt fetapasta med tomat og spinat",
+      "description": "Alt bages i ét fad og vendes med pasta · nemt og cremet",
+      "emoji": "🧀",
+      "category": "Aftensmad",
+      "tags": [
+        "vegetarisk",
+        "protein",
+        "meal-prep",
+        "nem"
+      ],
+      "servings": "4 portioner",
+      "time": "35 min",
+      "timeMinutes": 35,
+      "pricePerServing": 15,
+      "calories": "ca. 480 kcal pr. portion",
+      "protein": "ca. 18 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "feta",
+          "amount": 200,
+          "unit": "g"
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 500,
+          "unit": "g"
+        },
+        {
+          "ref": "spinat",
+          "amount": 100,
+          "unit": "g",
+          "note": "frisk"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 3,
+          "unit": "fed"
+        },
+        {
+          "ref": "pasta",
+          "amount": 320,
+          "unit": "g"
+        },
+        {
+          "ref": "olie",
+          "amount": 3,
+          "unit": "spsk",
+          "note": "oliven"
+        },
+        {
+          "ref": "oregano",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 200 °C. Kom cherrytomater i et ovnfast fad, og læg fetaosten i midten.",
+        "Dryp med olie, drys oregano, salt og peber over, og bag i ca. 25 minutter, til tomaterne er sprukne og fetaen blød.",
+        "Kog imens pastaen i letsaltet vand efter anvisningen på pakken. Gem lidt af kogevandet.",
+        "Pres de bagte hvidløgsfed og mos feta og tomater sammen til en sauce. Vend spinaten i, så den falder sammen i varmen.",
+        "Vend den kogte pasta i saucen, og spæd med lidt kogevand, til den er cremet. Smag til med salt og peber."
+      ],
+      "notes": "Bag hvidløgsfeddene med i fadet (uskrællet, toppen skåret af) for en mild, sød smag. Resterne smager fint kolde som pastasalat."
+    },
+    {
+      "slug": "kalkunfrikadeller-tomat",
+      "baseServings": 4,
+      "title": "Ovnbagte kalkunfrikadeller i tomatsauce",
+      "description": "Magre frikadeller bagt i tomatsauce · nemt og proteinrigt",
+      "emoji": "🍅",
+      "category": "Aftensmad",
+      "tags": [
+        "kalkun",
+        "protein",
+        "meal-prep",
+        "vægttab"
+      ],
+      "servings": "4 portioner",
+      "time": "40 min",
+      "timeMinutes": 40,
+      "pricePerServing": 17,
+      "calories": "ca. 340 kcal pr. portion",
+      "protein": "ca. 36 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "hakket-kalkun",
+          "amount": 600,
+          "unit": "g"
+        },
+        {
+          "ref": "aeg",
+          "amount": 1
+        },
+        {
+          "ref": "havregryn",
+          "amount": 3,
+          "unit": "spsk",
+          "note": "som binding"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1,
+          "note": "fintrevet"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 2,
+          "unit": "dåser"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "oregano",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 200 °C. Rør hakket kalkun sammen med æg, havregryn, revet løg, salt og peber, og lad farsen hvile 10 minutter.",
+        "Svits hvidløg i olie i en ovnfast pande, tilsæt hakkede tomater og oregano, og lad saucen simre et par minutter. Smag til med salt og peber.",
+        "Form farsen til frikadeller med en ske, og læg dem ned i saucen.",
+        "Sæt panden i ovnen, og bag i ca. 20-25 minutter, til frikadellerne er gennembagte.",
+        "Server med ris, pasta eller en skive brød."
+      ],
+      "notes": "Hakket kalkun er meget magert. Farsen kan også laves med hakket kyllingekød. Retten fryser fint i portioner."
+    },
+    {
+      "slug": "dahl-roede-linser",
+      "baseServings": 4,
+      "title": "Dahl med røde linser og kokos",
+      "description": "Cremet indisk linsegryde med spinat · vegansk og billig",
+      "emoji": "🍛",
+      "category": "Aftensmad",
+      "tags": [
+        "vegetarisk",
+        "protein",
+        "meal-prep",
+        "billig"
+      ],
+      "servings": "4 portioner",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 11,
+      "calories": "ca. 420 kcal pr. portion",
+      "protein": "ca. 17 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "roede-linser",
+          "amount": 3,
+          "unit": "dl"
+        },
+        {
+          "ref": "kokosmaelk",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "spinat",
+          "amount": 100,
+          "unit": "g",
+          "note": "frisk"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 3,
+          "unit": "fed"
+        },
+        {
+          "ref": "ingefaer",
+          "amount": 2,
+          "unit": "cm",
+          "note": "frisk"
+        },
+        {
+          "ref": "karry",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "spidskommen",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 5,
+          "unit": "dl"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "ris",
+          "amount": 3,
+          "unit": "dl",
+          "note": "til servering",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg, hvidløg og ingefær fint, og svits det blødt i olie i en gryde.",
+        "Tilsæt karry og spidskommen, og lad krydderierne stege med et minut, til de dufter.",
+        "Kom røde linser, kokosmælk og bouillon i, og rør rundt.",
+        "Lad dahlen simre ved svag varme i ca. 20 minutter, til linserne er møre og retten cremet. Rør en gang imellem.",
+        "Vend spinaten i, til den falder sammen, og smag til med salt og peber. Server med ris."
+      ],
+      "notes": "En skvæt citron eller lime til sidst løfter smagen. Fryser rigtig fint i portioner."
+    },
+    {
+      "slug": "minestrone",
+      "baseServings": 4,
+      "title": "Minestrone med bønner",
+      "description": "Fyldig italiensk grøntsagssuppe med bønner og pasta",
+      "emoji": "🥣",
+      "category": "Frokost",
+      "tags": [
+        "vegetarisk",
+        "meal-prep",
+        "billig",
+        "protein"
+      ],
+      "servings": "4 portioner",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 11,
+      "calories": "ca. 320 kcal pr. portion",
+      "protein": "ca. 14 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "hakkede-tomater",
+          "amount": 1,
+          "unit": "dåse"
+        },
+        {
+          "ref": "kidneybonner",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "gulerod",
+          "amount": 2,
+          "note": "i tern"
+        },
+        {
+          "ref": "squash",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "pasta",
+          "amount": 120,
+          "unit": "g",
+          "note": "små, fx skaller"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 10,
+          "unit": "dl"
+        },
+        {
+          "ref": "oregano",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "parmesan",
+          "note": "revet, til servering",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg og hvidløg, og svits det blødt i olie i en stor gryde sammen med gulerod og squash.",
+        "Tilsæt hakkede tomater, bouillon og oregano, bring i kog, og lad det simre 10 minutter.",
+        "Kom pastaen i, og kog videre, til den er mør (se pakken).",
+        "Vend bønnerne i, og lad dem varme med et par minutter.",
+        "Smag til med salt og peber, og server med revet parmesan."
+      ],
+      "notes": "En rigtig 'ryd-op-i-køleskabet'-suppe — brug de grøntsager, du har. Pastaen suger væske, så spæd med lidt vand, når du varmer rester."
+    },
+    {
+      "slug": "pastasalat-kylling",
+      "baseServings": 4,
+      "title": "Kold pastasalat med kylling",
+      "description": "Frisk madpakke-salat med pasta, kylling og grønt · god i forvejen",
+      "emoji": "🥗",
+      "category": "Frokost",
+      "tags": [
+        "kylling",
+        "protein",
+        "meal-prep",
+        "frokost"
+      ],
+      "servings": "4 portioner",
+      "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 18,
+      "calories": "ca. 450 kcal pr. portion",
+      "protein": "ca. 32 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "pasta",
+          "amount": 300,
+          "unit": "g",
+          "note": "fx penne"
+        },
+        {
+          "ref": "kyllingebryst",
+          "amount": 400,
+          "unit": "g",
+          "note": "stegt, i strimler"
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 250,
+          "unit": "g",
+          "note": "halverede"
+        },
+        {
+          "ref": "agurk",
+          "amount": 0.5,
+          "note": "i tern"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "feta",
+          "amount": 100,
+          "unit": "g",
+          "note": "smuldret",
+          "optional": true
+        },
+        {
+          "ref": "pesto",
+          "amount": 3,
+          "unit": "spsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk",
+          "note": "oliven"
+        },
+        {
+          "ref": "citron",
+          "amount": 0.5,
+          "note": "saften"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Kog pastaen i letsaltet vand efter anvisningen på pakken, hæld den fra, og skyl den kort i koldt vand.",
+        "Steg kyllingen på en varm pande med salt og peber, og skær den i strimler.",
+        "Rør pesto sammen med olie og citronsaft til en dressing.",
+        "Bland pasta, kylling, cherrytomater, agurk og peberfrugt i en stor skål.",
+        "Vend dressingen i, smuldr feta over, og smag til med salt og peber."
+      ],
+      "notes": "Holder 2-3 dage på køl og er perfekt til madkassen. Del gerne op i portioner med det samme."
+    },
+    {
+      "slug": "bagt-havregroed",
+      "baseServings": 6,
+      "title": "Bagt havregrød med bær",
+      "description": "Fast havregrød bagt i ovnen · skæres i stykker til hele ugen",
+      "emoji": "🫐",
+      "category": "Morgenmad",
+      "tags": [
+        "morgenmad",
+        "meal-prep",
+        "vegetarisk",
+        "billig",
+        "nem"
+      ],
+      "servings": "6 portioner",
+      "time": "45 min",
+      "timeMinutes": 45,
+      "pricePerServing": 6,
+      "calories": "ca. 290 kcal pr. portion",
+      "protein": "ca. 9 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "havregryn",
+          "amount": 5,
+          "unit": "dl"
+        },
+        {
+          "ref": "maelk",
+          "amount": 6,
+          "unit": "dl",
+          "note": "eller plantemælk"
+        },
+        {
+          "ref": "aeg",
+          "amount": 2
+        },
+        {
+          "ref": "banan",
+          "amount": 2,
+          "note": "modne, mosede"
+        },
+        {
+          "ref": "baer",
+          "amount": 200,
+          "unit": "g",
+          "note": "friske eller frosne"
+        },
+        {
+          "ref": "kanel",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "bagepulver",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "honning",
+          "amount": 2,
+          "unit": "spsk",
+          "note": "eller efter smag",
+          "optional": true
+        },
+        {
+          "ref": "mandler-noedder",
+          "amount": 50,
+          "unit": "g",
+          "note": "hakkede",
+          "optional": true
+        },
+        {
+          "ref": "salt",
+          "note": "et nip"
+        }
+      ],
+      "steps": [
+        "Tænd ovnen på 180 °C, og beklæd en firkantet form (ca. 20x25 cm) med bagepapir.",
+        "Pisk æg, mælk, mosede bananer og evt. honning sammen i en skål.",
+        "Rør havregryn, kanel, bagepulver og salt i.",
+        "Hæld massen i formen, fordel bær og hakkede nødder over, og tryk dem lidt ned.",
+        "Bag i ca. 35 minutter, til grøden er sat og gylden. Lad den køle lidt, og skær den i stykker."
+      ],
+      "notes": "Skær i portioner, og gem i køleskabet i op til 4 dage — spis kold eller lunet med en skvæt mælk eller en klat skyr. Fryser også fint."
     }
   ]
 }
