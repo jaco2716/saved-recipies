@@ -3108,6 +3108,722 @@
         "Bag i ca. 35 minutter, til grøden er sat og gylden. Lad den køle lidt, og skær den i stykker."
       ],
       "notes": "Skær i portioner, og gem i køleskabet i op til 4 dage — spis kold eller lunet med en skvæt mælk eller en klat skyr. Fryser også fint."
+    },
+    {
+      "slug": "kylling-ris-broccoli-bokse",
+      "baseServings": 4,
+      "title": "Kylling-meal-prep-bokse med ris og broccoli",
+      "description": "Den klassiske gym-box · masser af protein til styrketræning",
+      "emoji": "🍱",
+      "category": "Aftensmad",
+      "tags": [
+        "kylling",
+        "protein",
+        "meal-prep"
+      ],
+      "servings": "4 portioner",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 20,
+      "calories": "ca. 480 kcal pr. portion",
+      "protein": "ca. 50 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "kyllingebryst",
+          "amount": 700,
+          "unit": "g",
+          "note": "i tern"
+        },
+        {
+          "ref": "ris",
+          "amount": 4,
+          "unit": "dl",
+          "note": "kogt"
+        },
+        {
+          "ref": "broccoli",
+          "amount": 2,
+          "note": "i buketter"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "paprika",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "soja",
+          "amount": 2,
+          "unit": "spsk",
+          "note": "eller efter smag",
+          "optional": true
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Kog risene efter anvisningen på pakken.",
+        "Krydr kyllingeternene med paprika, salt og peber, og steg dem gennem på en varm pande med olie.",
+        "Tilsæt presset hvidløg det sidste minut, og vend evt. soja i.",
+        "Damp eller kog broccolibuketterne møre men med bid, ca. 4-5 minutter.",
+        "Fordel ris, kylling og broccoli i fire madkasser."
+      ],
+      "notes": "Selve prototypen på en meal-prep-box. Holder 3-4 dage på køl. Vil du skære kalorier, så byt halvdelen af risene ud med mere broccoli."
+    },
+    {
+      "slug": "teriyaki-kylling-ris",
+      "baseServings": 4,
+      "title": "Teriyaki-kylling med ris",
+      "description": "Kylling i klæbrig teriyaki med grønt · smagfuld meal prep",
+      "emoji": "🍗",
+      "category": "Aftensmad",
+      "tags": [
+        "kylling",
+        "protein",
+        "meal-prep"
+      ],
+      "servings": "4 portioner",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 21,
+      "calories": "ca. 470 kcal pr. portion",
+      "protein": "ca. 45 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "kyllingebryst",
+          "amount": 650,
+          "unit": "g",
+          "note": "i strimler"
+        },
+        {
+          "ref": "ris",
+          "amount": 4,
+          "unit": "dl",
+          "note": "kogt"
+        },
+        {
+          "ref": "wok-groentsager",
+          "amount": 300,
+          "unit": "g",
+          "note": "frosne"
+        },
+        {
+          "ref": "soja",
+          "amount": 4,
+          "unit": "spsk"
+        },
+        {
+          "ref": "honning",
+          "amount": 2,
+          "unit": "spsk"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "ingefaer",
+          "amount": 2,
+          "unit": "cm",
+          "note": "frisk, revet"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "foraarsloeg",
+          "note": "i skiver, til topping",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Kog risene efter anvisningen på pakken.",
+        "Rør soja, honning, presset hvidløg og revet ingefær sammen til en teriyakisauce.",
+        "Steg kyllingestrimlerne gennem på en varm pande med olie.",
+        "Kom wok-grøntsagerne i, og steg et par minutter, til de er varme men har bid.",
+        "Hæld saucen ved, og lad den boble ind om kyllingen i 1-2 minutter, til den er klæbrig. Server over ris og top med forårsløg."
+      ],
+      "notes": "Fordel i madkasser med det samme. Saucen tykner lidt mere, når den køler af. Fryser fint."
+    },
+    {
+      "slug": "burrito-bowl-oksekod",
+      "baseServings": 4,
+      "title": "Burrito-bowl med oksekød og sorte bønner",
+      "description": "Tex-mex-bowl med protein og fibre · mættende post-workout",
+      "emoji": "🥙",
+      "category": "Aftensmad",
+      "tags": [
+        "oksekød",
+        "protein",
+        "meal-prep"
+      ],
+      "servings": "4 portioner",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 19,
+      "calories": "ca. 520 kcal pr. portion",
+      "protein": "ca. 38 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "hakket-oksekod",
+          "amount": 500,
+          "unit": "g",
+          "note": "magert (3-5 %)"
+        },
+        {
+          "ref": "sorte-bonner",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "majs",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet"
+        },
+        {
+          "ref": "ris",
+          "amount": 4,
+          "unit": "dl",
+          "note": "kogt"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "loeg",
+          "amount": 1
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "spidskommen",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "paprika",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Kog risene efter anvisningen på pakken.",
+        "Hak løg, hvidløg og peberfrugt, og svits det i olie i en stor pande.",
+        "Tilsæt oksekødet, og steg det gennem. Rør spidskommen og paprika i.",
+        "Kom sorte bønner og majs i, og varm det hele igennem. Smag til med salt og peber.",
+        "Fordel ris i fire skåle eller madkasser, og top med oksekødsblandingen."
+      ],
+      "notes": "Top med lidt skyr, avocado eller salsa ved servering. Holder 3 dage på køl."
+    },
+    {
+      "slug": "mager-carbonara-skyr",
+      "baseServings": 4,
+      "title": "Mager kylling-carbonara med skyr",
+      "description": "Cremet carbonara hvor skyr erstatter fløden · højt protein",
+      "emoji": "🍝",
+      "category": "Aftensmad",
+      "tags": [
+        "kylling",
+        "protein",
+        "meal-prep",
+        "vægttab"
+      ],
+      "servings": "4 portioner",
+      "time": "25 min",
+      "timeMinutes": 25,
+      "pricePerServing": 20,
+      "calories": "ca. 490 kcal pr. portion",
+      "protein": "ca. 40 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "pasta",
+          "amount": 320,
+          "unit": "g"
+        },
+        {
+          "ref": "kyllingebryst",
+          "amount": 500,
+          "unit": "g",
+          "note": "i strimler"
+        },
+        {
+          "ref": "skyr",
+          "amount": 2,
+          "unit": "dl",
+          "note": "naturel"
+        },
+        {
+          "ref": "aeg",
+          "amount": 2
+        },
+        {
+          "ref": "parmesan",
+          "amount": 50,
+          "unit": "g",
+          "note": "revet"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Kog pastaen i letsaltet vand efter anvisningen på pakken. Gem lidt kogevand.",
+        "Steg kyllingestrimlerne gennem på en varm pande med olie og presset hvidløg. Skru ned for varmen.",
+        "Pisk skyr, æg og revet parmesan sammen med salt og peber.",
+        "Vend den kogte pasta sammen med kyllingen, tag panden af varmen, og rør skyr-æggeblandingen i, så den tykner til en cremet sauce (den må ikke koge, ellers skiller den).",
+        "Spæd med lidt kogevand, til saucen er glat, og smag til."
+      ],
+      "notes": "Tag panden af varmen, inden du rører æggemassen i — så bliver saucen cremet uden at skille. Skyr giver masser af protein og skærer fedtet fra fløden fra."
+    },
+    {
+      "slug": "proteinpandekager-skyr-havre",
+      "baseServings": 4,
+      "title": "Proteinpandekager med skyr og havre",
+      "description": "Batch af havre-skyr-pandekager · proteinrig morgenmad til ugen",
+      "emoji": "🥞",
+      "category": "Morgenmad",
+      "tags": [
+        "protein",
+        "meal-prep",
+        "morgenmad",
+        "vegetarisk",
+        "nem"
+      ],
+      "servings": "4 portioner",
+      "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 8,
+      "calories": "ca. 320 kcal pr. portion",
+      "protein": "ca. 28 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "aeg",
+          "amount": 4
+        },
+        {
+          "ref": "havregryn",
+          "amount": 3,
+          "unit": "dl"
+        },
+        {
+          "ref": "skyr",
+          "amount": 3,
+          "unit": "dl",
+          "note": "naturel"
+        },
+        {
+          "ref": "banan",
+          "amount": 2,
+          "note": "modne"
+        },
+        {
+          "ref": "bagepulver",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "kanel",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "baer",
+          "note": "til servering",
+          "optional": true
+        },
+        {
+          "ref": "olie",
+          "note": "lidt, til panden"
+        }
+      ],
+      "steps": [
+        "Blend havregryn, æg, skyr, bananer, bagepulver og kanel til en jævn dej.",
+        "Lad dejen hvile 5 minutter, så havren trækker væske.",
+        "Varm en pande med lidt olie ved middelvarme, og bag små pandekager, til der kommer bobler i overfladen.",
+        "Vend dem, og bag færdig på den anden side, til de er gyldne.",
+        "Lad dem køle af, og pak dem i portioner. Server med friske bær."
+      ],
+      "notes": "Holder 3-4 dage på køl og kan fryses med bagepapir imellem. Lunes hurtigt i en brødrister eller på panden."
+    },
+    {
+      "slug": "kylling-shawarma-bowl",
+      "baseServings": 4,
+      "title": "Kylling-shawarma-bowl med skyr-dressing",
+      "description": "Krydret kylling på grønt med syrlig skyr-dressing · højt protein, få kalorier",
+      "emoji": "🥗",
+      "category": "Aftensmad",
+      "tags": [
+        "kylling",
+        "protein",
+        "vægttab",
+        "meal-prep"
+      ],
+      "servings": "4 portioner",
+      "time": "30 min",
+      "timeMinutes": 30,
+      "pricePerServing": 20,
+      "calories": "ca. 380 kcal pr. portion",
+      "protein": "ca. 42 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "kyllingebryst",
+          "amount": 650,
+          "unit": "g",
+          "note": "i strimler"
+        },
+        {
+          "ref": "salat",
+          "note": "en pose, i strimler"
+        },
+        {
+          "ref": "agurk",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 250,
+          "unit": "g",
+          "note": "halverede"
+        },
+        {
+          "ref": "roedloeg",
+          "amount": 1,
+          "note": "i tynde skiver"
+        },
+        {
+          "ref": "skyr",
+          "amount": 2,
+          "unit": "dl",
+          "note": "naturel"
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 2,
+          "unit": "fed"
+        },
+        {
+          "ref": "spidskommen",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "paprika",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "citron",
+          "amount": 0.5,
+          "note": "saften"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Vend kyllingestrimlerne med spidskommen, paprika, olie, salt og peber, og steg dem gennem på en varm pande.",
+        "Rør skyr sammen med revet hvidløg, citronsaft, salt og peber til en dressing.",
+        "Skær salat, agurk, cherrytomater og rødløg i mundrette stykker.",
+        "Fordel grøntsager og kylling i fire skåle eller madkasser.",
+        "Kom skyr-dressingen i et lille bæger ved siden af, så salaten ikke bliver våd før servering."
+      ],
+      "notes": "Meget protein for få kalorier — ideel på et cut. Hold dressingen adskilt, til du spiser, så grøntsagerne holder sig sprøde i 3 dage."
+    },
+    {
+      "slug": "kylling-bonnesalat-feta",
+      "baseServings": 4,
+      "title": "Kylling-og-bønnesalat med feta",
+      "description": "Kold prep-salat med kylling og bønner · proteinrig og mættende",
+      "emoji": "🫙",
+      "category": "Frokost",
+      "tags": [
+        "kylling",
+        "protein",
+        "vægttab",
+        "meal-prep",
+        "salat"
+      ],
+      "servings": "4 portioner",
+      "time": "20 min",
+      "timeMinutes": 20,
+      "pricePerServing": 19,
+      "calories": "ca. 360 kcal pr. portion",
+      "protein": "ca. 35 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "kyllingebryst",
+          "amount": 450,
+          "unit": "g",
+          "note": "stegt, i tern"
+        },
+        {
+          "ref": "kikaerter",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "majs",
+          "amount": 1,
+          "unit": "dåse",
+          "note": "drænet"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "cherrytomater",
+          "amount": 250,
+          "unit": "g",
+          "note": "halverede"
+        },
+        {
+          "ref": "roedloeg",
+          "amount": 0.5,
+          "note": "fint hakket"
+        },
+        {
+          "ref": "feta",
+          "amount": 100,
+          "unit": "g",
+          "note": "smuldret"
+        },
+        {
+          "ref": "olie",
+          "amount": 2,
+          "unit": "spsk",
+          "note": "oliven"
+        },
+        {
+          "ref": "citron",
+          "amount": 1,
+          "note": "saften"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Steg kyllingen på en varm pande med salt og peber, og skær den i tern.",
+        "Kom kikærter, majs, peberfrugt, cherrytomater og rødløg i en stor skål.",
+        "Tilsæt kyllingen, og vend det hele med olie og citronsaft.",
+        "Smuldr feta over, og smag til med salt og peber.",
+        "Fordel i fire madkasser."
+      ],
+      "notes": "Kold, mættende og perfekt til madkassen — holder 3 dage på køl. Kikærter og bønner giver ekstra protein og fibre oven i kyllingen."
+    },
+    {
+      "slug": "mager-kalkun-chili",
+      "baseServings": 4,
+      "title": "Mager kalkun-chili",
+      "description": "Chili med magert kalkun i stedet for oksekød · højt protein, lavt fedt",
+      "emoji": "🌶️",
+      "category": "Aftensmad",
+      "tags": [
+        "kalkun",
+        "protein",
+        "vægttab",
+        "meal-prep"
+      ],
+      "servings": "4 portioner",
+      "time": "35 min",
+      "timeMinutes": 35,
+      "pricePerServing": 17,
+      "calories": "ca. 340 kcal pr. portion",
+      "protein": "ca. 34 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "hakket-kalkun",
+          "amount": 500,
+          "unit": "g"
+        },
+        {
+          "ref": "kidneybonner",
+          "amount": 2,
+          "unit": "dåser",
+          "note": "drænet og skyllet"
+        },
+        {
+          "ref": "hakkede-tomater",
+          "amount": 2,
+          "unit": "dåser"
+        },
+        {
+          "ref": "loeg",
+          "amount": 2
+        },
+        {
+          "ref": "hvidloeg",
+          "amount": 3,
+          "unit": "fed"
+        },
+        {
+          "ref": "peberfrugt",
+          "amount": 1,
+          "note": "i tern"
+        },
+        {
+          "ref": "spidskommen",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "chilipulver",
+          "amount": 2,
+          "unit": "tsk",
+          "note": "1-3, efter smag"
+        },
+        {
+          "ref": "paprika",
+          "amount": 2,
+          "unit": "tsk"
+        },
+        {
+          "ref": "groentsagsbouillon",
+          "amount": 2,
+          "unit": "dl"
+        },
+        {
+          "ref": "olie",
+          "amount": 1,
+          "unit": "spsk"
+        },
+        {
+          "ref": "salt-peber",
+          "note": "efter smag"
+        }
+      ],
+      "steps": [
+        "Hak løg, hvidløg og peberfrugt, og svits det blødt i olie i en stor gryde.",
+        "Tilsæt hakket kalkun, og steg det gennem, mens du rører det i stykker.",
+        "Rør spidskommen, chilipulver og paprika i, og lad krydderierne stege med et halvt minut.",
+        "Kom hakkede tomater, bouillon og kidneybønner i, og rør rundt.",
+        "Lad chilien simre ved svag varme i ca. 20 minutter, til den tykner. Smag til med salt og peber."
+      ],
+      "notes": "Hakket kalkun er endnu magrere end oksekød, så du får masser af protein for få kalorier. Fryser fint i portioner — server med ris eller en klat skyr."
+    },
+    {
+      "slug": "proteinhavregroed-aeggehvider",
+      "baseServings": 4,
+      "title": "Proteinhavregrød med æggehvider og bær",
+      "description": "Havregrød pisket op med æggehvider · ekstra protein uden fedt",
+      "emoji": "🥣",
+      "category": "Morgenmad",
+      "tags": [
+        "protein",
+        "vægttab",
+        "meal-prep",
+        "morgenmad",
+        "billig"
+      ],
+      "servings": "4 portioner",
+      "time": "15 min",
+      "timeMinutes": 15,
+      "pricePerServing": 7,
+      "calories": "ca. 290 kcal pr. portion",
+      "protein": "ca. 24 g pr. portion",
+      "ingredients": [
+        {
+          "ref": "havregryn",
+          "amount": 4,
+          "unit": "dl"
+        },
+        {
+          "ref": "maelk",
+          "amount": 6,
+          "unit": "dl",
+          "note": "eller vand"
+        },
+        {
+          "ref": "aeggehvider",
+          "amount": 8
+        },
+        {
+          "ref": "skyr",
+          "amount": 2,
+          "unit": "dl",
+          "note": "naturel, til topping"
+        },
+        {
+          "ref": "baer",
+          "amount": 200,
+          "unit": "g",
+          "note": "friske eller frosne"
+        },
+        {
+          "ref": "kanel",
+          "amount": 1,
+          "unit": "tsk"
+        },
+        {
+          "ref": "salt",
+          "note": "et nip"
+        },
+        {
+          "ref": "honning",
+          "note": "efter smag",
+          "optional": true
+        }
+      ],
+      "steps": [
+        "Kom havregryn, mælk, kanel og et nip salt i en gryde, og kog op under omrøring.",
+        "Lad grøden simre 3-4 minutter, til den tykner.",
+        "Skru ned for varmen, og pisk æggehviderne kraftigt i, lidt ad gangen, så de bliver rørt ind i grøden uden at klumpe. Lad det simre 1-2 minutter, til æggehviderne er sat.",
+        "Fordel grøden i fire portioner, og lad dem køle af.",
+        "Top med skyr og bær, og vend evt. lidt honning i ved servering."
+      ],
+      "notes": "Æggehviderne gør grøden luftig og hæver proteinindholdet uden fedt eller ekstra kalorier. Rør æggehviderne godt undervejs, så de ikke klumper. Holder 3 dage på køl."
     }
   ]
 }

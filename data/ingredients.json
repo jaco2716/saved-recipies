@@ -113,6 +113,11 @@
       "category": "Grønt"
     },
     {
+      "id": "sod-kartoffel",
+      "name": "Sød kartoffel",
+      "category": "Grønt"
+    },
+    {
       "id": "porre",
       "name": "Porre",
       "category": "Grønt"
