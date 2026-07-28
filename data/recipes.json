@@ -2278,6 +2278,7 @@
       "title": "Chili con carne",
       "description": "Krydret gryde med oksekød og bønner · perfekt til meal prep",
       "emoji": "🌶️",
+      "image": "assets/images/chili-con-carne.jpg",
       "category": "Aftensmad",
       "tags": [
         "oksekød",
@@ -2375,6 +2376,7 @@
       "title": "Kylling-og-grøntsagsfad fra ovnen",
       "description": "Alt bages på én plade · masser af protein og grønt",
       "emoji": "🍗",
+      "image": "assets/images/kylling-groentsagsfad.jpg",
       "category": "Aftensmad",
       "tags": [
         "kylling",
@@ -2456,6 +2458,7 @@
       "title": "Linse-bolognese med pasta",
       "description": "Vegetarisk bolognese med røde linser · billig og mættende",
       "emoji": "🍝",
+      "image": "assets/images/linse-bolognese.jpg",
       "category": "Aftensmad",
       "tags": [
         "vegetarisk",
@@ -2539,6 +2542,7 @@
       "title": "Klar kyllingesuppe med grøntsager",
       "description": "Nærende suppe med masser af grønt · god at fryse",
       "emoji": "🍲",
+      "image": "assets/images/kyllingesuppe-groentsager.jpg",
       "category": "Frokost",
       "tags": [
         "kylling",
@@ -2618,6 +2622,7 @@
       "title": "Bagt fetapasta med tomat og spinat",
       "description": "Alt bages i ét fad og vendes med pasta · nemt og cremet",
       "emoji": "🧀",
+      "image": "assets/images/bagt-fetapasta.jpg",
       "category": "Aftensmad",
       "tags": [
         "vegetarisk",
@@ -2689,6 +2694,7 @@
       "title": "Ovnbagte kalkunfrikadeller i tomatsauce",
       "description": "Magre frikadeller bagt i tomatsauce · nemt og proteinrigt",
       "emoji": "🍅",
+      "image": "assets/images/kalkunfrikadeller-tomat.jpg",
       "category": "Aftensmad",
       "tags": [
         "kalkun",
@@ -2763,6 +2769,7 @@
       "title": "Dahl med røde linser og kokos",
       "description": "Cremet indisk linsegryde med spinat · vegansk og billig",
       "emoji": "🍛",
+      "image": "assets/images/dahl-roede-linser.jpg",
       "category": "Aftensmad",
       "tags": [
         "vegetarisk",
@@ -2855,6 +2862,7 @@
       "title": "Minestrone med bønner",
       "description": "Fyldig italiensk grøntsagssuppe med bønner og pasta",
       "emoji": "🥣",
+      "image": "assets/images/minestrone.jpg",
       "category": "Frokost",
       "tags": [
         "vegetarisk",
@@ -2945,6 +2953,7 @@
       "title": "Kold pastasalat med kylling",
       "description": "Frisk madpakke-salat med pasta, kylling og grønt · god i forvejen",
       "emoji": "🥗",
+      "image": "assets/images/pastasalat-kylling.jpg",
       "category": "Frokost",
       "tags": [
         "kylling",
@@ -3030,6 +3039,7 @@
       "title": "Bagt havregrød med bær",
       "description": "Fast havregrød bagt i ovnen · skæres i stykker til hele ugen",
       "emoji": "🫐",
+      "image": "assets/images/bagt-havregroed.jpg",
       "category": "Morgenmad",
       "tags": [
         "morgenmad",
@@ -3115,6 +3125,7 @@
       "title": "Kylling-meal-prep-bokse med ris og broccoli",
       "description": "Den klassiske gym-box · masser af protein til styrketræning",
       "emoji": "🍱",
+      "image": "assets/images/kylling-ris-broccoli-bokse.jpg",
       "category": "Aftensmad",
       "tags": [
         "kylling",
@@ -3187,6 +3198,7 @@
       "title": "Teriyaki-kylling med ris",
       "description": "Kylling i klæbrig teriyaki med grønt · smagfuld meal prep",
       "emoji": "🍗",
+      "image": "assets/images/teriyaki-kylling-ris.jpg",
       "category": "Aftensmad",
       "tags": [
         "kylling",
@@ -3265,6 +3277,7 @@
       "title": "Burrito-bowl med oksekød og sorte bønner",
       "description": "Tex-mex-bowl med protein og fibre · mættende post-workout",
       "emoji": "🥙",
+      "image": "assets/images/burrito-bowl-oksekod.jpg",
       "category": "Aftensmad",
       "tags": [
         "oksekød",
@@ -3351,6 +3364,7 @@
       "title": "Mager kylling-carbonara med skyr",
       "description": "Cremet carbonara hvor skyr erstatter fløden · højt protein",
       "emoji": "🍝",
+      "image": "assets/images/mager-carbonara-skyr.jpg",
       "category": "Aftensmad",
       "tags": [
         "kylling",
@@ -3422,6 +3436,7 @@
       "title": "Proteinpandekager med skyr og havre",
       "description": "Batch af havre-skyr-pandekager · proteinrig morgenmad til ugen",
       "emoji": "🥞",
+      "image": "assets/images/proteinpandekager-skyr-havre.jpg",
       "category": "Morgenmad",
       "tags": [
         "protein",
@@ -3492,6 +3507,7 @@
       "title": "Kylling-shawarma-bowl med skyr-dressing",
       "description": "Krydret kylling på grønt med syrlig skyr-dressing · højt protein, få kalorier",
       "emoji": "🥗",
+      "image": "assets/images/kylling-shawarma-bowl.jpg",
       "category": "Aftensmad",
       "tags": [
         "kylling",
@@ -3583,6 +3599,7 @@
       "title": "Kylling-og-bønnesalat med feta",
       "description": "Kold prep-salat med kylling og bønner · proteinrig og mættende",
       "emoji": "🫙",
+      "image": "assets/images/kylling-bonnesalat-feta.jpg",
       "category": "Frokost",
       "tags": [
         "kylling",
@@ -3669,6 +3686,7 @@
       "title": "Mager kalkun-chili",
       "description": "Chili med magert kalkun i stedet for oksekød · højt protein, lavt fedt",
       "emoji": "🌶️",
+      "image": "assets/images/mager-kalkun-chili.jpg",
       "category": "Aftensmad",
       "tags": [
         "kalkun",
@@ -3759,6 +3777,7 @@
       "title": "Proteinhavregrød med æggehvider og bær",
       "description": "Havregrød pisket op med æggehvider · ekstra protein uden fedt",
       "emoji": "🥣",
+      "image": "assets/images/proteinhavregroed-aeggehvider.jpg",
       "category": "Morgenmad",
       "tags": [
         "protein",
